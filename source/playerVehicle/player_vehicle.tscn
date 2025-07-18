@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5j1vg56en7a"]
+
+[ext_resource type="PackedScene" uid="uid://wxinh6mi4aup" path="res://assets/Kenny Space Kit/craft_cargoA.glb" id="1_58n4u"]
+[ext_resource type="Script" uid="uid://b8l3ctbg60j82" path="res://source/playerVehicle/player_vehicle.gd" id="1_vo0dx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vo0dx"]
+size = Vector3(1.8, 1, 2.5)
+
+[node name="PlayerVehicle" type="CharacterBody3D"]
+script = ExtResource("1_vo0dx")
+
+[node name="VehicleModel" parent="." instance=ExtResource("1_58n4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.7)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.742186, 0.670193, 0, -0.670193, 0.742186, -0.141785, 4.78284, 4.19796)
+
+[node name="CollisionBox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29226, -0.18307)
+visible = false
+shape = SubResource("BoxShape3D_vo0dx")
