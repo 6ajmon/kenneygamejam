@@ -2,3 +2,10 @@
 .godot/
 /android/
 .vscode/
+.nomedia
+
+.import/
+export.cfg
+exportcredentials.cfg
+
+*.translation
