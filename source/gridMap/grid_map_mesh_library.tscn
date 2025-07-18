@@ -1,0 +1,40 @@
+[gd_scene load_steps=13 format=3 uid="uid://hmkfvfpog3us"]
+
+[ext_resource type="PackedScene" uid="uid://xcp7xvc7ddfv" path="res://assets/Kaykit space base/terrain_low.gltf" id="1_vtjdy"]
+[ext_resource type="PackedScene" uid="uid://bant71m5pa3fe" path="res://assets/Kaykit space base/terrain_low_curved.gltf" id="2_ypmil"]
+[ext_resource type="PackedScene" uid="uid://cq5vojb62asce" path="res://assets/Kaykit space base/terrain_mining.gltf" id="3_taur6"]
+[ext_resource type="PackedScene" uid="uid://cudflwkhhaqws" path="res://assets/Kaykit space base/terrain_slope.gltf" id="4_h7o3m"]
+[ext_resource type="PackedScene" uid="uid://c1f1ad2j328rb" path="res://assets/Kaykit space base/terrain_slope_inner_corner.gltf" id="5_d8ia5"]
+[ext_resource type="PackedScene" uid="uid://7qf1yjtjn4h8" path="res://assets/Kaykit space base/terrain_slope_outer_corner.gltf" id="6_bhtja"]
+[ext_resource type="PackedScene" uid="uid://wxs1hta037y1" path="res://assets/Kaykit space base/terrain_tall.gltf" id="7_mwjmn"]
+[ext_resource type="PackedScene" uid="uid://w1bsl7o6ykcg" path="res://assets/Kaykit space base/terrain_tall_curved.gltf" id="8_xbukh"]
+[ext_resource type="PackedScene" uid="uid://jk2srtft5xjn" path="res://assets/Kaykit space base/rocks_A.gltf" id="9_d8ia5"]
+[ext_resource type="PackedScene" uid="uid://cjplok7ypu4jv" path="res://assets/Kaykit space base/rocks_B.gltf" id="10_bhtja"]
+[ext_resource type="PackedScene" uid="uid://b2sojdramk37u" path="res://assets/Kaykit space base/rock_A.gltf" id="11_mwjmn"]
+[ext_resource type="PackedScene" uid="uid://bidwktnf0v01i" path="res://assets/Kaykit space base/rock_B.gltf" id="12_xbukh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="terrain_low2" parent="." instance=ExtResource("1_vtjdy")]
+
+[node name="terrain_low_curved2" parent="." instance=ExtResource("2_ypmil")]
+
+[node name="terrain_mining2" parent="." instance=ExtResource("3_taur6")]
+
+[node name="terrain_slope2" parent="." instance=ExtResource("4_h7o3m")]
+
+[node name="terrain_slope_inner_corner2" parent="." instance=ExtResource("5_d8ia5")]
+
+[node name="terrain_slope_outer_corner2" parent="." instance=ExtResource("6_bhtja")]
+
+[node name="terrain_tall2" parent="." instance=ExtResource("7_mwjmn")]
+
+[node name="terrain_tall_curved2" parent="." instance=ExtResource("8_xbukh")]
+
+[node name="rocks_A2" parent="." instance=ExtResource("9_d8ia5")]
+
+[node name="rocks_B2" parent="." instance=ExtResource("10_bhtja")]
+
+[node name="rock_A2" parent="." instance=ExtResource("11_mwjmn")]
+
+[node name="rock_B2" parent="." instance=ExtResource("12_xbukh")]
