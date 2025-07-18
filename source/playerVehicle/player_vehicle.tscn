@@ -12,9 +12,6 @@ script = ExtResource("1_vo0dx")
 [node name="VehicleModel" parent="." instance=ExtResource("1_58n4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.7)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.742186, 0.670193, 0, -0.670193, 0.742186, -0.141785, 4.78284, 4.19796)
-
 [node name="CollisionBox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29226, -0.18307)
 visible = false
