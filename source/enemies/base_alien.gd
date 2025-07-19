@@ -13,7 +13,8 @@ var speed: float
 @onready var lifespan_timer: Timer = $AlienLifespan
 @onready var health_component: HealthComponent = $HealthComponent
 
-var gravity = 10.0
+const GRAVITY = 10.0
+const LERP_SPEED_FACTOR = 5.0
 
 var distance_check_timer: float = 0.0
 var distance_check_interval: float = 0.1
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	distance_check_timer += delta
 	
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= GRAVITY * delta
 	else:
 		if velocity.y < 0:
 			velocity.y = 0
@@ -82,7 +83,7 @@ func run_from_player(delta: float) -> void:
 		if animation_player and animation_player.is_playing():
 			animation_player.stop()
 		
-		var lerp_factor = 5.0 * delta
+		var lerp_factor = LERP_SPEED_FACTOR * delta
 		velocity.x = lerp(velocity.x, 0.0, lerp_factor)
 		velocity.z = lerp(velocity.z, 0.0, lerp_factor)
 

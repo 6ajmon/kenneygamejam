@@ -7,6 +7,7 @@ class_name AlienSpawner
 @export var wave_interval: float = 5.0
 @export var wave_size_increase: int = 0
 @export var spawn_delay_between_aliens: float = 0.25
+@export var spawn_distance_variance: float = 6.0
 
 var is_round_active: bool
 var current_wave: int = 0
@@ -59,7 +60,7 @@ func get_spawn_position() -> Vector3:
 	
 	var player_pos = GameData.PlayerPosition
 	var angle = randf() * TAU
-	var spawn_distance = spawn_min_distance + randf() * 5.0
+	var spawn_distance = spawn_min_distance + randf() * spawn_distance_variance
 	
 	var spawn_pos = Vector3(
 		player_pos.x + cos(angle) * spawn_distance,

@@ -10,7 +10,6 @@ func _on_area_entered(area: Area3D) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	_handle_collision(body)
-	print("Hitbox collided with: ", body.name)
 
 func _handle_collision(collider: Node3D) -> void:
 	var should_damage = false
