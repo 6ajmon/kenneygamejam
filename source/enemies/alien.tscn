@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://db61l0m2cijbi"]
+
+[ext_resource type="PackedScene" uid="uid://bvw3uh43tvfds" path="res://source/enemies/alien_animated_mesh.tscn" id="1_7q54h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3nu7"]
+radius = 0.308322
+height = 0.863403
+
+[node name="Alien" type="CharacterBody3D"]
+
+[node name="AlienAnimated" parent="." instance=ExtResource("1_7q54h")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_r3nu7")
