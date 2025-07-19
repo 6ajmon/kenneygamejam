@@ -16,4 +16,7 @@ var PlayerPosition
 var AlienSouls: int = 0
 var RequiredQuota: int = 10
 var SoulsCollectedThisRound: int = 0
-var CurrentRound: int = 0
+var CurrentRound: int = 1
+
+func _ready() -> void:
+	UpgradesUnlocked.append(Upgrades["Starter"])

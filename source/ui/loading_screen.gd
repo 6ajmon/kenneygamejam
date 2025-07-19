@@ -21,5 +21,5 @@ func _process(_delta) -> void:
 		get_tree().current_scene.queue_free()
 		get_tree().current_scene = new_scene
 
-func get_required_quota(current_round: float) -> int:
+func get_required_quota(current_round: int) -> int:
 	return current_round * 10
