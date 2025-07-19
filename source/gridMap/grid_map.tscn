@@ -65,5 +65,7 @@ maximum_speed = 0.0
 [node name="HealthComponent" parent="TargetDummy" index="3"]
 max_health = 1e+06
 
+[editable path="PlayerVehicle"]
+[editable path="PlayerVehicle/PowerSystem"]
 [editable path="TargetDummy"]
 [editable path="TargetDummy/AlienAnimated"]
