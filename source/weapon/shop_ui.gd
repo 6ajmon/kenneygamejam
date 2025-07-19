@@ -19,3 +19,7 @@ func reset_shop():
 			item.set_item(random_item, GameData.Upgrades[random_item])
 		else:
 			item.set_sold()
+
+
+func _on_continue_button_pressed() -> void:
+	get_tree().change_scene_to_packed(SceneManager.loading_screen)

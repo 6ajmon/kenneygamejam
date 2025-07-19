@@ -3,6 +3,7 @@ extends Node
 var failure_scene: PackedScene = preload("res://source/ui/game_over.tscn")
 var shop_scene: PackedScene = preload("res://source/ui/shop_ui.tscn")
 var main_screen_scene: PackedScene = preload("res://source/ui/starting_screen.tscn")
+var loading_screen: PackedScene = preload("res://source/ui/loading_screen.tscn")
 var required_soul_quota: int = 10
 
 var souls_collected_this_round: int = 0
