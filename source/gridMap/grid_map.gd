@@ -86,15 +86,14 @@ func randomize_mesh_color() -> void:
 	var g = 1
 	var b = 0.1
 	var a = 1.0
-	var mesh_material = mesh_library.get_item_mesh(generator.TILE_LOW).surface_get_material(0) as StandardMaterial3D
-	mesh_material.albedo_color = Color(0, 0.3, 0.9, a)
-	mesh_material = mesh_library.get_item_mesh(generator.TILE_TALL).surface_get_material(0) as StandardMaterial3D
-	mesh_material.albedo_color = Color(r, g, b, a)
-	mesh_material = mesh_library.get_item_mesh(generator.TILE_TALL_ALT).surface_get_material(0) as StandardMaterial3D
-	mesh_material.albedo_color = Color(r, g, b, a)
-	mesh_material = mesh_library.get_item_mesh(generator.TILE_SLOPE).surface_get_material(0) as StandardMaterial3D
-	mesh_material.albedo_color = Color(r, g, b, a)
-	mesh_material = mesh_library.get_item_mesh(generator.TILE_SLOPE_INNER).surface_get_material(0) as StandardMaterial3D
-	mesh_material.albedo_color = Color(r, g, b, a)
-	mesh_material = mesh_library.get_item_mesh(generator.TILE_SLOPE_OUTER).surface_get_material(0) as StandardMaterial3D
-	mesh_material.albedo_color = Color(r, g, b, a)
+	set_tile_color(generator.TILE_LOW, Color(0, 0.3, 0.9, a))
+	set_tile_color(generator.TILE_TALL, Color(r, g, b, a))
+	set_tile_color(generator.TILE_TALL_ALT, Color(r, g, b, a))
+	set_tile_color(generator.TILE_SLOPE, Color(r, g, b, a))
+	set_tile_color(generator.TILE_SLOPE_INNER, Color(r, g, b, a))
+	set_tile_color(generator.TILE_SLOPE_OUTER, Color(r, g, b, a))
+	
+func set_tile_color(tile_type: int, color: Color) -> void:
+	var mesh_material = mesh_library.get_item_mesh(tile_type).surface_get_material(0) as StandardMaterial3D
+	if mesh_material:
+		mesh_material.albedo_color = color
