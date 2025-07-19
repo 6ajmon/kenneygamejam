@@ -11,6 +11,11 @@ var map_size: Vector2i
 var level_bounds: AABB
 
 func _ready() -> void:
+	randomize_mesh_color()
+	
+	generator.generate_map()
+	generator.generate_slopes()
+	
 	spawn_player()
 	var used_cells = get_used_cells()
 	level_bounds = get_grid_bounds(used_cells)
@@ -75,3 +80,20 @@ func create_wall(wall_position: Vector3, size: Vector3) -> void:
 	wall.position = wall_position
 	wall.add_child(shape)
 	add_child(wall)
+
+func randomize_mesh_color() -> void:
+	var r = 0.3
+	var g = 1
+	var b = 0.1
+	var a = 1.0
+	set_tile_color(generator.TILE_LOW, Color(0, 0.3, 0.9, a))
+	set_tile_color(generator.TILE_TALL, Color(r, g, b, a))
+	set_tile_color(generator.TILE_TALL_ALT, Color(r, g, b, a))
+	set_tile_color(generator.TILE_SLOPE, Color(r, g, b, a))
+	set_tile_color(generator.TILE_SLOPE_INNER, Color(r, g, b, a))
+	set_tile_color(generator.TILE_SLOPE_OUTER, Color(r, g, b, a))
+	
+func set_tile_color(tile_type: int, color: Color) -> void:
+	var mesh_material = mesh_library.get_item_mesh(tile_type).surface_get_material(0) as StandardMaterial3D
+	if mesh_material:
+		mesh_material.albedo_color = color
