@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	var velocity = direction * speed
 	translate(velocity * delta)
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	queue_free()
 
 func get_damage() -> float:

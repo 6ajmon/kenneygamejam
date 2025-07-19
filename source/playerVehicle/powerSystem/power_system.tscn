@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpyb0cw8rsfca"]
+
+[ext_resource type="Script" uid="uid://chvllocn8vwrh" path="res://source/playerVehicle/powerSystem/power_system.gd" id="1_tupbb"]
+
+[node name="PowerSystem" type="Node3D"]
+script = ExtResource("1_tupbb")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0

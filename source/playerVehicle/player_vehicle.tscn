@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5j1vg56en7a"]
+[gd_scene load_steps=6 format=3 uid="uid://c5j1vg56en7a"]
 
 [ext_resource type="PackedScene" uid="uid://wxinh6mi4aup" path="res://assets/Kenny Space Kit/craft_cargoA.glb" id="1_58n4u"]
 [ext_resource type="Script" uid="uid://b8l3ctbg60j82" path="res://source/playerVehicle/player_vehicle.gd" id="1_vo0dx"]
 [ext_resource type="PackedScene" uid="uid://b6fgkqiqyryv3" path="res://source/weaponSlot/weapon_slot.tscn" id="3_wnbqt"]
+[ext_resource type="PackedScene" uid="uid://cpyb0cw8rsfca" path="res://source/playerVehicle/powerSystem/power_system.tscn" id="4_0jnxe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vo0dx"]
 size = Vector3(1.8, 1, 2.5)
@@ -42,3 +43,5 @@ spot_angle = 10.0
 
 [node name="Marker3D" type="Marker3D" parent="Beam/SpotLight3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300709, -0.0589671, -6.72242)
+
+[node name="PowerSystem" parent="." instance=ExtResource("4_0jnxe")]
