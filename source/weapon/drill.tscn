@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://jhieefeg4dps"]
+[gd_scene load_steps=7 format=4 uid="uid://jhieefeg4dps"]
 
 [ext_resource type="Texture2D" uid="uid://buksw5cn4wxni" path="res://assets/Kaykit space base/spacebits_texture.png" id="1_18443"]
 [ext_resource type="Script" uid="uid://qm8o681r8xhs" path="res://source/weapon/drill.gd" id="1_ihc5g"]
@@ -43,7 +43,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ydeoo")
 
-[node name="Drill" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihc5g"]
+size = Vector3(2, 2, 10)
+
+[node name="Drill" type="StaticBody3D" groups=["contact_damage"]]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_ihc5g")
 
 [node name="drill_structure2" type="Node3D" parent="."]
@@ -52,3 +58,7 @@ script = ExtResource("1_ihc5g")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bogi4")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_ihc5g")
