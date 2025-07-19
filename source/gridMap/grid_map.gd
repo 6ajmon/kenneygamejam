@@ -6,6 +6,7 @@ extends GridMap
 @export var player_fly_height: float = 1.0
 @export var camera_drag_margin: float = 5.0
 @export var wall_cell_offset: float = 18.0
+var wall_height: float = 100.0
 var map_size: Vector2i
 var level_bounds: AABB
 
@@ -20,22 +21,22 @@ func _ready() -> void:
 	
 	create_wall(
 		Vector3(world_min.x + wall_offset, 0, (world_min.z + world_max.z) / 2),
-		Vector3(1, 100, world_max.z - world_min.z - 2 * wall_offset)
+		Vector3(1, wall_height, world_max.z - world_min.z - 2 * wall_offset)
 	)
 
 	create_wall(
 		Vector3(world_max.x - wall_offset, 0, (world_min.z + world_max.z) / 2),
-		Vector3(1, 100, world_max.z - world_min.z - 2 * wall_offset)
+		Vector3(1, wall_height, world_max.z - world_min.z - 2 * wall_offset)
 	)
 
 	create_wall(
 		Vector3((world_min.x + world_max.x) / 2, 0, world_min.z + wall_offset),
-		Vector3(world_max.x - world_min.x - 2 * wall_offset, 100, 1)
+		Vector3(world_max.x - world_min.x - 2 * wall_offset, wall_height, 1)
 	)
 
 	create_wall(
 		Vector3((world_min.x + world_max.x) / 2, 0, world_max.z - wall_offset),
-		Vector3(world_max.x - world_min.x - 2 * wall_offset, 100, 1)
+		Vector3(world_max.x - world_min.x - 2 * wall_offset, wall_height, 1)
 	)
 
 func spawn_player() -> void:
