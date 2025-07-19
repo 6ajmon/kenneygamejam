@@ -1,12 +1,13 @@
 extends CharacterBody3D
 
 @export var player_vehicle: PlayerVehicle
-@export var minimum_speed: float = 3.0
-@export var maximum_speed: float = 10.0
+@export var minimum_speed: float = 5.0
+@export var maximum_speed: float = 16.0
 var speed: float
 @export var player_detection_range: float = 8.0
 @export var max_slope_angle: float = 65.0
-
+@export var rotation_speed: float = 5.0
+@onready var animation_player: AnimationPlayer = $AlienAnimated/tmpParent/AnimationPlayer
 var gravity = 10.0
 
 func _ready() -> void:
@@ -36,6 +37,13 @@ func run_from_player() -> void:
 		escape_direction.y = 0
 		escape_direction = escape_direction.normalized()
 		
+		if animation_player and not animation_player.is_playing():
+			animation_player.play("walk_animation")
+			animation_player.speed_scale = speed / minimum_speed
+		
+		if escape_direction.length() > 0.1:
+			var target_transform = transform.looking_at(global_position + escape_direction, Vector3.UP)
+			transform = transform.interpolate_with(target_transform, rotation_speed * get_physics_process_delta_time())
 		
 		if is_on_floor():
 			var floor_normal = get_floor_normal()
@@ -54,5 +62,8 @@ func run_from_player() -> void:
 			velocity.x = escape_direction.x * minimum_speed * 0.3
 			velocity.z = escape_direction.z * minimum_speed * 0.3
 	else:
+		if animation_player and animation_player.is_playing():
+			animation_player.stop()
+		
 		velocity.x = lerp(velocity.x, 0.0, 0.1)
 		velocity.z = lerp(velocity.z, 0.0, 0.1)
