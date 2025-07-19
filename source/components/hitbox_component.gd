@@ -3,10 +3,6 @@ class_name HitboxComponent
 
 @export var health_component: HealthComponent
 @export var damage_groups: Array[String] = ["projectiles", "player"]
-
-func _ready() -> void:
-	if not health_component:
-		health_component = get_parent().get_node("HealthComponent")
 	
 
 func _on_area_entered(area: Area3D) -> void:

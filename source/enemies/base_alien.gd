@@ -44,8 +44,8 @@ func run_from_player(delta: float) -> void:
 	if distance_check_timer >= distance_check_interval:
 		distance_check_timer = 0.0
 		cached_player_position = GameData.PlayerPosition
-		var distance_squared = global_position.distance_squared_to(cached_player_position)
-		is_player_in_range = distance_squared <= detection_range_squared
+		cached_distance_to_player = global_position.distance_squared_to(cached_player_position)
+		is_player_in_range = cached_distance_to_player <= detection_range_squared
 	
 	if is_player_in_range:
 		lifespan_timer.paused = true
