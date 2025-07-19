@@ -2,8 +2,8 @@ extends Node3D
 class_name DrillWeapon
 
 @onready var drill_mesh = $drill_structure2/drill_module
-@export var rotation_speed: float = 10.0
-@export var tick_damage: float = 10.0
+@export var rotation_speed: float = 16.0
+@export var tick_damage: float = 15.0
 var total_rotation: float = 0
 var can_deal_damage: bool = true
 
