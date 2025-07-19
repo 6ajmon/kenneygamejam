@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvw3uh43tvfds"]
+
+[ext_resource type="PackedScene" uid="uid://d2ne36wqypv4o" path="res://assets/Kenny Space Kit/alien.glb" id="1_x3gs2"]
+
+[sub_resource type="Animation" id="Animation_des03"]
+resource_name = "walk_animation"
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alien/legLeft")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0.456073, 0, 0, 0.889942, 1.5, 1, -0.36291, 0, 0, 0.931824, 2, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alien/legRight")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, -0.36291, 0, 0, 0.931824, 1.5, 1, 0.456073, 0, 0, 0.889942, 2, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alien/armLeft")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, -0.36291, 0, 0, 0.931824, 1.5, 1, 0.456073, 0, 0, 0.889942, 2, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alien/armRight")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0.456073, 0, 0, 0.889942, 1.5, 1, -0.36291, 0, 0, 0.931824, 2, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ivaqb"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alien/legLeft")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alien/legRight")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alien/armLeft")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alien/armRight")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ieh16"]
+_data = {
+&"RESET": SubResource("Animation_ivaqb"),
+&"walk_animation": SubResource("Animation_des03")
+}
+
+[node name="AlienAnimated" instance=ExtResource("1_x3gs2")]
+
+[node name="alien" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.391266, 0)
+
+[node name="armLeft" parent="tmpParent/alien" index="0"]
+transform = Transform3D(0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, -0.13, 0.473184, 0)
+
+[node name="legLeft" parent="tmpParent/alien" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13, 0.223184, 0)
+
+[node name="legRight" parent="tmpParent/alien" index="5"]
+transform = Transform3D(0.8584, 0, 0, 0, 0.8584, 0, 0, 0, 0.8584, 0.13, 0.223184, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tmpParent" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_ieh16")
+}

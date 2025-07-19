@@ -13,6 +13,7 @@ class_name PlayerVehicle
 var current_speed: float = 0.0
 var strafe := 0.0
 var previous_rotation_y: float = 0.0
+var previous_position: Vector3 = Vector3.ZERO
 
 @onready var spotlight: SpotLight3D = $Beam/SpotLight3D
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
@@ -20,10 +21,15 @@ var weapon_slots = []
 
 
 func _ready() -> void:
+	GameData.PlayerPosition = global_position
 	Eventbus.connect("new_upgrade", get_new_upgrade)
 	weapon_slots = weapon_slots_node.get_children()
 	
 func _physics_process(delta: float) -> void:
+	if global_position.distance_to(previous_position) > 0.01:
+		GameData.PlayerPosition = global_position
+		previous_position = global_position
+
 	move_and_rotate(delta)
 	if Input.is_action_pressed("left_click"):
 		shoot()
@@ -74,7 +80,6 @@ func move_and_rotate(delta: float) -> void:
 
 	
 	velocity = forward_direction * current_speed + right_direction * strafe 
-	#print(int(velocity.length()), " m/s")
 	move_and_slide()
 
 func shoot() -> void:
@@ -83,7 +88,6 @@ func shoot() -> void:
 			var vehicle_speed = current_speed
 			if current_speed < 0:
 				vehicle_speed = 0
-			print(vehicle_speed)
 			slot.weapon.shoot(vehicle_speed)
 
 func get_new_upgrade(upgrade_name : String) -> void:
