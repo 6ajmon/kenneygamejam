@@ -1,16 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://p2lb1171hbek"]
+[gd_scene load_steps=12 format=3 uid="uid://p2lb1171hbek"]
 
-[ext_resource type="PackedScene" uid="uid://b463n2ua5mcrw" path="res://shop_item.tscn" id="1_dk53a"]
+[ext_resource type="PackedScene" path="res://source/ui/shop_item.tscn" id="1_dk53a"]
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="1_grrqa"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_55gbp"]
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="3_oxnpl"]
-[ext_resource type="Texture2D" uid="uid://cf12h5uj10pkf" path="res://UIassets/blaster-g.png" id="5_o63lq"]
-[ext_resource type="Texture2D" uid="uid://c4kq1u4l04ayw" path="res://UIassets/craft_cargoA_SW.png" id="6_54gbc"]
-[ext_resource type="Texture2D" uid="uid://b7pgmbl1fwhb" path="res://UIassets/bullet-foam.png" id="7_58501"]
 [ext_resource type="Texture2D" uid="uid://b7orqky07oio4" path="res://assets/UI/PNG/Red/Double/button_square_header_large_square_screws.png" id="8_xp8ka"]
 [ext_resource type="Texture2D" uid="uid://ykw20mk6n1s2" path="res://assets/UI/PNG/Red/Double/button_square_header_small_square.png" id="9_nn17r"]
-[ext_resource type="Texture2D" uid="uid://cl1isgylepm7j" path="res://UIassets/right.png" id="9_xp8ka"]
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://UIassets/theme.tres" id="11_nn17r"]
+[ext_resource type="Texture2D" uid="uid://cl1isgylepm7j" path="res://assets/UI/UIassets/right.png" id="9_xp8ka"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="11_nn17r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o63lq"]
 bg_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
@@ -122,65 +119,6 @@ texture = ExtResource("2_55gbp")
 position = Vector2(143, 158)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("3_oxnpl")
-
-[node name="Vehicle" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 334.0
-offset_top = -127.0
-offset_right = 374.0
-offset_bottom = -87.0
-
-[node name="Blaster-g" type="Sprite2D" parent="Vehicle"]
-position = Vector2(779, 198)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_o63lq")
-
-[node name="CraftCargoASw" type="Sprite2D" parent="Vehicle"]
-position = Vector2(831, 184)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_54gbc")
-
-[node name="Blaster-g2" type="Sprite2D" parent="Vehicle"]
-position = Vector2(811, 216)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_o63lq")
-
-[node name="Bullet-foam" type="Sprite2D" parent="Vehicle"]
-position = Vector2(757, 207)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_58501")
-
-[node name="Bullet-foam2" type="Sprite2D" parent="Vehicle"]
-position = Vector2(744, 211)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_58501")
-
-[node name="Bullet-foam3" type="Sprite2D" parent="Vehicle"]
-position = Vector2(743, 223)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_58501")
-
-[node name="Bullet-foam4" type="Sprite2D" parent="Vehicle"]
-position = Vector2(795, 230)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_58501")
-
-[node name="Bullet-foam5" type="Sprite2D" parent="Vehicle"]
-position = Vector2(782, 229)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_58501")
-
-[node name="Bullet-foam6" type="Sprite2D" parent="Vehicle"]
-position = Vector2(781, 240)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_58501")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(130, 166)

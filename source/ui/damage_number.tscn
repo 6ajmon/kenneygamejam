@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi17rxyxdl1ni"]
 
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_mj7yu"]
 [ext_resource type="Script" uid="uid://bhbyvtlv3rrlg" path="res://source/ui/damage_number.gd" id="1_unv68"]
-[ext_resource type="Theme" path="res://UIassets/theme.tres" id="2_bf21n"]
 
 [node name="DamageNumber" type="Control"]
 layout_mode = 3
@@ -10,13 +10,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mj7yu")
 script = ExtResource("1_unv68")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme = ExtResource("2_bf21n")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 horizontal_alignment = 1

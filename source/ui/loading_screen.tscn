@@ -1,28 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct06cpfk8xwki"]
+[gd_scene load_steps=10 format=3 uid="uid://cs4xekjk7t73u"]
 
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_xkhn8"]
-[ext_resource type="Script" uid="uid://c3wi32xibg7tv" path="res://source/ui/starting_screen.gd" id="2_6l04n"]
-[ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_7vb47"]
-[ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="2_bvrli"]
-[ext_resource type="Texture2D" uid="uid://v4via8785iao" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_m.png" id="3_fmg4o"]
-[ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="4_goi8c"]
-[ext_resource type="Texture2D" uid="uid://bggx7grb50jhv" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_r.png" id="4_nydhj"]
-[ext_resource type="PackedScene" uid="uid://dd3mcaijpd7g7" path="res://source/ui/vehicle.tscn" id="8_hlv7e"]
+[ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="1_2e30t"]
+[ext_resource type="Script" uid="uid://s6jlfswp2i45" path="res://source/ui/loading_screen.gd" id="1_jhcin"]
+[ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_nf0y5"]
+[ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="3_2mhms"]
+[ext_resource type="Texture2D" uid="uid://bggx7grb50jhv" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_r.png" id="4_542pe"]
+[ext_resource type="Texture2D" uid="uid://v4via8785iao" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_m.png" id="5_7p4gq"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="6_7ebvk"]
+[ext_resource type="PackedScene" uid="uid://dd3mcaijpd7g7" path="res://source/ui/vehicle.tscn" id="8_7ebvk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foq02"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_542pe"]
 bg_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
 
-[node name="StartingScreen" type="Control"]
+[node name="LoadingScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_xkhn8")
-script = ExtResource("2_6l04n")
+script = ExtResource("1_jhcin")
 
 [node name="SpaceBG" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -33,7 +33,7 @@ offset_left = -50.0
 offset_top = -85.0
 offset_right = 1350.0
 offset_bottom = 915.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_foq02")
+theme_override_styles/panel = SubResource("StyleBoxFlat_542pe")
 
 [node name="Stars" type="Control" parent="SpaceBG"]
 anchors_preset = 0
@@ -43,150 +43,135 @@ offset_bottom = 40.0
 [node name="Sphere0" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(157, 354)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere1" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(312, 278)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere2" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(418, 95)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere3" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(988, 306)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere4" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(787, 79)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere5" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(339, 517)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere6" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(537, 56)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere7" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(993, 420)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere8" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(361, 658)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere9" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(116, 553)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere10" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(1119, 111)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere11" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(1175, 335)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Sphere12" type="Sprite2D" parent="SpaceBG/Stars"]
 position = Vector2(1029, 613)
 scale = Vector2(0.005, 0.005)
-texture = ExtResource("2_bvrli")
+texture = ExtResource("1_2e30t")
 
 [node name="Mars" type="Sprite2D" parent="SpaceBG"]
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_7vb47")
+texture = ExtResource("2_nf0y5")
 
 [node name="Earth" type="Sprite2D" parent="SpaceBG"]
 position = Vector2(143, 158)
 scale = Vector2(0.07, 0.07)
-texture = ExtResource("4_goi8c")
-
-[node name="Buttons" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PlayButton" type="Button" parent="Buttons"]
-layout_mode = 0
-offset_left = 570.0
-offset_top = 360.0
-offset_right = 710.0
-offset_bottom = 412.0
-theme = ExtResource("1_xkhn8")
-toggle_mode = true
-text = "Play"
+texture = ExtResource("3_2mhms")
 
 [node name="Title" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
-offset_left = 580.0
-offset_top = 300.0
-offset_right = 580.0
-offset_bottom = 300.0
+offset_left = 564.5
+offset_top = 653.0
+offset_right = 715.5
+offset_bottom = 671.0
 
 [node name="0" type="Sprite2D" parent="Title"]
 position = Vector2(-132, 8)
-texture = ExtResource("4_nydhj")
+texture = ExtResource("4_542pe")
 flip_h = true
 
 [node name="1" type="Sprite2D" parent="Title"]
 position = Vector2(-96, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="2" type="Sprite2D" parent="Title"]
 position = Vector2(-48, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="3" type="Sprite2D" parent="Title"]
 position = Vector2(0, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="4" type="Sprite2D" parent="Title"]
 position = Vector2(48, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="9" type="Sprite2D" parent="Title"]
 position = Vector2(276, 8)
-texture = ExtResource("4_nydhj")
+texture = ExtResource("4_542pe")
 
 [node name="5" type="Sprite2D" parent="Title"]
 position = Vector2(96, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="6" type="Sprite2D" parent="Title"]
 position = Vector2(144, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="7" type="Sprite2D" parent="Title"]
 position = Vector2(192, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="8" type="Sprite2D" parent="Title"]
 position = Vector2(240, 8)
-texture = ExtResource("3_fmg4o")
+texture = ExtResource("5_7p4gq")
 
 [node name="Label" type="Label" parent="Title"]
 layout_mode = 0
-offset_left = -128.0
+offset_left = -37.0
 offset_top = -10.0
-offset_right = 82.0
-offset_bottom = 13.0
-theme = ExtResource("1_xkhn8")
-text = "Not enough POWER"
+offset_right = 173.0
+offset_bottom = 26.0
+theme = ExtResource("6_7ebvk")
+text = "LOADING..."
+horizontal_alignment = 1
 
-[node name="Vehicle" parent="." instance=ExtResource("8_hlv7e")]
-
-[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[node name="Vehicle" parent="." instance=ExtResource("8_7ebvk")]
