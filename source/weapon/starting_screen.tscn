@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbufrwqu3ua7i"]
+[gd_scene load_steps=11 format=3 uid="uid://b3jm5t2yjn8pd"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://UIassets/theme.tres" id="1_xkhn8"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_7vb47"]
