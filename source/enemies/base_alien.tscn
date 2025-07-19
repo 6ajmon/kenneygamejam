@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://db61l0m2cijbi"]
+[gd_scene load_steps=7 format=3 uid="uid://db61l0m2cijbi"]
 
 [ext_resource type="PackedScene" uid="uid://bvw3uh43tvfds" path="res://source/enemies/alien_animated_mesh.tscn" id="1_7q54h"]
 [ext_resource type="Script" uid="uid://b4jx0kp8ik070" path="res://source/enemies/base_alien.gd" id="1_lo783"]
+[ext_resource type="PackedScene" uid="uid://c0l8pu7ue58df" path="res://source/components/health_component.tscn" id="3_5xk7l"]
+[ext_resource type="PackedScene" uid="uid://fd46ygiohcdb" path="res://source/components/hitbox_component.tscn" id="4_35x0h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lo783"]
-radius = 0.4
+radius = 0.3
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5xk7l"]
 height = 10.0
+radius = 0.4
 
 [node name="BaseAlien" type="CharacterBody3D"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -16,13 +22,22 @@ script = ExtResource("1_lo783")
 [node name="AlienAnimated" parent="." instance=ExtResource("1_7q54h")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51684, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0968786, 0)
 shape = SubResource("CapsuleShape3D_lo783")
 
 [node name="AlienLifespan" type="Timer" parent="."]
 wait_time = 8.0
 one_shot = true
 autostart = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_5xk7l")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_35x0h")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000478109, 4.32946, 0.00105421)
+shape = SubResource("CylinderShape3D_5xk7l")
 
 [connection signal="timeout" from="AlienLifespan" to="." method="_on_alien_lifespan_timeout"]
 

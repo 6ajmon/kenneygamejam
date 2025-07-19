@@ -11,6 +11,7 @@ var speed: float
 
 @onready var animation_player: AnimationPlayer = $AlienAnimated/tmpParent/AnimationPlayer
 @onready var lifespan_timer: Timer = $AlienLifespan
+@onready var health_component: HealthComponent = $HealthComponent
 
 var gravity = 10.0
 
@@ -24,6 +25,7 @@ var is_player_in_range: bool = false
 func _ready() -> void:
 	speed = randf_range(minimum_speed, maximum_speed)
 	detection_range_squared = player_detection_range * player_detection_range
+	health_component.died.connect(_on_death)
 
 func _physics_process(delta: float) -> void:
 	distance_check_timer += delta
@@ -86,4 +88,7 @@ func run_from_player(delta: float) -> void:
 
 
 func _on_alien_lifespan_timeout() -> void:
+	queue_free()
+
+func _on_death() -> void:
 	queue_free()
