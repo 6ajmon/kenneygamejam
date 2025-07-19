@@ -11,6 +11,9 @@ class_name PlayerVehicle
 @export var camera: PlayerCamera
 @export var contact_damage: float = 10
 
+@export var max_energy:float = 100
+@export var current_energy_usage:float = 1
+
 var current_speed: float = 0.0
 var strafe := 0.0
 var previous_rotation_y: float = 0.0
@@ -19,9 +22,11 @@ var can_deal_damage: bool = true
 
 @onready var spotlight: SpotLight3D = $Beam/SpotLight3D
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
+@onready var power_system = $PowerSystem
 var weapon_slots = []
 var drill_slot
 var contact_damage_timer: Timer
+var energy_consumption_timer: Timer
 
 func _ready() -> void:
 	GameData.PlayerPosition = global_position
@@ -29,11 +34,23 @@ func _ready() -> void:
 	weapon_slots = weapon_slots_node.get_children()
 	drill_slot = $DrillSlot
 	
+	# Initialize power system
+	power_system.maximum_energy = max_energy
+	power_system.initialize_power_system()
+	
 	contact_damage_timer = Timer.new()
 	contact_damage_timer.wait_time = 1.0
 	contact_damage_timer.one_shot = true
 	contact_damage_timer.timeout.connect(_reset_damage_ability)
 	add_child(contact_damage_timer)
+	
+	energy_consumption_timer = Timer.new()
+	energy_consumption_timer.wait_time = 1.0
+	energy_consumption_timer.one_shot = false
+	energy_consumption_timer.timeout.connect(_consume_energy)
+	add_child(energy_consumption_timer)
+	energy_consumption_timer.start()
+
 	load_upgrades()
 
 func _physics_process(delta: float) -> void:
@@ -162,3 +179,7 @@ func get_damage() -> float:
 
 func _reset_damage_ability() -> void:
 	can_deal_damage = true
+
+func _consume_energy() -> void:
+	if power_system:
+		power_system.change_energy(-current_energy_usage)

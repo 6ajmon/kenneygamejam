@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3jm5t2yjn8pd"]
+[gd_scene load_steps=10 format=3 uid="uid://b3jm5t2yjn8pd"]
 
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://UIassets/theme.tres" id="1_xkhn8"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_xkhn8"]
+[ext_resource type="Script" uid="uid://c3wi32xibg7tv" path="res://source/ui/starting_screen.gd" id="2_6l04n"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_7vb47"]
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="2_bvrli"]
 [ext_resource type="Texture2D" uid="uid://v4via8785iao" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_m.png" id="3_fmg4o"]
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="4_goi8c"]
 [ext_resource type="Texture2D" uid="uid://bggx7grb50jhv" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_r.png" id="4_nydhj"]
-[ext_resource type="Texture2D" uid="uid://cf12h5uj10pkf" path="res://UIassets/blaster-g.png" id="5_fpf0f"]
-[ext_resource type="Texture2D" uid="uid://c4kq1u4l04ayw" path="res://UIassets/craft_cargoA_SW.png" id="6_5aatm"]
-[ext_resource type="Texture2D" uid="uid://b7pgmbl1fwhb" path="res://UIassets/bullet-foam.png" id="7_bvrli"]
+[ext_resource type="PackedScene" uid="uid://dd3mcaijpd7g7" path="res://source/ui/vehicle.tscn" id="8_hlv7e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foq02"]
 bg_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
@@ -21,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xkhn8")
+script = ExtResource("2_6l04n")
 
 [node name="SpaceBG" type="Control" parent="."]
 anchors_preset = 0
@@ -115,7 +115,12 @@ position = Vector2(143, 158)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("4_goi8c")
 
-[node name="Button" type="Button" parent="."]
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="Buttons"]
 layout_mode = 0
 offset_left = 570.0
 offset_top = 360.0
@@ -182,58 +187,6 @@ offset_bottom = 13.0
 theme = ExtResource("1_xkhn8")
 text = "Not enough POWER"
 
-[node name="Vehicle" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Vehicle" parent="." instance=ExtResource("8_hlv7e")]
 
-[node name="Blaster-g" type="Sprite2D" parent="Vehicle"]
-position = Vector2(779, 198)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_fpf0f")
-
-[node name="CraftCargoASw" type="Sprite2D" parent="Vehicle"]
-position = Vector2(831, 184)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_5aatm")
-
-[node name="Blaster-g2" type="Sprite2D" parent="Vehicle"]
-position = Vector2(811, 216)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_fpf0f")
-
-[node name="Bullet-foam" type="Sprite2D" parent="Vehicle"]
-position = Vector2(757, 207)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_bvrli")
-
-[node name="Bullet-foam2" type="Sprite2D" parent="Vehicle"]
-position = Vector2(744, 211)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_bvrli")
-
-[node name="Bullet-foam3" type="Sprite2D" parent="Vehicle"]
-position = Vector2(743, 223)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_bvrli")
-
-[node name="Bullet-foam4" type="Sprite2D" parent="Vehicle"]
-position = Vector2(795, 230)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_bvrli")
-
-[node name="Bullet-foam5" type="Sprite2D" parent="Vehicle"]
-position = Vector2(782, 229)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_bvrli")
-
-[node name="Bullet-foam6" type="Sprite2D" parent="Vehicle"]
-position = Vector2(781, 240)
-rotation = 0.872665
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_bvrli")
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]

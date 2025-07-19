@@ -8,7 +8,7 @@ var speed: float
 @export var player_detection_range: float = 20.0
 @export var max_slope_angle: float = 65.0
 @export var rotation_speed: float = 6.0
-@export var alien_death_value: float = 10
+@export var alien_death_value: int = 5
 
 @onready var animation_player: AnimationPlayer = $AlienAnimated/tmpParent/AnimationPlayer
 @onready var lifespan_timer: Timer = $AlienLifespan
@@ -95,7 +95,7 @@ func _on_alien_lifespan_timeout() -> void:
 	queue_free()
 
 func _on_death() -> void:
-	GameData.AlienSouls += alien_death_value
+	SceneManager.souls_collected_this_round += alien_death_value
 	queue_free()
 
 func _on_damage_received(damage: float, number_position: Vector3) -> void:

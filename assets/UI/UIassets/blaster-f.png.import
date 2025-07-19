@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4kq1u4l04ayw"
-path="res://.godot/imported/craft_cargoA_SW.png-8a46669d3e9f47b2dd61dfa3f57b5e67.ctex"
+uid="uid://d22rquou04kpk"
+path="res://.godot/imported/blaster-f.png-6bfe41c8363136b73307fe78dcfec554.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UIassets/craft_cargoA_SW.png"
-dest_files=["res://.godot/imported/craft_cargoA_SW.png-8a46669d3e9f47b2dd61dfa3f57b5e67.ctex"]
+source_file="res://assets/UI/UIassets/blaster-f.png"
+dest_files=["res://.godot/imported/blaster-f.png-6bfe41c8363136b73307fe78dcfec554.ctex"]
 
 [params]
 

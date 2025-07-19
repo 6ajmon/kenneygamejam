@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://brbdg6xaudh4h"]
+[gd_scene load_steps=9 format=3 uid="uid://ba2yo0ppmh2ya"]
 
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="1_28vn7"]
-[ext_resource type="Script" uid="uid://u2qqr2kdx5pd" path="res://game_over_screen.gd" id="1_k2vha"]
+[ext_resource type="Script" uid="uid://bsshqdv5x76o5" path="res://source/ui/game_over_screen.gd" id="1_k2vha"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_k2vha"]
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="3_fkf4o"]
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://UIassets/theme.tres" id="4_3u7xm"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="4_3u7xm"]
 [ext_resource type="FontFile" uid="uid://cl6os7rp5p6r4" path="res://assets/UI/Font/Kenney Future Narrow.ttf" id="5_woa3c"]
 [ext_resource type="Texture2D" uid="uid://cuf34dlnhssmr" path="res://power.png" id="6_dd2jf"]
 

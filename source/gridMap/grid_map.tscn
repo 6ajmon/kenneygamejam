@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=14 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://djcu6k57viqb" path="res://tmp/test_ui/temporary_ui.tscn" id="6_sgigq"]
 [ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
 [ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="8_7ywn6"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="8_nm0vn"]
+[ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://tmp/test_ui/label.gd" id="9_gebhe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -58,6 +60,16 @@ spawn_delay_between_aliens = 0.1
 
 [node name="temporary_ui" parent="." instance=ExtResource("6_sgigq")]
 
+[node name="Label" type="Label" parent="temporary_ui"]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 56.0
+offset_right = 660.0
+offset_bottom = 92.0
+theme = ExtResource("8_nm0vn")
+horizontal_alignment = 1
+script = ExtResource("9_gebhe")
+
 [node name="TargetDummy" parent="." instance=ExtResource("8_7ywn6")]
 minimum_speed = 0.0
 maximum_speed = 0.0
@@ -65,5 +77,7 @@ maximum_speed = 0.0
 [node name="HealthComponent" parent="TargetDummy" index="3"]
 max_health = 1e+06
 
+[editable path="PlayerVehicle"]
+[editable path="PlayerVehicle/PowerSystem"]
 [editable path="TargetDummy"]
 [editable path="TargetDummy/AlienAnimated"]

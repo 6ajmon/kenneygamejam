@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd3mcaijpd7g7"]
+
+[ext_resource type="Script" uid="uid://cn5hbwilvkg3n" path="res://source/ui/vehicle.gd" id="1_tq526"]
+[ext_resource type="Texture2D" uid="uid://cf12h5uj10pkf" path="res://assets/UI/UIassets/blaster-g.png" id="2_653kg"]
+[ext_resource type="Texture2D" uid="uid://c4kq1u4l04ayw" path="res://assets/UI/UIassets/craft_cargoA_SW.png" id="3_53c86"]
+[ext_resource type="Texture2D" uid="uid://b7pgmbl1fwhb" path="res://assets/UI/UIassets/bullet-foam.png" id="4_5il4v"]
+
+[sub_resource type="Animation" id="Animation_6l04n"]
+resource_name = "vehicle_float"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 33), Vector2(6, -33), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t1bwo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0w673"]
+_data = {
+&"RESET": SubResource("Animation_t1bwo"),
+&"vehicle_float": SubResource("Animation_6l04n")
+}
+
+[node name="Vehicle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tq526")
+
+[node name="Blaster-g" type="Sprite2D" parent="."]
+position = Vector2(779, 198)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_653kg")
+
+[node name="CraftCargoASw" type="Sprite2D" parent="."]
+position = Vector2(831, 184)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_53c86")
+
+[node name="Blaster-g2" type="Sprite2D" parent="."]
+position = Vector2(811, 216)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_653kg")
+
+[node name="Bullet-foam" type="Sprite2D" parent="."]
+position = Vector2(757, 207)
+rotation = 0.872665
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5il4v")
+
+[node name="Bullet-foam2" type="Sprite2D" parent="."]
+position = Vector2(744, 211)
+rotation = 0.872665
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5il4v")
+
+[node name="Bullet-foam3" type="Sprite2D" parent="."]
+position = Vector2(743, 223)
+rotation = 0.872665
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5il4v")
+
+[node name="Bullet-foam4" type="Sprite2D" parent="."]
+position = Vector2(795, 230)
+rotation = 0.872665
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5il4v")
+
+[node name="Bullet-foam5" type="Sprite2D" parent="."]
+position = Vector2(782, 229)
+rotation = 0.872665
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5il4v")
+
+[node name="Bullet-foam6" type="Sprite2D" parent="."]
+position = Vector2(781, 240)
+rotation = 0.872665
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5il4v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0w673")
+}
