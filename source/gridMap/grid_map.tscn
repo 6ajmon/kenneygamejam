@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=11 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
 [ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="6_sgigq"]
+[ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -48,8 +49,11 @@ camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 target = NodePath("../PlayerVehicle")
-distance_from_player = 6.0
 
 [node name="Alien" parent="." node_paths=PackedStringArray("player_vehicle") instance=ExtResource("6_sgigq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.6109, 6.60139, 108.864)
+player_vehicle = NodePath("../PlayerVehicle")
+
+[node name="AlienSpawner" parent="." node_paths=PackedStringArray("alien", "player_vehicle") instance=ExtResource("7_dkyxi")]
+alien = NodePath("../Alien")
 player_vehicle = NodePath("../PlayerVehicle")

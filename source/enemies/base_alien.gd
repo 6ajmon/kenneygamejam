@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name BaseAlien
 
 @export var player_vehicle: PlayerVehicle
 @export var minimum_speed: float = 5.0
