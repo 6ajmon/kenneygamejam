@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GameData="*res://source/GameData/GameData.gd"
 Eventbus="*res://source/Eventbus/Eventbus.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [global_group]
 
 projectiles=""

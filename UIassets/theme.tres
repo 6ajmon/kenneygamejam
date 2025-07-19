@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dofvdjc4ba08v"]
+
+[ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_gb5im"]
+[ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="2_hjaf5"]
+[ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="4_goxao"]
+[ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="5_gb5im"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
+texture = ExtResource("2_hjaf5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3mee"]
+texture = ExtResource("4_goxao")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
+texture = ExtResource("4_goxao")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05tig"]
+texture = ExtResource("5_gb5im")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[resource]
+default_font = ExtResource("1_gb5im")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_gb5im")
+Button/styles/hover = SubResource("StyleBoxTexture_mihib")
+Button/styles/normal = SubResource("StyleBoxTexture_f3mee")
+Button/styles/pressed = SubResource("StyleBoxTexture_ttqs8")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_gb5im")
+Panel/styles/panel = SubResource("StyleBoxTexture_05tig")
