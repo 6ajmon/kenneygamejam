@@ -2,7 +2,7 @@ extends Node3D
 class_name Weapon
 
 @export var bullets_per_second : int = 10
-@export var bullet_speed : float = 30
+@export var bullet_speed : float = 20
 @export var bullet_scene : PackedScene
 
 @onready var cooldown_timer: Timer = $CooldownTimer

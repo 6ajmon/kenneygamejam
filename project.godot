@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameData="*res://source/GameData/GameData.gd"
 Eventbus="*res://source/Eventbus/Eventbus.gd"
 
+[global_group]
+
+projectiles=""
+
 [input]
 
 move_forward={
