@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="kenneygamejam"
-run/main_scene="uid://dds1anqgmbkhq"
+run/main_scene="uid://ct06cpfk8xwki"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.0705882, 0.0705882, 0.0705882, 1)
 boot_splash/image="uid://bjfs4idqp8o4r"

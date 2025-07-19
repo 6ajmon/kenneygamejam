@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d22rquou04kpk"
-path="res://.godot/imported/blaster-f.png-8716a0b6e97484ea375a1390b15e6038.ctex"
+uid="uid://b7pgmbl1fwhb"
+path="res://.godot/imported/bullet-foam.png-88c9bf3fb5b59e14f3ee4facfd6f5a24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UIassets/blaster-f.png"
-dest_files=["res://.godot/imported/blaster-f.png-8716a0b6e97484ea375a1390b15e6038.ctex"]
+source_file="res://assets/UI/UIassets/bullet-foam.png"
+dest_files=["res://.godot/imported/bullet-foam.png-88c9bf3fb5b59e14f3ee4facfd6f5a24.ctex"]
 
 [params]
 

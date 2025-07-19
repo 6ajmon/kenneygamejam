@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi17rxyxdl1ni"]
 
 [ext_resource type="Script" uid="uid://bhbyvtlv3rrlg" path="res://source/ui/damage_number.gd" id="1_unv68"]
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://UIassets/theme.tres" id="2_bf21n"]
+[ext_resource type="Theme" path="res://UIassets/theme.tres" id="2_bf21n"]
 
 [node name="DamageNumber" type="Control"]
 layout_mode = 3
