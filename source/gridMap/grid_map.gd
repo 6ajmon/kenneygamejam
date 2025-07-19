@@ -7,8 +7,6 @@ extends GridMap
 @export var camera_drag_margin: float = 5.0
 var map_size: Vector2i
 var level_bounds: AABB
-var camera_width: float
-var camera_height: float
 
 func _ready() -> void:
 	spawn_player()
