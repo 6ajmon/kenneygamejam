@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=10 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
 [ext_resource type="Script" uid="uid://cktnf8up33v0h" path="res://source/gridMap/map_generator.gd" id="2_m3mdr"]
 [ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
+[ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="6_sgigq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -18,13 +19,16 @@ background_mode = 2
 sky = SubResource("Sky_m3mdr")
 tonemap_mode = 2
 
-[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera")]
+[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera", "alien")]
 mesh_library = ExtResource("1_yyekg")
 cell_center_y = false
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_tqf7u")
 generator = NodePath("MapGenerator")
 player_vehicle = NodePath("PlayerVehicle")
 player_camera = NodePath("PlayerCamera")
+alien = NodePath("Alien")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="MapGenerator" type="Node3D" parent="." node_paths=PackedStringArray("grid_map")]
@@ -44,3 +48,6 @@ camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 target = NodePath("../PlayerVehicle")
+
+[node name="Alien" parent="." instance=ExtResource("6_sgigq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.6109, 6.60139, 108.864)
