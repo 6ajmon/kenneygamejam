@@ -1,7 +1,8 @@
 extends Node3D
+class_name MapGenerator
 
 @export var grid_map: GridMap
-@export var generatedMapSize = Vector2i(600, 400)
+@export var generated_map_size = Vector2i(600, 400)
 @export var noise_scale: float = 0.1
 @export var height_threshold: float = 0.25
 @export var seed_value: int = 0
@@ -30,9 +31,9 @@ func _ready() -> void:
 func generate_map() -> void:
 	grid_map.clear()
 
-	for x in range(generatedMapSize.x):
+	for x in range(generated_map_size.x):
 		var row := []
-		for y in range(generatedMapSize.y):
+		for y in range(generated_map_size.y):
 			var height = noise.get_noise_2d(x, y)
 			if height < height_threshold:
 				grid_map.set_cell_item(Vector3i(x, 0, y), TILE_LOW)
@@ -51,20 +52,20 @@ func smooth_map() -> void:
 	var tall_tile_placed = true
 	while tall_tile_placed:
 		tall_tile_placed = false
-		for x in range(generatedMapSize.x):
-			for y in range(generatedMapSize.y):
+		for x in range(generated_map_size.x):
+			for y in range(generated_map_size.y):
 				var neighbor_north = null
 				var neighbor_south = null
 				var neighbor_east = null
 				var neighbor_west = null
 
-				if y + 1 < generatedMapSize.y:
+				if y + 1 < generated_map_size.y:
 					neighbor_north = grid_map_cell[x][y + 1]
 
 				if y - 1 >= 0:
 					neighbor_south = grid_map_cell[x][y - 1]
 
-				if x + 1 < generatedMapSize.x:
+				if x + 1 < generated_map_size.x:
 					neighbor_east = grid_map_cell[x + 1][y]
 
 				if x - 1 >= 0:
@@ -95,8 +96,8 @@ func generate_slopes() -> void:
 		270: grid_map.get_orthogonal_index_from_basis(Basis(Vector3.UP, deg_to_rad(270)))
 	}
 
-	for x in range(generatedMapSize.x):
-		for y in range(generatedMapSize.y):
+	for x in range(generated_map_size.x):
+		for y in range(generated_map_size.y):
 			var neighbor_n = null
 			var neighbor_ne = null
 			var neighbor_e = null
@@ -106,13 +107,13 @@ func generate_slopes() -> void:
 			var neighbor_w = null
 			var neighbor_nw = null
 
-			if y + 1 < generatedMapSize.y:
+			if y + 1 < generated_map_size.y:
 				neighbor_n = grid_map_cell[x][y + 1]
-			if y + 1 < generatedMapSize.y and x + 1 < generatedMapSize.x:
+			if y + 1 < generated_map_size.y and x + 1 < generated_map_size.x:
 				neighbor_ne = grid_map_cell[x + 1][y + 1]
-			if x + 1 < generatedMapSize.x:
+			if x + 1 < generated_map_size.x:
 				neighbor_e = grid_map_cell[x + 1][y]
-			if y - 1 >= 0 and x + 1 < generatedMapSize.x:
+			if y - 1 >= 0 and x + 1 < generated_map_size.x:
 				neighbor_se = grid_map_cell[x + 1][y - 1]
 			if y - 1 >= 0:
 				neighbor_s = grid_map_cell[x][y - 1]
@@ -120,7 +121,7 @@ func generate_slopes() -> void:
 				neighbor_sw = grid_map_cell[x - 1][y - 1]
 			if x - 1 >= 0:
 				neighbor_w = grid_map_cell[x - 1][y]
-			if y + 1 < generatedMapSize.y and x - 1 >= 0:
+			if y + 1 < generated_map_size.y and x - 1 >= 0:
 				neighbor_nw = grid_map_cell[x - 1][y + 1]
 
 			if grid_map_cell[x][y] == LOW:
