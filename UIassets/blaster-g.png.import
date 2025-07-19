@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdamcu2lq611y"
-path="res://.godot/imported/bar_round_gloss_large_l.png-55e27132edc297c571598ce55ee89faf.ctex"
+uid="uid://cf12h5uj10pkf"
+path="res://.godot/imported/blaster-g.png-bb0e97ba5436f32b8de3d9313f2d0311.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_l.png"
-dest_files=["res://.godot/imported/bar_round_gloss_large_l.png-55e27132edc297c571598ce55ee89faf.ctex"]
+source_file="res://UIassets/blaster-g.png"
+dest_files=["res://.godot/imported/blaster-g.png-bb0e97ba5436f32b8de3d9313f2d0311.ctex"]
 
 [params]
 

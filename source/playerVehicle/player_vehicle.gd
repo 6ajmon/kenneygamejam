@@ -118,8 +118,6 @@ func get_new_upgrade(upgrade_name: String) -> void:
 				drill_slot.get_child(0).increase_drill_size()
 
 
-
-
 func _get_mouse_direction() -> Vector3:
 	var mouse_pos := get_viewport().get_mouse_position()
 	var ray_origin := camera.project_ray_origin(mouse_pos)
