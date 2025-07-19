@@ -80,7 +80,6 @@ func move_and_rotate(delta: float) -> void:
 
 	
 	velocity = forward_direction * current_speed + right_direction * strafe 
-	#print(int(velocity.length()), " m/s")
 	move_and_slide()
 
 func shoot() -> void:
@@ -89,7 +88,6 @@ func shoot() -> void:
 			var vehicle_speed = current_speed
 			if current_speed < 0:
 				vehicle_speed = 0
-			print(vehicle_speed)
 			slot.weapon.shoot(vehicle_speed)
 
 func get_new_upgrade(upgrade_name : String) -> void:

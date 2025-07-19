@@ -13,6 +13,7 @@ func _ready() -> void:
 func take_damage(damage: float) -> void:
 	current_health = max(0, current_health - damage)
 	health_changed.emit(current_health)
+	print("Health: ", current_health, "/", max_health)
 	
 	if current_health <= 0:
 		died.emit()
