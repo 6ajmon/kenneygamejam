@@ -19,10 +19,12 @@ var weapon_slots = []
 
 
 func _ready() -> void:
+	GameData.PlayerPosition = global_position
 	Eventbus.connect("new_upgrade", get_new_upgrade)
 	weapon_slots = weapon_slots_node.get_children()
 	
 func _physics_process(delta: float) -> void:
+	GameData.PlayerPosition = global_position
 	move_and_rotate(delta)
 	if Input.is_action_pressed("left_click"):
 		shoot()

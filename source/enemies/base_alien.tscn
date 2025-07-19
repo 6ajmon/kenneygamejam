@@ -19,4 +19,11 @@ script = ExtResource("1_lo783")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51684, 0)
 shape = SubResource("CapsuleShape3D_lo783")
 
+[node name="AlienLifespan" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="AlienLifespan" to="." method="_on_alien_lifespan_timeout"]
+
 [editable path="AlienAnimated"]

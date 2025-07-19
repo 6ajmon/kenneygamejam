@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=10 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
 [ext_resource type="Script" uid="uid://cktnf8up33v0h" path="res://source/gridMap/map_generator.gd" id="2_m3mdr"]
 [ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
-[ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="6_sgigq"]
 [ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
@@ -20,7 +19,7 @@ background_mode = 2
 sky = SubResource("Sky_m3mdr")
 tonemap_mode = 2
 
-[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera", "alien")]
+[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera", "alien_spawner")]
 mesh_library = ExtResource("1_yyekg")
 cell_center_y = false
 collision_layer = 2
@@ -29,7 +28,8 @@ script = ExtResource("2_tqf7u")
 generator = NodePath("MapGenerator")
 player_vehicle = NodePath("PlayerVehicle")
 player_camera = NodePath("PlayerCamera")
-alien = NodePath("Alien")
+alien_spawner = NodePath("AlienSpawner")
+player_fly_height = 2.0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="MapGenerator" type="Node3D" parent="." node_paths=PackedStringArray("grid_map")]
@@ -50,10 +50,5 @@ camera = NodePath("../PlayerCamera")
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 target = NodePath("../PlayerVehicle")
 
-[node name="Alien" parent="." node_paths=PackedStringArray("player_vehicle") instance=ExtResource("6_sgigq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.6109, 6.60139, 108.864)
-player_vehicle = NodePath("../PlayerVehicle")
-
-[node name="AlienSpawner" parent="." node_paths=PackedStringArray("alien", "player_vehicle") instance=ExtResource("7_dkyxi")]
-alien = NodePath("../Alien")
-player_vehicle = NodePath("../PlayerVehicle")
+[node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
+spawn_delay_between_aliens = 0.1
