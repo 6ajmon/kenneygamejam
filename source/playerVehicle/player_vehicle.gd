@@ -51,6 +51,8 @@ func _ready() -> void:
 	add_child(energy_consumption_timer)
 	energy_consumption_timer.start()
 
+	load_upgrades()
+
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(previous_position) > 0.01:
 		GameData.PlayerPosition = global_position
@@ -133,6 +135,24 @@ func get_new_upgrade(upgrade_name: String) -> void:
 			else:
 				drill_slot.get_child(0).increase_drill_size()
 
+func load_upgrades() -> void:
+	for upgrade : Upgrade in GameData.UpgradesUnlocked:
+		print(GameData.upgradeTypes.DrillWeapon)
+		if upgrade.type == GameData.upgradeTypes.Weapon:
+			for slot : WeaponSpot in weapon_slots:
+				if !slot.is_taken():
+					var new_weapon = upgrade.scene.instantiate()
+					slot.add_child(new_weapon)
+					slot.weapon = new_weapon
+					break
+		if upgrade.type == GameData.upgradeTypes.DrillWeapon:
+			print("HEJO")
+			if !drill_slot.is_taken():
+				var new_drill = upgrade.scene.instantiate()
+				drill_slot.add_child(new_drill)
+				drill_slot.weapon = new_drill
+			else:
+				drill_slot.get_child(0).increase_drill_size()
 
 func _get_mouse_direction() -> Vector3:
 	var mouse_pos := get_viewport().get_mouse_position()
