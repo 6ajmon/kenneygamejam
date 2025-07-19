@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://drxxdkb28ueb"]
+[gd_scene load_steps=4 format=3 uid="uid://b463n2ua5mcrw"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://UIassets/theme.tres" id="1_glqc6"]
 [ext_resource type="Texture2D" uid="uid://d22rquou04kpk" path="res://UIassets/blaster-f.png" id="2_wxfep"]
