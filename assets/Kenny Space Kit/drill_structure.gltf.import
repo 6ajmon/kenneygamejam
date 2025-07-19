@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ddsct63iul74e"
-path="res://.godot/imported/drill_structure.gltf-018edb5144227d2dd2e904963c254466.scn"
+valid=false
 
 [deps]
 
-source_file="res://assets/Kaykit space base/drill_structure.gltf"
-dest_files=["res://.godot/imported/drill_structure.gltf-018edb5144227d2dd2e904963c254466.scn"]
+source_file="res://assets/Kenny Space Kit/drill_structure.gltf"
 
 [params]
 

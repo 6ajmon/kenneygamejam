@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b463n2ua5mcrw"]
+[gd_scene load_steps=5 format=3 uid="uid://b463n2ua5mcrw"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://UIassets/theme.tres" id="1_glqc6"]
+[ext_resource type="Script" uid="uid://bgom41he010mc" path="res://shop_item.gd" id="1_v846v"]
 [ext_resource type="Texture2D" uid="uid://d22rquou04kpk" path="res://UIassets/blaster-f.png" id="2_wxfep"]
 [ext_resource type="FontFile" uid="uid://cl6os7rp5p6r4" path="res://assets/UI/Font/Kenney Future Narrow.ttf" id="3_d8bsp"]
 
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_v846v")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -30,6 +32,7 @@ offset_right = 240.0
 offset_bottom = 300.0
 theme = ExtResource("1_glqc6")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_d8bsp")
 theme_override_font_sizes/font_size = 24
@@ -49,7 +52,7 @@ offset_bottom = 96.0
 texture = ExtResource("2_wxfep")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="Upgrade"]
+[node name="ItemName" type="Label" parent="Upgrade"]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 80.0
@@ -93,3 +96,5 @@ theme = ExtResource("1_glqc6")
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 40
 text = "Sold!"
+
+[connection signal="pressed" from="Button" to="." method="_on_buyButton_pressed"]
