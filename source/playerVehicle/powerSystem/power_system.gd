@@ -2,7 +2,6 @@ extends Node3D
 class_name PowerSystem
 
 signal energy_changed(value: float)
-signal energy_depleted()
 
 @onready var player_vehicle = get_parent() as PlayerVehicle
 @onready var power_bar = $PowerBar
@@ -15,15 +14,15 @@ func change_energy(value: float = 0) -> void:
 	energy_changed.emit(value)
 	_update_power_bar()
 	if current_energy <= 0:
-		energy_depleted.emit()
+		Eventbus.energy_depleted.emit()
+	print(current_energy)
 
 func decrease_energy(value: float) -> void:
 	change_energy(-value)
 
 func initialize_power_system() -> void:
 	current_energy = maximum_energy
+	power_bar.max_value = maximum_energy
 	
 func _update_power_bar() -> void:
-	if power_bar:
 		power_bar.value = current_energy
-		power_bar.max_value = maximum_energy

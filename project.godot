@@ -20,9 +20,10 @@ boot_splash/minimum_display_time=100
 
 [autoload]
 
+Eventbus="*res://source/Eventbus/Eventbus.gd"
 UpgradesDescriptions="*res://upgrades_descriptions.gd"
 GameData="*res://source/GameData/GameData.gd"
-Eventbus="*res://source/Eventbus/Eventbus.gd"
+SceneManager="*res://source/Eventbus/scene_manager.gd"
 
 [display]
 

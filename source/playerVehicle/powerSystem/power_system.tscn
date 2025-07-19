@@ -12,5 +12,3 @@ offset_top = 630.0
 offset_right = 350.0
 offset_bottom = 690.0
 theme = ExtResource("2_akbaj")
-min_value = 50.0
-value = 50.0
