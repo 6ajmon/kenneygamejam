@@ -16,4 +16,13 @@ offset_right = 136.0
 offset_bottom = 119.0
 icon = ExtResource("1_kwtb8")
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 47.0
+offset_right = 232.0
+offset_bottom = 119.0
+text = "drill"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_drill_pressed"]
