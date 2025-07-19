@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx63gtep8pc1v"]
+
+[ext_resource type="Script" uid="uid://cio0eniunjpat" path="res://source/weapon/weapon.gd" id="1_oll5y"]
+[ext_resource type="PackedScene" uid="uid://bfiwuhpdefusx" path="res://assets/Blasters/blaster-g.glb" id="1_ydt8j"]
+
+[node name="Weapon000" type="Node3D"]
+script = ExtResource("1_oll5y")
+bullet_speed = 30.0
+
+[node name="BlasterModel" parent="." instance=ExtResource("1_ydt8j")]
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_timer_timeout"]
