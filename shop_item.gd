@@ -30,7 +30,7 @@ func set_sold():
 
 func _on_buyButton_pressed() -> void:
 	if GameData.AlienSouls >= cost:
-		Eventbus.emit_signal("new_upgrade", upgrade_name)
+		GameData.UpgradesUnlocked.append(upgrade)
 		set_sold()
 		GameData.AlienSouls -= cost
 		var shop = get_parent().get_parent()

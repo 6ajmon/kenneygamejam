@@ -146,6 +146,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29226, -0.18307)
 visible = false
 shape = SubResource("BoxShape3D_vo0dx")
 
+[node name="Beam" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404, 0, -0.29404, 0.955793, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Beam"]
+transform = Transform3D(1, 0, 0, 0, 0.997748, 0.0670748, 0, -0.0670748, 0.997748, 0.0520818, 0.647241, -1.28349)
+light_color = Color(1, 0, 0, 1)
+light_energy = 20.0
+spot_range = 200.0
+spot_attenuation = 0.1
+spot_angle = 10.0
+
+[node name="Marker3D" type="Marker3D" parent="Beam/SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300709, -0.0589671, -6.72242)
+
 [node name="WeaponSlotsNode" type="Node3D" parent="."]
 
 [node name="WeaponSlot" parent="WeaponSlotsNode" instance=ExtResource("3_wnbqt")]
@@ -160,17 +174,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313707, 0.803596, -0.04629
 [node name="DrillSlot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.441216, -1.87732)
 script = ExtResource("4_h76px")
-
-[node name="Beam" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404, 0, -0.29404, 0.955793, 0, 0, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Beam"]
-transform = Transform3D(1, 0, 0, 0, 0.997748, 0.0670748, 0, -0.0670748, 0.997748, 0.0520818, 0.647241, -1.28349)
-light_color = Color(1, 0, 0, 1)
-light_energy = 20.0
-spot_range = 200.0
-spot_attenuation = 0.1
-spot_angle = 10.0
-
-[node name="Marker3D" type="Marker3D" parent="Beam/SpotLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300709, -0.0589671, -6.72242)
