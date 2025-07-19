@@ -34,7 +34,7 @@ autostart = true
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_35x0h")]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 20
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]

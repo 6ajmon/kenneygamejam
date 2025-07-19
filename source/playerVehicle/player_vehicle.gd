@@ -9,17 +9,19 @@ class_name PlayerVehicle
 @export var turning_penalty : float = 0
 @export var backward_max_speed: float = 18
 @export var camera: PlayerCamera
+@export var contact_damage: float = 10
 
 var current_speed: float = 0.0
 var strafe := 0.0
 var previous_rotation_y: float = 0.0
 var previous_position: Vector3 = Vector3.ZERO
+var can_deal_damage: bool = true
 
 @onready var spotlight: SpotLight3D = $Beam/SpotLight3D
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
 var weapon_slots = []
 var drill_slot
-
+var contact_damage_timer: Timer
 
 func _ready() -> void:
 	GameData.PlayerPosition = global_position
@@ -27,6 +29,12 @@ func _ready() -> void:
 	weapon_slots = weapon_slots_node.get_children()
 	drill_slot = $DrillSlot
 	
+	contact_damage_timer = Timer.new()
+	contact_damage_timer.wait_time = 1.0
+	contact_damage_timer.one_shot = true
+	contact_damage_timer.timeout.connect(_reset_damage_ability)
+	add_child(contact_damage_timer)
+
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(previous_position) > 0.01:
 		GameData.PlayerPosition = global_position
@@ -106,6 +114,8 @@ func get_new_upgrade(upgrade_name: String) -> void:
 				drill_slot.add_child(new_upgrade)
 				drill_slot.weapon = new_upgrade
 				return
+			else:
+				drill_slot.get_child(0).increase_drill_size()
 
 
 
@@ -124,3 +134,14 @@ func _get_mouse_direction() -> Vector3:
 	direction = direction.normalized()
 	
 	return direction
+
+func get_damage() -> float:
+	if can_deal_damage:
+		can_deal_damage = false
+		contact_damage_timer.start()
+		return contact_damage
+	else:
+		return 0
+
+func _reset_damage_ability() -> void:
+	can_deal_damage = true

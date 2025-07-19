@@ -26,6 +26,7 @@ Eventbus="*res://source/Eventbus/Eventbus.gd"
 [global_group]
 
 projectiles=""
+contact_damage=""
 
 [input]
 
@@ -60,6 +61,7 @@ left_click={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Ground"
 3d_physics/layer_3="Bullet"
+3d_physics/layer_5="drill"
 
 [rendering]
 

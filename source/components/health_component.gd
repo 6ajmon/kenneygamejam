@@ -1,7 +1,7 @@
 extends Node3D
 class_name HealthComponent
 
-signal health_changed(new_health: float)
+signal damage_recieved(damage_taken: float)
 signal died
 
 @export var max_health: float = 100
@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 func take_damage(damage: float) -> void:
 	current_health = max(0, current_health - damage)
-	health_changed.emit(current_health)
+	damage_recieved.emit(damage)
 	
 	if current_health <= 0:
 		died.emit()
