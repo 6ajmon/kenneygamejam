@@ -19,7 +19,7 @@ func increase_drill_size() -> void:
 	scale += Vector3(increase_value, increase_value, increase_value)
 	position.z -= 1.4 * increase_value
 	position.z *= increase_value
-	rotation_speed *= increase_value
+	rotation_speed += rotation_speed * increase_value
 
 func get_damage() -> float:
 	if (can_deal_damage):
