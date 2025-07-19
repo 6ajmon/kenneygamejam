@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://bvw3uh43tvfds" path="res://source/enemies/alien_animated_mesh.tscn" id="1_7q54h"]
 [ext_resource type="Script" uid="uid://b4jx0kp8ik070" path="res://source/enemies/base_alien.gd" id="1_lo783"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3nu7"]
-radius = 0.308322
-height = 0.863403
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lo783"]
+radius = 0.4
+height = 10.0
 
 [node name="BaseAlien" type="CharacterBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_lo783")
@@ -16,5 +16,7 @@ script = ExtResource("1_lo783")
 [node name="AlienAnimated" parent="." instance=ExtResource("1_7q54h")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.10404, 0, 0, 0, 3.47643, 0, 0, 0, 1, 0, 1.0491, 0)
-shape = SubResource("CapsuleShape3D_r3nu7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51684, 0)
+shape = SubResource("CapsuleShape3D_lo783")
+
+[editable path="AlienAnimated"]
