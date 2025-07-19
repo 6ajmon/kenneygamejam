@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name PlayerVehicle
 
 @export var max_speed: float = 30.0
 @export var acceleration: float = 10.0
@@ -12,7 +13,7 @@ var current_speed: float = 0.0
 var previous_rotation_y: float = 0.0
 
 
-@export var camera: Camera3D
+@export var camera: PlayerCamera
 
 
 

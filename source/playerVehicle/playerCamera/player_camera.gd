@@ -1,14 +1,13 @@
 extends Camera3D
+class_name PlayerCamera
 
-@export var target_path: NodePath  
+@export var target: PlayerVehicle  
 var offset: Vector3 
 @export var follow_speed: float = 20
 
-var target: Node3D
 
 func _ready():
 	offset = position
-	target = get_node(target_path)
 
 func _physics_process(delta: float) -> void:
 	if not target:
