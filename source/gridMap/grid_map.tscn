@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dds1anqgmbkhq"]
+
+[ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
+[ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
+[ext_resource type="Script" uid="uid://cktnf8up33v0h" path="res://source/gridMap/map_generator.gd" id="2_m3mdr"]
+[ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
+[ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_m3mdr"]
+sky_material = SubResource("ProceduralSkyMaterial_8110p")
+
+[sub_resource type="Environment" id="Environment_3w0rk"]
+background_mode = 2
+sky = SubResource("Sky_m3mdr")
+tonemap_mode = 2
+
+[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera")]
+mesh_library = ExtResource("1_yyekg")
+cell_center_y = false
+script = ExtResource("2_tqf7u")
+generator = NodePath("MapGenerator")
+player_vehicle = NodePath("PlayerVehicle")
+player_camera = NodePath("PlayerCamera")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="MapGenerator" type="Node3D" parent="." node_paths=PackedStringArray("grid_map")]
+script = ExtResource("2_m3mdr")
+grid_map = NodePath("..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3w0rk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlayerVehicle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_8110p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37739, 0)
+camera = NodePath("../PlayerCamera")
+
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
+target = NodePath("../PlayerVehicle")

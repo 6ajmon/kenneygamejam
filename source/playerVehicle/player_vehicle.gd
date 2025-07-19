@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name PlayerVehicle
 
 @export var max_speed: float = 30.0
 @export var acceleration: float = 10.0
@@ -15,7 +16,7 @@ var previous_rotation_y: float = 0.0
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
 var weapon_slots = []
 
-@export var camera: Camera3D
+@export var camera: PlayerCamera
 
 func _ready() -> void:
 	Eventbus.connect("new_upgrade", get_new_upgrade)
