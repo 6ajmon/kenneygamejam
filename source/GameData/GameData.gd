@@ -12,10 +12,8 @@ var Upgrades = {
 var UpgradesUnlocked = []
 
 var PlayerPosition
-var AlienSouls: int = 23
 
-func _ready() -> void:
-	GameData.UpgradesUnlocked.append(GameData.Upgrades["Sniper"])
-	GameData.UpgradesUnlocked.append(GameData.Upgrades["Drill"])
-	for up in UpgradesUnlocked:
-		print(up.type)
+var AlienSouls: int = 0
+var RequiredQuota: int = 10
+var SoulsCollectedThisRound: int = 0
+var CurrentRound: int = 0

@@ -23,7 +23,7 @@ boot_splash/minimum_display_time=100
 Eventbus="*res://source/Eventbus/Eventbus.gd"
 UpgradesDescriptions="*res://upgrades_descriptions.gd"
 GameData="*res://source/GameData/GameData.gd"
-SceneManager="*res://source/Eventbus/scene_manager.gd"
+SceneManager="*res://source/GameData/scene_manager.gd"
 
 [display]
 

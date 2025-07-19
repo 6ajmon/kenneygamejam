@@ -95,7 +95,7 @@ func _on_alien_lifespan_timeout() -> void:
 	queue_free()
 
 func _on_death() -> void:
-	SceneManager.souls_collected_this_round += alien_death_value
+	GameData.SoulsCollectedThisRound += alien_death_value
 	queue_free()
 
 func _on_damage_received(damage: float, number_position: Vector3) -> void:
