@@ -66,7 +66,7 @@ func get_grid_bounds(cells: Array[Vector3i]) -> AABB:
 	return AABB(min_pos, size)
 	
 
-func create_wall(wall_position: Vector3, size: Vector3):
+func create_wall(wall_position: Vector3, size: Vector3) -> void:
 	var wall = StaticBody3D.new()
 	var shape = CollisionShape3D.new()
 	var box = BoxShape3D.new()
