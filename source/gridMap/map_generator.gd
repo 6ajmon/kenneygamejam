@@ -25,8 +25,6 @@ func _ready() -> void:
 	noise = FastNoiseLite.new()
 	noise.seed = seed_value
 	noise.frequency = noise_scale
-	generate_map()
-	generate_slopes()
 
 func generate_map() -> void:
 	grid_map.clear()
@@ -54,38 +52,51 @@ func smooth_map() -> void:
 		tall_tile_placed = false
 		for x in range(generated_map_size.x):
 			for y in range(generated_map_size.y):
-				var neighbor_north = null
-				var neighbor_south = null
-				var neighbor_east = null
-				var neighbor_west = null
+				var neighbor_n = null
+				var neighbor_ne = null
+				var neighbor_e = null
+				var neighbor_se = null
+				var neighbor_s = null
+				var neighbor_sw = null
+				var neighbor_w = null
+				var neighbor_nw = null
 
 				if y + 1 < generated_map_size.y:
-					neighbor_north = grid_map_cell[x][y + 1]
-
-				if y - 1 >= 0:
-					neighbor_south = grid_map_cell[x][y - 1]
-
+					neighbor_n = grid_map_cell[x][y + 1]
+				if y + 1 < generated_map_size.y and x + 1 < generated_map_size.x:
+					neighbor_ne = grid_map_cell[x + 1][y + 1]
 				if x + 1 < generated_map_size.x:
-					neighbor_east = grid_map_cell[x + 1][y]
-
+					neighbor_e = grid_map_cell[x + 1][y]
+				if y - 1 >= 0 and x + 1 < generated_map_size.x:
+					neighbor_se = grid_map_cell[x + 1][y - 1]
+				if y - 1 >= 0:
+					neighbor_s = grid_map_cell[x][y - 1]
+				if y - 1 >= 0 and x - 1 >= 0:
+					neighbor_sw = grid_map_cell[x - 1][y - 1]
 				if x - 1 >= 0:
-					neighbor_west = grid_map_cell[x - 1][y]
+					neighbor_w = grid_map_cell[x - 1][y]
+				if y + 1 < generated_map_size.y and x - 1 >= 0:
+					neighbor_nw = grid_map_cell[x - 1][y + 1]
 
 				var tall_neighbors = 0
-				if neighbor_north == TALL:
+				if neighbor_n == TALL:
 					tall_neighbors += 1
-				if neighbor_south == TALL:
+				if neighbor_s == TALL:
 					tall_neighbors += 1
-				if neighbor_east == TALL:
+				if neighbor_e == TALL:
 					tall_neighbors += 1
-				if neighbor_west == TALL:
+				if neighbor_w == TALL:
 					tall_neighbors += 1
 				
 				if grid_map_cell[x][y] == LOW:
-					if tall_neighbors >= 3 or (neighbor_east == TALL and neighbor_west == TALL) or (neighbor_north == TALL and neighbor_south == TALL):
+					if tall_neighbors >= 3 or (neighbor_e == TALL and neighbor_w == TALL) or \
+					(neighbor_n == TALL and neighbor_s == TALL) or \
+					(neighbor_ne == TALL and neighbor_sw == TALL) or \
+					(neighbor_nw == TALL and neighbor_se == TALL):
 						grid_map.set_cell_item(Vector3i(x, 0, y), TILE_TALL)
 						grid_map_cell[x][y] = TALL
 						tall_tile_placed = true
+					
 		
 
 func generate_slopes() -> void:
