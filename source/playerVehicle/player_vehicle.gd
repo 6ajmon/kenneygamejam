@@ -18,12 +18,14 @@ var previous_position: Vector3 = Vector3.ZERO
 @onready var spotlight: SpotLight3D = $Beam/SpotLight3D
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
 var weapon_slots = []
+var drill_slot
 
 
 func _ready() -> void:
 	GameData.PlayerPosition = global_position
 	Eventbus.connect("new_upgrade", get_new_upgrade)
 	weapon_slots = weapon_slots_node.get_children()
+	drill_slot = $DrillSlot
 	
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(previous_position) > 0.01:
@@ -90,14 +92,19 @@ func shoot() -> void:
 				vehicle_speed = 0
 			slot.weapon.shoot(vehicle_speed)
 
-func get_new_upgrade(upgrade_name : String) -> void:
+func get_new_upgrade(upgrade_name: String) -> void:
 	var new_upgrade_scene : PackedScene = GameData.Upgrades[upgrade_name].scene
 	var new_upgrade = new_upgrade_scene.instantiate()
-	if new_upgrade.type is Weapon:
+	if new_upgrade is Weapon:
 		for slot : WeaponSpot in weapon_slots:
 			if !slot.is_taken():
 				slot.add_child(new_upgrade)
 				slot.weapon = new_upgrade
+				return
+	elif new_upgrade is DrillWeapon:
+			if !drill_slot.is_taken():
+				drill_slot.add_child(new_upgrade)
+				drill_slot.weapon = new_upgrade
 				return
 
 
