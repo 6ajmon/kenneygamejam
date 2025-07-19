@@ -4,18 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://cy4qexbbto4k3" path="res://assets/Blasters/bullet-foam-tip.glb" id="2_1rb5d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es3hi"]
-size = Vector3(0.03, 0.07, 0.03)
+size = Vector3(0.2, 0.503052, 0.2)
 
-[node name="Bullet" type="RigidBody3D"]
+[node name="Bullet" type="AnimatableBody3D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_jacf5")
 
 [node name="bullet_model" parent="." instance=ExtResource("2_1rb5d")]
-transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 0, 0, 0)
+transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, 0, 0, 0.2)
 
 [node name="CollisionBox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0288647, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.000660837, 0.0288647, -0.0092788)
 shape = SubResource("BoxShape3D_es3hi")
 
 [node name="QueueFreeTimer" type="Timer" parent="."]

@@ -5,7 +5,10 @@
 
 [node name="Weapon000" type="Node3D"]
 script = ExtResource("1_oll5y")
-bullet_speed = 30.0
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0599753, -0.285857)
+gizmo_extents = 0.5
 
 [node name="BlasterModel" parent="." instance=ExtResource("1_ydt8j")]
 
@@ -13,4 +16,4 @@ bullet_speed = 30.0
 wait_time = 0.1
 one_shot = true
 
-[connection signal="timeout" from="CooldownTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

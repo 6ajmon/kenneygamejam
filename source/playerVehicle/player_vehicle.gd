@@ -30,15 +30,20 @@ func move_and_rotate(delta: float) -> void:
 	
 	var is_strafing = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
 		
-	if Input.is_action_pressed("move_forward") and !is_strafing:
+	if Input.is_action_pressed("move_forward"):
 		current_speed += acceleration * delta
-	elif Input.is_action_pressed("move_backward") and !is_strafing:
-		current_speed -= acceleration * delta * backward_penalty
+	elif Input.is_action_pressed("move_backward"):
+		if current_speed <= 0:
+			current_speed -= acceleration * delta * backward_penalty
+		else:
+			current_speed -= acceleration * delta
 	else:
 		current_speed = move_toward(current_speed, 0.0, deceleration * delta)
-
-	current_speed = clamp(current_speed, -backward_max_speed, max_speed)
 	
+	if !is_strafing:
+		current_speed = clamp(current_speed, -backward_max_speed, max_speed)
+	else:
+		current_speed = clamp(current_speed, -backward_max_speed, backward_max_speed)
 	
 	if Input.is_action_pressed("move_left"):
 		strafe -= acceleration * delta * backward_penalty
@@ -73,7 +78,7 @@ func move_and_rotate(delta: float) -> void:
 func shoot() -> void:
 	for slot : WeaponSpot in weapon_slots:
 		if slot.is_taken():
-			slot.weapon.shoot(_get_mouse_direction())
+			slot.weapon.shoot(clamp(current_speed, 0 , current_speed))
 
 func get_new_upgrade(upgrade_name : String) -> void:
 	var new_upgrade_scene : PackedScene = GameData.Upgrades[upgrade_name].scene
