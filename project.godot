@@ -13,7 +13,10 @@ config_version=5
 config/name="kenneygamejam"
 run/main_scene="uid://dds1anqgmbkhq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.0705882, 0.0705882, 0.0705882, 1)
+boot_splash/image="uid://bjfs4idqp8o4r"
+config/icon="uid://duf723vhxa8op"
+boot_splash/minimum_display_time=100
 
 [autoload]
 
