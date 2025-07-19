@@ -29,7 +29,7 @@ func _ready() -> void:
 	speed = randf_range(minimum_speed, maximum_speed)
 	detection_range_squared = player_detection_range * player_detection_range
 	health_component.died.connect(_on_death)
-	health_component.damage_recieved.connect(_on_damage_received)
+	health_component.damage_received.connect(_on_damage_received)
 
 func _physics_process(delta: float) -> void:
 	distance_check_timer += delta

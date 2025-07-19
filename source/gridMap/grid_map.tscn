@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=12 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
 [ext_resource type="PackedScene" uid="uid://djcu6k57viqb" path="res://tmp/test_ui/temporary_ui.tscn" id="6_sgigq"]
 [ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
+[ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="8_7ywn6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -20,7 +21,7 @@ background_mode = 2
 sky = SubResource("Sky_m3mdr")
 tonemap_mode = 2
 
-[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera", "alien_spawner")]
+[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera", "alien_spawner", "target_dummy")]
 mesh_library = ExtResource("1_yyekg")
 cell_center_y = false
 collision_layer = 2
@@ -30,6 +31,7 @@ generator = NodePath("MapGenerator")
 player_vehicle = NodePath("PlayerVehicle")
 player_camera = NodePath("PlayerCamera")
 alien_spawner = NodePath("AlienSpawner")
+target_dummy = NodePath("TargetDummy")
 player_fly_height = 2.0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
@@ -55,3 +57,13 @@ target = NodePath("../PlayerVehicle")
 spawn_delay_between_aliens = 0.1
 
 [node name="temporary_ui" parent="." instance=ExtResource("6_sgigq")]
+
+[node name="TargetDummy" parent="." instance=ExtResource("8_7ywn6")]
+minimum_speed = 0.0
+maximum_speed = 0.0
+
+[node name="HealthComponent" parent="TargetDummy" index="3"]
+max_health = 1e+06
+
+[editable path="TargetDummy"]
+[editable path="TargetDummy/AlienAnimated"]

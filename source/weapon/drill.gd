@@ -11,7 +11,8 @@ func _physics_process(delta: float) -> void:
 	var rotation_angle = rotation_speed * delta
 	drill_mesh.rotate(Vector3.FORWARD, rotation_angle)
 	total_rotation += rotation_angle
-	if (total_rotation >= 2 * PI):
+	if (total_rotation >= TAU):
+		total_rotation = fmod(total_rotation, TAU)
 		can_deal_damage = true
 
 func increase_drill_size() -> void:
