@@ -40,7 +40,6 @@ shadow_enabled = true
 
 [node name="PlayerVehicle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_8110p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37739, 0)
-max_speed = 100.0
 camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
