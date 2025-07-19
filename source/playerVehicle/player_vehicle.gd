@@ -93,11 +93,12 @@ func shoot() -> void:
 func get_new_upgrade(upgrade_name : String) -> void:
 	var new_upgrade_scene : PackedScene = GameData.Upgrades[upgrade_name].scene
 	var new_upgrade = new_upgrade_scene.instantiate()
-	for slot : WeaponSpot in weapon_slots:
-		if !slot.is_taken():
-			slot.add_child(new_upgrade)
-			slot.weapon = new_upgrade
-			return
+	if new_upgrade.type is Weapon:
+		for slot : WeaponSpot in weapon_slots:
+			if !slot.is_taken():
+				slot.add_child(new_upgrade)
+				slot.weapon = new_upgrade
+				return
 
 
 

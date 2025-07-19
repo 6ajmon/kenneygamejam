@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ejj7ma08ncj"]
+
+[ext_resource type="Script" uid="uid://cio0eniunjpat" path="res://source/weapon/weapon.gd" id="1_byg53"]
+[ext_resource type="PackedScene" uid="uid://3qx5t7j0foaf" path="res://assets/Blasters/blaster-f.glb" id="2_jpf3x"]
+
+[node name="Sniper" type="Node3D"]
+script = ExtResource("1_byg53")
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0599753, -0.285857)
+gizmo_extents = 0.5
+
+[node name="blaster-f2" parent="." instance=ExtResource("2_jpf3x")]
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
