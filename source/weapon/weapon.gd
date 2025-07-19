@@ -21,7 +21,6 @@ func shoot(vehicle_speed : float):
 	if on_cooldown:
 		return
 	_init_bullet(vehicle_speed)
-	# Cooldown
 	on_cooldown = true
 	cooldown_timer.start()
 

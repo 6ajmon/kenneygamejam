@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=11 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
 [ext_resource type="PackedScene" uid="uid://djcu6k57viqb" path="res://tmp/test_ui/temporary_ui.tscn" id="6_sgigq"]
+[ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -19,19 +20,23 @@ background_mode = 2
 sky = SubResource("Sky_m3mdr")
 tonemap_mode = 2
 
-[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera")]
+[node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera", "alien_spawner")]
 mesh_library = ExtResource("1_yyekg")
 cell_center_y = false
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_tqf7u")
 generator = NodePath("MapGenerator")
 player_vehicle = NodePath("PlayerVehicle")
 player_camera = NodePath("PlayerCamera")
+alien_spawner = NodePath("AlienSpawner")
 player_fly_height = 2.0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="MapGenerator" type="Node3D" parent="." node_paths=PackedStringArray("grid_map")]
 script = ExtResource("2_m3mdr")
 grid_map = NodePath("..")
+seed_value = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3w0rk")
@@ -45,6 +50,8 @@ camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 target = NodePath("../PlayerVehicle")
-distance_from_player = 6.0
+
+[node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
+spawn_delay_between_aliens = 0.1
 
 [node name="temporary_ui" parent="." instance=ExtResource("6_sgigq")]

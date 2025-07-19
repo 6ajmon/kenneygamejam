@@ -3,9 +3,11 @@ extends GridMap
 @export var generator: MapGenerator
 @export var player_vehicle: PlayerVehicle
 @export var player_camera: PlayerCamera
+@export var alien_spawner: AlienSpawner
 @export var player_fly_height: float = 1.0
 @export var camera_drag_margin: float = 5.0
 @export var wall_cell_offset: float = 18.0
+
 var wall_height: float = 100.0
 var map_size: Vector2i
 var level_bounds: AABB
@@ -43,11 +45,13 @@ func _ready() -> void:
 		Vector3((world_min.x + world_max.x) / 2, 0, world_max.z - wall_offset),
 		Vector3(world_max.x - world_min.x - 2 * wall_offset, wall_height, 1)
 	)
+	
+	alien_spawner.start_spawning()
 
 func spawn_player() -> void:
 	map_size = generator.generated_map_size
 	player_vehicle.global_transform.origin = Vector3(map_size.x / 2.0, player_fly_height, map_size.y / 2.0)
-
+	
 func get_grid_bounds(cells: Array[Vector3i]) -> AABB:
 	if cells.is_empty():
 		return AABB()

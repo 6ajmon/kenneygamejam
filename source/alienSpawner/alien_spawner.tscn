@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bclrnxpmgfjhd"]
+
+[ext_resource type="Script" uid="uid://in4h403t02pk" path="res://source/alienSpawner/alien_spawner.gd" id="1_cgpu6"]
+
+[node name="AlienSpawner" type="Node3D"]
+script = ExtResource("1_cgpu6")
