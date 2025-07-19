@@ -25,8 +25,6 @@ func _ready() -> void:
 	noise = FastNoiseLite.new()
 	noise.seed = seed_value
 	noise.frequency = noise_scale
-	generate_map()
-	generate_slopes()
 
 func generate_map() -> void:
 	grid_map.clear()

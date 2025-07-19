@@ -11,6 +11,11 @@ var camera_width: float
 var camera_height: float
 
 func _ready() -> void:
+	randomize_mesh_color()
+	
+	generator.generate_map()
+	generator.generate_slopes()
+	
 	spawn_player()
 	var used_cells = get_used_cells()
 	level_bounds = get_grid_bounds(used_cells)
@@ -75,3 +80,21 @@ func create_wall(wall_position: Vector3, size: Vector3):
 	wall.position = wall_position
 	wall.add_child(shape)
 	add_child(wall)
+
+func randomize_mesh_color() -> void:
+	var r = randf_range(0, 1.0)
+	var g = randf_range(0, 1.0)
+	var b = randf_range(0, 1.0)
+	var a = 1.0
+	var mesh_material = mesh_library.get_item_mesh(generator.TILE_LOW).surface_get_material(0) as StandardMaterial3D
+	mesh_material.albedo_color = Color(r, g, b, a)
+	mesh_material = mesh_library.get_item_mesh(generator.TILE_TALL).surface_get_material(0) as StandardMaterial3D
+	mesh_material.albedo_color = Color(r, g, b, a)
+	mesh_material = mesh_library.get_item_mesh(generator.TILE_TALL_ALT).surface_get_material(0) as StandardMaterial3D
+	mesh_material.albedo_color = Color(r, g, b, a)
+	mesh_material = mesh_library.get_item_mesh(generator.TILE_SLOPE).surface_get_material(0) as StandardMaterial3D
+	mesh_material.albedo_color = Color(r, g, b, a)
+	mesh_material = mesh_library.get_item_mesh(generator.TILE_SLOPE_INNER).surface_get_material(0) as StandardMaterial3D
+	mesh_material.albedo_color = Color(r, g, b, a)
+	mesh_material = mesh_library.get_item_mesh(generator.TILE_SLOPE_OUTER).surface_get_material(0) as StandardMaterial3D
+	mesh_material.albedo_color = Color(r, g, b, a)
