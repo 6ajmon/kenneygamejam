@@ -47,20 +47,8 @@ shadow_enabled = true
 [node name="PlayerVehicle" parent="." instance=ExtResource("1_o8l0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Beam" parent="PlayerVehicle" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404, 0, -0.29404, 0.955793, 0, 0, 0)
-
-[node name="SpotLight3D" parent="PlayerVehicle/Beam" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.997748, 0.0670748, 0, -0.0670748, 0.997748, 0.0520818, 0.647241, -1.28349)
-
-[node name="Marker3D" type="Marker3D" parent="PlayerVehicle/Beam/SpotLight3D" index="0"]
+[node name="Marker3D2" type="Marker3D" parent="PlayerVehicle/Beam/SpotLight3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300709, -0.0589671, -6.72242)
-
-[node name="Bullet" parent="PlayerVehicle" index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.934726, 0.355368, 0, -0.355368, 0.934726, 0.169682, 0.651705, -1.01716)
-
-[node name="Marker3D" parent="PlayerVehicle/Bullet" index="3"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0.0286593, 0.0169106)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

@@ -83,7 +83,6 @@ func shoot() -> void:
 			var vehicle_speed = current_speed
 			if current_speed < 0:
 				vehicle_speed = 0
-			print(vehicle_speed)
 			slot.weapon.shoot(vehicle_speed)
 
 func get_new_upgrade(upgrade_name : String) -> void:

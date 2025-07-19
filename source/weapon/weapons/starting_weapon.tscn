@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cshsnukov7jnh"]
+
+[ext_resource type="PackedScene" uid="uid://dx63gtep8pc1v" path="res://source/weapon/WeaponLogicComponent.tscn" id="1_puf2e"]
+[ext_resource type="PackedScene" uid="uid://bfiwuhpdefusx" path="res://assets/Blasters/blaster-g.glb" id="2_gtu8h"]
+
+[node name="StartingWeapon" type="Node3D"]
+
+[node name="WeaponLogic" parent="." instance=ExtResource("1_puf2e")]
+bullets_per_second = 1
+
+[node name="blaster-g2" parent="." instance=ExtResource("2_gtu8h")]
