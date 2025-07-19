@@ -82,12 +82,12 @@ func create_wall(wall_position: Vector3, size: Vector3):
 	add_child(wall)
 
 func randomize_mesh_color() -> void:
-	var r = randf_range(0, 1.0)
-	var g = randf_range(0, 1.0)
-	var b = randf_range(0, 1.0)
+	var r = 0.3
+	var g = 1
+	var b = 0.1
 	var a = 1.0
 	var mesh_material = mesh_library.get_item_mesh(generator.TILE_LOW).surface_get_material(0) as StandardMaterial3D
-	mesh_material.albedo_color = Color(r, g, b, a)
+	mesh_material.albedo_color = Color(0, 0.3, 0.9, a)
 	mesh_material = mesh_library.get_item_mesh(generator.TILE_TALL).surface_get_material(0) as StandardMaterial3D
 	mesh_material.albedo_color = Color(r, g, b, a)
 	mesh_material = mesh_library.get_item_mesh(generator.TILE_TALL_ALT).surface_get_material(0) as StandardMaterial3D
