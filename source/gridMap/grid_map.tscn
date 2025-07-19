@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=10 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
 [ext_resource type="Script" uid="uid://cktnf8up33v0h" path="res://source/gridMap/map_generator.gd" id="2_m3mdr"]
 [ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
+[ext_resource type="PackedScene" uid="uid://djcu6k57viqb" path="res://tmp/test_ui/temporary_ui.tscn" id="6_sgigq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -25,6 +26,7 @@ script = ExtResource("2_tqf7u")
 generator = NodePath("MapGenerator")
 player_vehicle = NodePath("PlayerVehicle")
 player_camera = NodePath("PlayerCamera")
+player_fly_height = 2.0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="MapGenerator" type="Node3D" parent="." node_paths=PackedStringArray("grid_map")]
@@ -43,3 +45,6 @@ camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 target = NodePath("../PlayerVehicle")
+distance_from_player = 6.0
+
+[node name="temporary_ui" parent="." instance=ExtResource("6_sgigq")]
