@@ -13,6 +13,7 @@ var speed: float
 @onready var animation_player: AnimationPlayer = $AlienAnimated/tmpParent/AnimationPlayer
 @onready var lifespan_timer: Timer = $AlienLifespan
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var damage_number_display_component = $DamageNumberDisplayComponent
 
 const GRAVITY = 10.0
 const LERP_SPEED_FACTOR = 5.0
@@ -28,6 +29,7 @@ func _ready() -> void:
 	speed = randf_range(minimum_speed, maximum_speed)
 	detection_range_squared = player_detection_range * player_detection_range
 	health_component.died.connect(_on_death)
+	health_component.damage_recieved.connect(_on_damage_received)
 
 func _physics_process(delta: float) -> void:
 	distance_check_timer += delta
@@ -95,3 +97,6 @@ func _on_alien_lifespan_timeout() -> void:
 func _on_death() -> void:
 	GameData.AlienSouls += alien_death_value
 	queue_free()
+
+func _on_damage_received(damage: float, number_position: Vector3) -> void:
+	damage_number_display_component.show_damage(damage, number_position)

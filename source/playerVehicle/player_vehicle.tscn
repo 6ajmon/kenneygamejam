@@ -126,15 +126,8 @@ shadow_mesh = SubResource("ArrayMesh_8kmci")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vo0dx"]
 size = Vector3(1.8, 1, 2.5)
 
-[node name="PlayerVehicle" type="CharacterBody3D"]
+[node name="PlayerVehicle" type="CharacterBody3D" groups=["contact_damage"]]
 script = ExtResource("1_vo0dx")
-max_speed = null
-acceleration = null
-deceleration = null
-turn_speed = null
-backward_penalty = null
-turning_penalty = null
-backward_max_speed = null
 
 [node name="PowerSystem" parent="." instance=ExtResource("4_0jnxe")]
 

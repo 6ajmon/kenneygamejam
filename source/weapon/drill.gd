@@ -15,9 +15,11 @@ func _physics_process(delta: float) -> void:
 		can_deal_damage = true
 
 func increase_drill_size() -> void:
-	scale += Vector3(0.25, 0.25, 0.25)
-	position.z -= 1.4 * 0.25
-	position.z *= 0.25
+	var increase_value = 0.25
+	scale += Vector3(increase_value, increase_value, increase_value)
+	position.z -= 1.4 * increase_value
+	position.z *= increase_value
+	rotation_speed *= increase_value
 
 func get_damage() -> float:
 	if (can_deal_damage):

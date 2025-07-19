@@ -44,7 +44,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ydeoo")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihc5g"]
-size = Vector3(1.2, 1.2, 8)
+size = Vector3(1.4, 1.7, 8)
 
 [node name="Drill" type="StaticBody3D" groups=["contact_damage"]]
 collision_layer = 16
