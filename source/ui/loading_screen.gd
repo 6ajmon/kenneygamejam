@@ -4,10 +4,10 @@ extends Control
 
 var load_state = null
 
-func _ready():
+func _ready() -> void:
 	load_state = ResourceLoader.load_threaded_request(target_scene_path)
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if load_state == null:
 		return
 

@@ -15,7 +15,6 @@ func change_energy(value: float = 0) -> void:
 	_update_power_bar()
 	if current_energy <= 0:
 		Eventbus.energy_depleted.emit()
-	print(current_energy)
 
 func decrease_energy(value: float) -> void:
 	change_energy(-value)

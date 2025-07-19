@@ -13,11 +13,7 @@ func _ready() -> void:
 
 func _on_energy_depleted() -> void:
 	if souls_collected_this_round >= required_soul_quota:
-		if shop_scene:
-			GameData.AlienSouls += souls_collected_this_round
-			get_tree().change_scene_to_packed(shop_scene)
+		GameData.AlienSouls += souls_collected_this_round
+		get_tree().change_scene_to_packed(shop_scene)
 	else:
-		if failure_scene:
-			get_tree().change_scene_to_packed(failure_scene)
-		if failure_scene:
-			get_tree().change_scene_to_packed(failure_scene)
+		get_tree().change_scene_to_packed(failure_scene)
