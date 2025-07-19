@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://j54sllpfwetl"]
+[gd_scene load_steps=12 format=3 uid="uid://j54sllpfwetl"]
 
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="1_o8l0e"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="2_vtqqj"]
@@ -15,22 +15,22 @@ background_mode = 2
 sky = SubResource("Sky_cfp2c")
 tonemap_mode = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yykjt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtqqj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yykjt"]
-material = SubResource("StandardMaterial3D_yykjt")
+material = SubResource("StandardMaterial3D_vtqqj")
 size = Vector3(100, 2, 100)
 
 [sub_resource type="Gradient" id="Gradient_d3spd"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cfp2c"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6qbr5"]
 gradient = SubResource("Gradient_d3spd")
 fill_from = Vector2(0.408602, 0.327957)
 fill_to = Vector2(0.88172, 0.543011)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3spd"]
 albedo_color = Color(0.463803, 0.860794, 0.520082, 1)
-albedo_texture = SubResource("GradientTexture2D_cfp2c")
+albedo_texture = SubResource("GradientTexture2D_6qbr5")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yykjt"]
 data = PackedVector3Array(-50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50, 50, -0.5, 50, -50, -0.5, 50, 50, 0.5, -50, -50, 0.5, -50, 50, -0.5, -50, -50, 0.5, -50, -50, -0.5, -50, 50, -0.5, -50, 50, 0.5, 50, 50, 0.5, -50, 50, -0.5, 50, 50, 0.5, -50, 50, -0.5, -50, 50, -0.5, 50, -50, 0.5, -50, -50, 0.5, 50, -50, -0.5, -50, -50, 0.5, 50, -50, -0.5, 50, -50, -0.5, -50, 50, 0.5, 50, -50, 0.5, 50, 50, 0.5, -50, -50, 0.5, 50, -50, 0.5, -50, 50, 0.5, -50, -50, -0.5, 50, 50, -0.5, 50, -50, -0.5, -50, 50, -0.5, 50, 50, -0.5, -50, -50, -0.5, -50)
@@ -45,6 +45,22 @@ transform = Transform3D(-0.901795, -0.324141, -0.28583, -0.0999205, -0.487084, 0
 shadow_enabled = true
 
 [node name="PlayerVehicle" parent="." instance=ExtResource("1_o8l0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Beam" parent="PlayerVehicle" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404, 0, -0.29404, 0.955793, 0, 0, 0)
+
+[node name="SpotLight3D" parent="PlayerVehicle/Beam" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.997748, 0.0670748, 0, -0.0670748, 0.997748, 0.0520818, 0.647241, -1.28349)
+
+[node name="Marker3D" type="Marker3D" parent="PlayerVehicle/Beam/SpotLight3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300709, -0.0589671, -6.72242)
+
+[node name="Bullet" parent="PlayerVehicle" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.934726, 0.355368, 0, -0.355368, 0.934726, 0.169682, 0.651705, -1.01716)
+
+[node name="Marker3D" parent="PlayerVehicle/Bullet" index="3"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0.0286593, 0.0169106)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -60,3 +76,5 @@ shape = SubResource("ConcavePolygonShape3D_yykjt")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_vtqqj")]
 transform = Transform3D(-4.37114e-08, -0.866025, 0.5, 0, 0.5, 0.866025, -1, 3.78552e-08, -2.18557e-08, 3.66869, 5.98938, 0)
+
+[editable path="PlayerVehicle"]

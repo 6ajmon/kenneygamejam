@@ -6,7 +6,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_es3hi"]
 size = Vector3(0.2, 0.503052, 0.2)
 
-[node name="Bullet" type="AnimatableBody3D"]
+[node name="Bullet" type="AnimatableBody3D" groups=["projectiles"]]
+transform = Transform3D(1, 0, 0, 0, 0.955793, 0.29404, 0, -0.29404, 0.955793, 0, 0, 0)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_jacf5")

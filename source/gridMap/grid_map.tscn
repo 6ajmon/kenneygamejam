@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
 [ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
+[ext_resource type="PackedScene" uid="uid://djcu6k57viqb" path="res://tmp/test_ui/temporary_ui.tscn" id="6_sgigq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -52,3 +53,6 @@ target = NodePath("../PlayerVehicle")
 
 [node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
 spawn_delay_between_aliens = 0.1
+distance_from_player = 6.0
+
+[node name="temporary_ui" parent="." instance=ExtResource("6_sgigq")]

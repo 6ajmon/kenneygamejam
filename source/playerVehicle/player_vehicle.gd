@@ -2,8 +2,8 @@ extends CharacterBody3D
 class_name PlayerVehicle
 
 @export var max_speed: float = 30.0
-@export var acceleration: float = 10.0
-@export var deceleration: float = 10.0
+@export var acceleration: float = 5.0
+@export var deceleration: float = 8.0
 @export var turn_speed: float = 2.0  
 @export var backward_penalty: float = 0.6
 @export var turning_penalty : float = 0
@@ -15,6 +15,7 @@ var strafe := 0.0
 var previous_rotation_y: float = 0.0
 var previous_position: Vector3 = Vector3.ZERO
 
+@onready var spotlight: SpotLight3D = $Beam/SpotLight3D
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
 var weapon_slots = []
 
@@ -85,7 +86,11 @@ func move_and_rotate(delta: float) -> void:
 func shoot() -> void:
 	for slot : WeaponSpot in weapon_slots:
 		if slot.is_taken():
-			slot.weapon.shoot(clamp(current_speed, 0 , current_speed))
+			var vehicle_speed = current_speed
+			if current_speed < 0:
+				vehicle_speed = 0
+			print(vehicle_speed)
+			slot.weapon.shoot(vehicle_speed)
 
 func get_new_upgrade(upgrade_name : String) -> void:
 	var new_upgrade_scene : PackedScene = GameData.Upgrades[upgrade_name].scene
@@ -95,7 +100,9 @@ func get_new_upgrade(upgrade_name : String) -> void:
 			slot.add_child(new_upgrade)
 			slot.weapon = new_upgrade
 			return
-			
+
+
+
 
 func _get_mouse_direction() -> Vector3:
 	var mouse_pos := get_viewport().get_mouse_position()
