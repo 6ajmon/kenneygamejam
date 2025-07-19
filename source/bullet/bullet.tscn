@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdowkc3nl01cg"]
+
+[ext_resource type="Script" uid="uid://im6c25286phu" path="res://source/bullet/bullet.gd" id="1_jacf5"]
+[ext_resource type="PackedScene" uid="uid://cy4qexbbto4k3" path="res://assets/Blasters/bullet-foam-tip.glb" id="2_1rb5d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_es3hi"]
+size = Vector3(0.2, 0.503052, 0.2)
+
+[node name="Bullet" type="AnimatableBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_jacf5")
+
+[node name="bullet_model" parent="." instance=ExtResource("2_1rb5d")]
+transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, 0, 0, 0.2)
+
+[node name="CollisionBox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.000660837, 0.0288647, -0.0092788)
+shape = SubResource("BoxShape3D_es3hi")
+
+[node name="QueueFreeTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="QueueFreeTimer" to="." method="_on_queue_free_timer_timeout"]

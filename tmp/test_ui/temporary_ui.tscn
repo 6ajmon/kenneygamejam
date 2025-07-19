@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://djcu6k57viqb"]
+
+[ext_resource type="Script" uid="uid://bit2hsh2ebb6m" path="res://tmp/test_ui/temporary_ui.gd" id="1_abf35"]
+[ext_resource type="Texture2D" uid="uid://bq4d2ovydxyiv" path="res://tmp/test_ui/blaster-g.png" id="1_kwtb8"]
+
+[node name="temporary_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_abf35")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 47.0
+offset_right = 136.0
+offset_bottom = 119.0
+icon = ExtResource("1_kwtb8")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5j1vg56en7a"]
+[gd_scene load_steps=5 format=3 uid="uid://c5j1vg56en7a"]
 
 [ext_resource type="PackedScene" uid="uid://wxinh6mi4aup" path="res://assets/Kenny Space Kit/craft_cargoA.glb" id="1_58n4u"]
 [ext_resource type="Script" uid="uid://b8l3ctbg60j82" path="res://source/playerVehicle/player_vehicle.gd" id="1_vo0dx"]
+[ext_resource type="PackedScene" uid="uid://b6fgkqiqyryv3" path="res://source/weaponSlot/weapon_slot.tscn" id="3_wnbqt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vo0dx"]
 size = Vector3(1.8, 1, 2.5)
@@ -16,3 +17,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29226, -0.18307)
 visible = false
 shape = SubResource("BoxShape3D_vo0dx")
+
+[node name="WeaponSlotsNode" type="Node3D" parent="."]
+
+[node name="WeaponSlot" parent="WeaponSlotsNode" instance=ExtResource("3_wnbqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.715, -1)
+
+[node name="WeaponSlot2" parent="WeaponSlotsNode" instance=ExtResource("3_wnbqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.715, -1)
