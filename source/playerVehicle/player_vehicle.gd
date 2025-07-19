@@ -8,6 +8,7 @@ class_name PlayerVehicle
 @export var backward_penalty: float = 0.6
 @export var turning_penalty : float = 0
 @export var backward_max_speed: float = 18
+@export var camera: PlayerCamera
 
 var current_speed: float = 0.0
 var strafe := 0.0
@@ -16,7 +17,6 @@ var previous_rotation_y: float = 0.0
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
 var weapon_slots = []
 
-@export var camera: PlayerCamera
 
 func _ready() -> void:
 	Eventbus.connect("new_upgrade", get_new_upgrade)
