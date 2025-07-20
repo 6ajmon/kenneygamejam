@@ -128,6 +128,7 @@ size = Vector3(1.8, 1, 2.5)
 
 [node name="PlayerVehicle" type="CharacterBody3D" groups=["contact_damage"]]
 script = ExtResource("1_vo0dx")
+max_energy = 200.0
 current_energy_usage = 5.0
 
 [node name="PowerSystem" parent="." instance=ExtResource("4_0jnxe")]

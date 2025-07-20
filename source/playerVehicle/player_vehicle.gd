@@ -137,7 +137,6 @@ func get_new_upgrade(upgrade_name: String) -> void:
 
 func load_upgrades() -> void:
 	for upgrade : Upgrade in GameData.UpgradesUnlocked:
-		print(GameData.upgradeTypes.DrillWeapon)
 		if upgrade.type == GameData.upgradeTypes.Weapon:
 			for slot : WeaponSpot in weapon_slots:
 				if !slot.is_taken():
@@ -146,7 +145,6 @@ func load_upgrades() -> void:
 					slot.weapon = new_weapon
 					break
 		if upgrade.type == GameData.upgradeTypes.DrillWeapon:
-			print("HEJO")
 			if !drill_slot.is_taken():
 				var new_drill = upgrade.scene.instantiate()
 				drill_slot.add_child(new_drill)

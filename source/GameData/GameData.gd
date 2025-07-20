@@ -12,10 +12,9 @@ var Upgrades = {
 var UpgradesUnlocked = []
 
 var PlayerPosition
-var AlienSouls: int = 23
+var AlienSouls: int = 0
+
+var tutorial_closed = false
 
 func _ready() -> void:
-	GameData.UpgradesUnlocked.append(GameData.Upgrades["Sniper"])
-	GameData.UpgradesUnlocked.append(GameData.Upgrades["Drill"])
-	for up in UpgradesUnlocked:
-		print(up.type)
+	UpgradesUnlocked.append(GameData.Upgrades["Starter"])
