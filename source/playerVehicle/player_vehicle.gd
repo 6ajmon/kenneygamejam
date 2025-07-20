@@ -28,9 +28,9 @@ var energy_consumption_timer: Timer
 func _ready() -> void:
 	GameData.PlayerPosition = global_position
 	Eventbus.connect("new_upgrade", get_new_upgrade)
-	weapon_slots = weapon_slots_node.get_children()
+	weapon_slots = weapon_slots_node.get_children().filter(func(child): return child is WeaponSpot)
 	drill_slot = $DrillSlot
-	turret_slots = turret_slots_node.get_children()
+	turret_slots = turret_slots_node.get_children().filter(func(child): return child is WeaponSpot)
 	
 	power_system.maximum_energy = max_energy
 	power_system.initialize_power_system()

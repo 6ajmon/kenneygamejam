@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cyfequ281dguj" path="res://source/playerVehicle/movement.gd" id="2_h76px"]
 [ext_resource type="PackedScene" uid="uid://b6fgkqiqyryv3" path="res://source/weapon/weaponSlot/weapon_slot.tscn" id="3_wnbqt"]
 [ext_resource type="PackedScene" uid="uid://cpyb0cw8rsfca" path="res://source/playerVehicle/powerSystem/power_system.tscn" id="4_0jnxe"]
-[ext_resource type="Script" uid="uid://cxkecrxlh5uvc" path="res://source/playerVehicle/weapon_slot.gd" id="4_h76px"]
+[ext_resource type="Script" uid="uid://cxkecrxlh5uvc" path="res://source/weapon/weaponSlot/weapon_slot.gd" id="4_h76px"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jnxe"]
 resource_name = "metalDark"
