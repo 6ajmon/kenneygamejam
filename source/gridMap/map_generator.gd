@@ -2,17 +2,17 @@ extends Node3D
 class_name MapGenerator
 
 @export var grid_map: GridMap
-@export var generated_map_size = Vector2i(600, 400)
+@export var generated_map_size = Vector2i(260, 300)
 @export var noise_scale: float = 0.1
 @export var height_threshold: float = 0.25
 @export var seed_value: int = 0
 
 const TILE_LOW = 0
-const TILE_TALL = 6
-const TILE_TALL_ALT = 2
-const TILE_SLOPE = 3
-const TILE_SLOPE_INNER = 4
-const TILE_SLOPE_OUTER = 5
+const TILE_TALL = 5
+const TILE_TALL_ALT = 1
+const TILE_SLOPE = 2
+const TILE_SLOPE_INNER = 3
+const TILE_SLOPE_OUTER = 4
 
 const LOW = 0
 const TALL = 1
@@ -21,8 +21,36 @@ var noise: FastNoiseLite
 
 @onready var grid_map_cell := []
 
+func get_neighbors(x: int, y: int) -> Dictionary:
+	var neighbors = {
+		"n": null, "ne": null, "e": null, "se": null,
+		"s": null, "sw": null, "w": null, "nw": null
+	}
+	
+	if y + 1 < generated_map_size.y:
+		neighbors.n = grid_map_cell[x][y + 1]
+	if y + 1 < generated_map_size.y and x + 1 < generated_map_size.x:
+		neighbors.ne = grid_map_cell[x + 1][y + 1]
+	if x + 1 < generated_map_size.x:
+		neighbors.e = grid_map_cell[x + 1][y]
+	if y - 1 >= 0 and x + 1 < generated_map_size.x:
+		neighbors.se = grid_map_cell[x + 1][y - 1]
+	if y - 1 >= 0:
+		neighbors.s = grid_map_cell[x][y - 1]
+	if y - 1 >= 0 and x - 1 >= 0:
+		neighbors.sw = grid_map_cell[x - 1][y - 1]
+	if x - 1 >= 0:
+		neighbors.w = grid_map_cell[x - 1][y]
+	if y + 1 < generated_map_size.y and x - 1 >= 0:
+		neighbors.nw = grid_map_cell[x - 1][y + 1]
+	
+	return neighbors
+
 func _ready() -> void:
 	noise = FastNoiseLite.new()
+	if (seed_value == 0):
+		seed_value = randi()
+	seed(seed_value)
 	noise.seed = seed_value
 	noise.frequency = noise_scale
 
@@ -47,55 +75,42 @@ func generate_map() -> void:
 	smooth_map()
 
 func smooth_map() -> void:
-	var tall_tile_placed = true
-	while tall_tile_placed:
-		tall_tile_placed = false
+	var changes_made = true
+	var iteration = 0
+	var max_iterations = 10
+	
+	while changes_made and iteration < max_iterations:
+		changes_made = false
+		iteration += 1
+		
+		var pending_changes = []
+		
 		for x in range(generated_map_size.x):
 			for y in range(generated_map_size.y):
-				var neighbor_n = null
-				var neighbor_ne = null
-				var neighbor_e = null
-				var neighbor_se = null
-				var neighbor_s = null
-				var neighbor_sw = null
-				var neighbor_w = null
-				var neighbor_nw = null
-
-				if y + 1 < generated_map_size.y:
-					neighbor_n = grid_map_cell[x][y + 1]
-				if y + 1 < generated_map_size.y and x + 1 < generated_map_size.x:
-					neighbor_ne = grid_map_cell[x + 1][y + 1]
-				if x + 1 < generated_map_size.x:
-					neighbor_e = grid_map_cell[x + 1][y]
-				if y - 1 >= 0 and x + 1 < generated_map_size.x:
-					neighbor_se = grid_map_cell[x + 1][y - 1]
-				if y - 1 >= 0:
-					neighbor_s = grid_map_cell[x][y - 1]
-				if y - 1 >= 0 and x - 1 >= 0:
-					neighbor_sw = grid_map_cell[x - 1][y - 1]
-				if x - 1 >= 0:
-					neighbor_w = grid_map_cell[x - 1][y]
-				if y + 1 < generated_map_size.y and x - 1 >= 0:
-					neighbor_nw = grid_map_cell[x - 1][y + 1]
-
-				var tall_neighbors = 0
-				if neighbor_n == TALL:
-					tall_neighbors += 1
-				if neighbor_s == TALL:
-					tall_neighbors += 1
-				if neighbor_e == TALL:
-					tall_neighbors += 1
-				if neighbor_w == TALL:
-					tall_neighbors += 1
-				
 				if grid_map_cell[x][y] == LOW:
-					if tall_neighbors >= 3 or (neighbor_e == TALL and neighbor_w == TALL) or \
-					(neighbor_n == TALL and neighbor_s == TALL) or \
-					(neighbor_ne == TALL and neighbor_sw == TALL) or \
-					(neighbor_nw == TALL and neighbor_se == TALL):
-						grid_map.set_cell_item(Vector3i(x, 0, y), TILE_TALL)
-						grid_map_cell[x][y] = TALL
-						tall_tile_placed = true
+					var neighbors = get_neighbors(x, y)
+					
+					var tall_neighbors = 0
+					if neighbors.n == TALL:
+						tall_neighbors += 1
+					if neighbors.s == TALL:
+						tall_neighbors += 1
+					if neighbors.e == TALL:
+						tall_neighbors += 1
+					if neighbors.w == TALL:
+						tall_neighbors += 1
+					
+					if tall_neighbors >= 3 or \
+					(neighbors.e == TALL and neighbors.w == TALL) or \
+					(neighbors.n == TALL and neighbors.s == TALL) or \
+					(neighbors.ne == TALL and neighbors.sw == TALL) or \
+					(neighbors.nw == TALL and neighbors.se == TALL):
+						pending_changes.append(Vector2i(x, y))
+		
+		for pos in pending_changes:
+			grid_map.set_cell_item(Vector3i(pos.x, 0, pos.y), TILE_TALL)
+			grid_map_cell[pos.x][pos.y] = TALL
+			changes_made = true
 					
 		
 
@@ -109,58 +124,35 @@ func generate_slopes() -> void:
 
 	for x in range(generated_map_size.x):
 		for y in range(generated_map_size.y):
-			var neighbor_n = null
-			var neighbor_ne = null
-			var neighbor_e = null
-			var neighbor_se = null
-			var neighbor_s = null
-			var neighbor_sw = null
-			var neighbor_w = null
-			var neighbor_nw = null
-
-			if y + 1 < generated_map_size.y:
-				neighbor_n = grid_map_cell[x][y + 1]
-			if y + 1 < generated_map_size.y and x + 1 < generated_map_size.x:
-				neighbor_ne = grid_map_cell[x + 1][y + 1]
-			if x + 1 < generated_map_size.x:
-				neighbor_e = grid_map_cell[x + 1][y]
-			if y - 1 >= 0 and x + 1 < generated_map_size.x:
-				neighbor_se = grid_map_cell[x + 1][y - 1]
-			if y - 1 >= 0:
-				neighbor_s = grid_map_cell[x][y - 1]
-			if y - 1 >= 0 and x - 1 >= 0:
-				neighbor_sw = grid_map_cell[x - 1][y - 1]
-			if x - 1 >= 0:
-				neighbor_w = grid_map_cell[x - 1][y]
-			if y + 1 < generated_map_size.y and x - 1 >= 0:
-				neighbor_nw = grid_map_cell[x - 1][y + 1]
-
 			if grid_map_cell[x][y] == LOW:
-				if neighbor_e == TALL and neighbor_w == LOW:
+				var neighbors = get_neighbors(x, y)
+				
+				if neighbors.e == TALL and neighbors.w == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE, rot_y[0])
-				if neighbor_w == TALL and neighbor_e == LOW:
+				if neighbors.w == TALL and neighbors.e == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE, rot_y[180])
-				if neighbor_n == TALL and neighbor_s == LOW:
+				if neighbors.n == TALL and neighbors.s == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE, rot_y[270])
-				if neighbor_s == TALL and neighbor_n == LOW:
+				if neighbors.s == TALL and neighbors.n == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE, rot_y[90])
 
-				if neighbor_n == TALL and neighbor_w == TALL and neighbor_s == LOW and neighbor_e == LOW:
+				if neighbors.n == TALL and neighbors.w == TALL and neighbors.s == LOW and neighbors.e == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_INNER, rot_y[180])
-				if neighbor_n == TALL and neighbor_e == TALL and neighbor_s == LOW and neighbor_w == LOW:
+				if neighbors.n == TALL and neighbors.e == TALL and neighbors.s == LOW and neighbors.w == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_INNER, rot_y[270])
-				if neighbor_s == TALL and neighbor_e == TALL and neighbor_n == LOW and neighbor_w == LOW:
+				if neighbors.s == TALL and neighbors.e == TALL and neighbors.n == LOW and neighbors.w == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_INNER, rot_y[0])
-				if neighbor_s == TALL and neighbor_w == TALL and neighbor_n == LOW and neighbor_e == LOW:
+				if neighbors.s == TALL and neighbors.w == TALL and neighbors.n == LOW and neighbors.e == LOW:
 					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_INNER, rot_y[90])
 
-				if neighbor_nw == TALL and neighbor_se == LOW and neighbor_s == LOW and neighbor_e == LOW and neighbor_ne == LOW and neighbor_sw == LOW and neighbor_n == LOW and neighbor_w == LOW:
-					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[180])
-				if neighbor_ne == TALL and neighbor_se == LOW and neighbor_s == LOW and neighbor_e == LOW and neighbor_nw == LOW and neighbor_sw == LOW and neighbor_n == LOW and neighbor_w == LOW:
-					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[270])
-				if neighbor_se == TALL and neighbor_nw == LOW and neighbor_s == LOW and neighbor_e == LOW and neighbor_ne == LOW and neighbor_sw == LOW and neighbor_n == LOW and neighbor_w == LOW:
-					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[0])
-				if neighbor_sw == TALL and neighbor_se == LOW and neighbor_s == LOW and neighbor_e == LOW and neighbor_ne == LOW and neighbor_nw == LOW and neighbor_n == LOW and neighbor_w == LOW:
-					grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[90])
+				var all_cardinal_low = neighbors.s == LOW and neighbors.e == LOW and neighbors.n == LOW and neighbors.w == LOW
+				if all_cardinal_low:
+					if neighbors.nw == TALL and neighbors.se == LOW and neighbors.ne == LOW and neighbors.sw == LOW:
+						grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[180])
+					elif neighbors.ne == TALL and neighbors.se == LOW and neighbors.nw == LOW and neighbors.sw == LOW:
+						grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[270])
+					elif neighbors.se == TALL and neighbors.nw == LOW and neighbors.ne == LOW and neighbors.sw == LOW:
+						grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[0])
+					elif neighbors.sw == TALL and neighbors.se == LOW and neighbors.ne == LOW and neighbors.nw == LOW:
+						grid_map.set_cell_item(Vector3i(x, 0, y), TILE_SLOPE_OUTER, rot_y[90])
 				
-			
