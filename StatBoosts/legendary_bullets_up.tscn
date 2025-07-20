@@ -6,6 +6,6 @@
 script = ExtResource("1_o707a")
 damage = 1.12
 pierce = 2
-bullets_per_second = 5.0
+bullets_per_second = 1.8
 bullet_size = 1.2
 bullet_range = 5.0

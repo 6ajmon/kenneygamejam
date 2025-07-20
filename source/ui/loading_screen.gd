@@ -22,4 +22,8 @@ func _process(_delta) -> void:
 		get_tree().current_scene = new_scene
 
 func get_required_quota(current_round: int) -> int:
-	return 36 + 6 * current_round * current_round
+	var quota
+	quota = 36 + 6 * current_round * current_round
+	if current_round > 3:
+		quota *= 2
+	return quota

@@ -5,7 +5,7 @@
 
 [node name="StartingWeapon" type="Node3D"]
 script = ExtResource("1_do7n1")
-bullets_per_second = 1.5
+bullets_per_second = 4.0
 bullet_speed = 10.0
 
 [node name="Muzzle" type="Marker3D" parent="."]

@@ -63,39 +63,6 @@ directional_shadow_max_distance = 200.0
 [node name="PlayerVehicle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_8110p")]
 camera = NodePath("../PlayerCamera")
 
-[node name="PowerBar" parent="PlayerVehicle/PowerSystem" index="0"]
-z_index = 0
-
-[node name="WeaponSlot4" parent="PlayerVehicle/WeaponSlotsNode" index="3"]
-script = null
-
-[node name="WeaponSlot5" parent="PlayerVehicle/WeaponSlotsNode" index="4"]
-script = null
-
-[node name="WeaponSlot6" parent="PlayerVehicle/WeaponSlotsNode" index="5"]
-script = null
-
-[node name="WeaponSlot7" parent="PlayerVehicle/WeaponSlotsNode" index="6"]
-script = null
-
-[node name="WeaponSlot8" parent="PlayerVehicle/WeaponSlotsNode" index="7"]
-script = null
-
-[node name="DrillSlot" parent="PlayerVehicle" index="6"]
-script = null
-
-[node name="TurretRightSpot" parent="PlayerVehicle/TurretSlots" index="0"]
-script = null
-
-[node name="TurretLeftSpot" parent="PlayerVehicle/TurretSlots" index="1"]
-script = null
-
-[node name="TurretFrontSpot" parent="PlayerVehicle/TurretSlots" index="2"]
-script = null
-
-[node name="TurretBackSpot" parent="PlayerVehicle/TurretSlots" index="3"]
-script = null
-
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 near = 0.25
 target = NodePath("../PlayerVehicle")
@@ -126,5 +93,4 @@ max_health = 1e+06
 [node name="GameUI" parent="." instance=ExtResource("11_2iad3")]
 
 [editable path="PlayerVehicle"]
-[editable path="PlayerVehicle/PowerSystem"]
 [editable path="TargetDummy"]

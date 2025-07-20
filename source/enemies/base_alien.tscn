@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4jx0kp8ik070" path="res://source/enemies/base_alien.gd" id="1_lo783"]
 [ext_resource type="PackedScene" uid="uid://c0l8pu7ue58df" path="res://source/components/health_component.tscn" id="3_5xk7l"]
 [ext_resource type="PackedScene" uid="uid://fd46ygiohcdb" path="res://source/components/hitbox_component.tscn" id="4_35x0h"]
-[ext_resource type="PackedScene" uid="uid://cp5ao5ppxnpba" path="res://source/components/damage_number_display_component.tscn" id="5_35x0h"]
+[ext_resource type="PackedScene" path="res://source/components/damage_number_display_component.tscn" id="5_35x0h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uk2qf"]
 resource_name = "crystal"

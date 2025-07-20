@@ -5,6 +5,6 @@
 [node name="LegendaryVehicleUp" type="Node3D"]
 script = ExtResource("1_pjjss")
 max_power = 30.0
-bullets_per_second = 3.0
+bullets_per_second = 1.2
 max_speed = 10.0
 acceleration = 3.0

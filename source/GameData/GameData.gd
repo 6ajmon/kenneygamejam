@@ -92,6 +92,7 @@ func set_up_game_data() -> void:
 	UpgradesUnlocked.append(Upgrades["Starter"])
 	StatBoosts.damage = 1
 	StatBoosts.bullet_size = 1
+	StatBoosts.bullets_per_second = 1
 	AlienSouls = 0
 	RequiredQuota = 0
 	SoulsCollectedThisRound = 0
