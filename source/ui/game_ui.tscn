@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw28pic0xfqh7"]
+[gd_scene load_steps=6 format=3 uid="uid://dw28pic0xfqh7"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_a5gc0"]
 [ext_resource type="Script" uid="uid://0e5vy4jolju6" path="res://source/ui/game_ui.gd" id="1_uw8un"]
 [ext_resource type="PackedScene" uid="uid://d4jkrlqfn7r42" path="res://source/ui/tutorial.tscn" id="2_uw8un"]
 [ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://source/ui/collected_quota_label.gd" id="2_vyu43"]
-[ext_resource type="Script" uid="uid://cb2fwh6fbe565" path="res://source/ui/tutorial.gd" id="3_0mybr"]
 [ext_resource type="Script" uid="uid://c3mykbohbolse" path="res://source/ui/quota_label.gd" id="5_0mybr"]
 
 [node name="GameUI" type="Control"]
@@ -17,7 +16,6 @@ grow_vertical = 2
 script = ExtResource("1_uw8un")
 
 [node name="Tutorial" parent="." instance=ExtResource("2_uw8un")]
-script = ExtResource("3_0mybr")
 
 [node name="QuotaLabel" type="Label" parent="."]
 layout_mode = 1

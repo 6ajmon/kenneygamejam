@@ -43,7 +43,13 @@ func _ready() -> void:
 	add_child(energy_consumption_timer)
 	energy_consumption_timer.start()
 
+	if GameData.StatBoosts.damage != 0:
+		contact_damage *= GameData.StatBoosts.damage
+	
 	load_upgrades()
+
+func update_stats():
+	max_energy += GameData.StatBoosts.max_power
 
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(previous_position) > 0.01:
@@ -95,6 +101,7 @@ func load_upgrades() -> void:
 				drill_slot.weapon = new_drill
 			else:
 				drill_slot.get_child(0).increase_drill_size()
+			
 
 func get_damage() -> float:
 	if can_deal_damage:
@@ -117,4 +124,5 @@ func _reset_damage_ability() -> void:
 
 func _consume_energy() -> void:
 	if power_system:
-		power_system.change_energy(-current_energy_usage)
+		var energy_drain = current_energy_usage + GameData.StatBoosts.power_usage
+		power_system.change_energy(-energy_drain)

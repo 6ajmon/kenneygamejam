@@ -6,14 +6,16 @@ extends AnimatableBody3D
 var direction: Vector3 = Vector3.FORWARD
 
 func _ready() -> void:
-	pass
-
+	pierce += GameData.StatBoosts.pierce
+	scale *= GameData.StatBoosts.bullet_size
+	
 func _physics_process(delta: float) -> void:
 	if !visible:
 		visible = true
 	#direction.y = -falling_speed
 	var velocity = direction * speed
 	translate(velocity * delta)
+
 
 func _on_area_entered(_area):
 	queue_free()
@@ -22,7 +24,10 @@ func get_damage() -> float:
 	pierce -= 1
 	if pierce <= 0:
 		_on_queue_free_timer_timeout()
-	return damage
+	var damage_boost = 1
+	if GameData.StatBoosts.damage != 0:
+		damage_boost *= GameData.StatBoosts.damage
+	return damage * damage_boost
 
 
 func _on_queue_free_timer_timeout() -> void:

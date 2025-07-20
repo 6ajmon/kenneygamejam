@@ -1,6 +1,6 @@
 extends Node
 
-enum upgradeTypes {Weapon, DrillWeapon}
+enum upgradeTypes {Weapon, DrillWeapon, StatBoost}
 
 enum upgradeRarities {Common, Rare, Epic, Legendary}
 
@@ -10,13 +10,32 @@ var epicPrice: float
 var legendaryPrice: float
 
 var Upgrades = {
-	"Weapon000" : Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common, "res://tmp/weapon_000.tscn", "res://assets/Icons/blaster-g.png", UpgradesDescriptions.weapon000),
-	"Starter": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/starting_weapon.tscn","res://assets/Icons/blaster-g.png", UpgradesDescriptions.starting_weapon ),
-	"Sniper": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Epic, "res://source/weapon/sniper.tscn","res://assets/Icons/blaster-f.png", UpgradesDescriptions.sniper),
-	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/drill.tscn", "res://assets/Icons/blaster-f.png", UpgradesDescriptions.drill)
+	#Stats
+	"Damage+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/MediumDamageBoost.tscn","", UpgradesDescriptions.medium_damage_boost),
+	"Damage++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://StatBoosts/LargeDamageBoost.tscn","", UpgradesDescriptions.large_damage_boost),
+	"Damage+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary,"res://StatBoosts/legendary_damage_boost.tscn" ,"", UpgradesDescriptions.legendary_damage_boost),
+	
+	"Bullets+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/medium_bullets_up.tscn","", UpgradesDescriptions.medium_bullets_up),
+	"Bullets++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://StatBoosts/large_bullets_up.tscn","", UpgradesDescriptions.large_bullets_up),
+	"Bullets+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://StatBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_bullets_up),
+	
+	"Vehicle+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/medium_vehicle_up.tscn","", UpgradesDescriptions.medium_vehicle_up),
+	"Vehicle++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://StatBoosts/large_vehicle_up.tscn","", UpgradesDescriptions.large_vehicle_up),
+	"Vehicle+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://StatBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_vehicle_up),
+	
+	"Battery+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Common, "res://StatBoosts/small_powerup.tscn","", UpgradesDescriptions.small_power_up),
+	"Battery++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/medium_powerup.tscn","", UpgradesDescriptions.medium_power_up),
+	"Ultimate Power" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://StatBoosts/ultimate_power.tscn" ,"", UpgradesDescriptions.ultimate_power),
+	#Weapons
+	"Weapon000" : Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/weapon_000.tscn", "res://assets/Icons/blaster-g.png", UpgradesDescriptions.weapon000),
+	"Starter": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/starting_weapon.tscn","res://assets/Icons/blaster-g.png", UpgradesDescriptions.starting_weapon ),
+	"Sniper": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Epic, "res://source/weapon/Weapons/sniper.tscn","res://assets/Icons/blaster-f.png", UpgradesDescriptions.sniper),
+	#Drill
+	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/Weapons/drill.tscn", "res://assets/Icons/blaster-f.png", UpgradesDescriptions.drill)
 }
 
 var UpgradesUnlocked = []
+var StatBoosts : StatBoost = StatBoost.new() 
 
 var PlayerPosition
 
@@ -65,9 +84,13 @@ func _ready() -> void:
 	set_up_game_data()
 
 func set_up_game_data() -> void:
+	StatBoosts = StatBoost.new() 
+	UpgradesUnlocked.clear()
 	UpgradesUnlocked.append(Upgrades["Starter"])
+	StatBoosts.damage = 1
+	StatBoosts.bullet_size = 1
 	AlienSouls = 0
-	RequiredQuota = 10
+	RequiredQuota = 0
 	SoulsCollectedThisRound = 0
 	CurrentRound = 1
 	commonPrice = 16

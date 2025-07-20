@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://beyaf0fy8knws"]
+
+[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://StatBoosts/StatBoost.gd" id="1_m12aq"]
+
+[node name="LargeVehicleUp" type="Node3D"]
+script = ExtResource("1_m12aq")
+max_power = 10.0
+bullets_per_second = 1.0
+max_speed = 5.0
+acceleration = 0.6

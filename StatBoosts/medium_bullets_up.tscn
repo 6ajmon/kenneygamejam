@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://sufnnkdn3u22"]
+
+[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://StatBoosts/StatBoost.gd" id="1_47tuo"]
+
+[node name="MediumBulletsUp" type="Node3D"]
+script = ExtResource("1_47tuo")
+damage = 1.02
+pierce = 1
+bullets_per_second = 1.0
+bullet_size = 1.1
+bullet_range = 1.0

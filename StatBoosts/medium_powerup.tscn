@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://w3pkvghg05ls"]
+
+[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://StatBoosts/StatBoost.gd" id="1_hdnac"]
+
+[node name="MediumPowerup" type="Node3D"]
+script = ExtResource("1_hdnac")
+max_power = 15.0
