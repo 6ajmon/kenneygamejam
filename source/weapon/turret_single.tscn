@@ -4,7 +4,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g20jq"]
 resource_name = "dark"
-albedo_color = Color(0.560628, 0.582088, 0.619001, 1)
+albedo_color = Color(0.760784, 0.121569, 0.0823529, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bh2mt"]
@@ -95,7 +95,7 @@ shadow_mesh = SubResource("ArrayMesh_3dps7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4t0y"]
 resource_name = "metalRed"
-albedo_color = Color(1, 0.814401, 0.487697, 1)
+albedo_color = Color(0.364706, 0.0352941, 0.0196078, 1)
 metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6blrv"]
@@ -286,6 +286,7 @@ shadow_mesh = SubResource("ArrayMesh_703bd")
 script = ExtResource("1_at8g0")
 
 [node name="turret_single" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0, 0, 0)
 mesh = SubResource("ArrayMesh_gd5ov")
 skeleton = NodePath("")
 

@@ -78,6 +78,8 @@ func get_new_upgrade(upgrade_name: String) -> void:
 				return
 			else:
 				drill_slot.get_child(0).increase_drill_size()
+	elif new_upgrade is Turret:
+		pass #TODO
 
 func load_upgrades() -> void:
 	for upgrade : Upgrade in GameData.UpgradesUnlocked:
@@ -95,6 +97,8 @@ func load_upgrades() -> void:
 				drill_slot.weapon = new_drill
 			else:
 				drill_slot.get_child(0).increase_drill_size()
+		if upgrade.type == GameData.upgradeTypes.Turret:
+			pass #TODO
 
 func get_damage() -> float:
 	if can_deal_damage:

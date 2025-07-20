@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdowkc3nl01cg"]
 
-[ext_resource type="Script" uid="uid://im6c25286phu" path="res://source/bullet/bullet.gd" id="1_jacf5"]
+[ext_resource type="Script" uid="uid://im6c25286phu" path="res://source/weapon/bullet/bullet.gd" id="1_jacf5"]
 [ext_resource type="PackedScene" uid="uid://cy4qexbbto4k3" path="res://assets/Blasters/bullet-foam-tip.glb" id="2_1rb5d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jacf5"]
