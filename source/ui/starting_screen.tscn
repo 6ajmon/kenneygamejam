@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3jm5t2yjn8pd"]
+[gd_scene load_steps=12 format=3 uid="uid://b3jm5t2yjn8pd"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_xkhn8"]
 [ext_resource type="Script" uid="uid://c3wi32xibg7tv" path="res://source/ui/starting_screen.gd" id="2_6l04n"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_7vb47"]
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="2_bvrli"]
-[ext_resource type="Texture2D" uid="uid://v4via8785iao" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_m.png" id="3_fmg4o"]
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="4_goi8c"]
-[ext_resource type="Texture2D" uid="uid://bggx7grb50jhv" path="res://assets/UI/PNG/Red/Double/bar_round_gloss_large_r.png" id="4_nydhj"]
 [ext_resource type="PackedScene" uid="uid://dd3mcaijpd7g7" path="res://source/ui/vehicle.tscn" id="8_hlv7e"]
 [ext_resource type="Texture2D" uid="uid://w8q8ha208tdr" path="res://assets/UI/Planets/planet06.png" id="9_vt2dh"]
 
@@ -191,6 +189,43 @@ position = Vector2(143, 158)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("4_goi8c")
 
+[node name="Title" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 110.0
+offset_right = -640.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -114.5
+offset_bottom = -42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xkhn8")
+theme_override_colors/font_shadow_color = Color(0.435294, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 22
+theme_override_font_sizes/font_size = 64
+text = "Deadline"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vehicle" parent="." instance=ExtResource("8_hlv7e")]
+offset_left = 279.0
+offset_top = 59.0
+offset_right = 319.0
+offset_bottom = 99.0
+
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 530.0
@@ -216,81 +251,6 @@ layout_mode = 2
 theme = ExtResource("1_xkhn8")
 toggle_mode = true
 text = "source"
-
-[node name="Title" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 110.0
-offset_right = -640.0
-offset_bottom = -250.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-
-[node name="0" type="Sprite2D" parent="Title"]
-modulate = Color(1, 0, 0, 0)
-position = Vector2(101, 102)
-scale = Vector2(2, 2)
-texture = ExtResource("4_nydhj")
-flip_h = true
-
-[node name="1" type="Sprite2D" parent="Title"]
-modulate = Color(1, 0, 0, 0)
-position = Vector2(171.5, 102)
-scale = Vector2(2, 2)
-texture = ExtResource("3_fmg4o")
-
-[node name="5" type="Sprite2D" parent="Title"]
-modulate = Color(1, 0, 0, 0)
-position = Vector2(266.5, 102)
-scale = Vector2(2, 2)
-texture = ExtResource("3_fmg4o")
-
-[node name="2" type="Sprite2D" parent="Title"]
-modulate = Color(1, 0, 0, 0)
-position = Vector2(359.5, 102)
-scale = Vector2(2, 2)
-texture = ExtResource("3_fmg4o")
-
-[node name="3" type="Sprite2D" parent="Title"]
-modulate = Color(1, 0, 0, 0)
-position = Vector2(415.5, 102)
-scale = Vector2(2, 2)
-texture = ExtResource("3_fmg4o")
-
-[node name="4" type="Sprite2D" parent="Title"]
-modulate = Color(1, 0, 0, 0)
-position = Vector2(457.5, 102)
-scale = Vector2(2, 2)
-texture = ExtResource("3_fmg4o")
-
-[node name="9" type="Sprite2D" parent="Title"]
-modulate = Color(1, 0, 0, 0)
-position = Vector2(529.5, 102)
-scale = Vector2(2, 2)
-texture = ExtResource("4_nydhj")
-
-[node name="Label" type="Label" parent="Title"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -114.5
-offset_bottom = -42.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_xkhn8")
-theme_override_colors/font_shadow_color = Color(0.435294, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 22
-text = "Deadline"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Vehicle" parent="." instance=ExtResource("8_hlv7e")]
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]

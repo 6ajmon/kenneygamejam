@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://c5j1vg56en7a"]
+[gd_scene load_steps=19 format=4 uid="uid://c5j1vg56en7a"]
 
 [ext_resource type="Script" uid="uid://b8l3ctbg60j82" path="res://source/playerVehicle/player_vehicle.gd" id="1_vo0dx"]
 [ext_resource type="Script" uid="uid://cyfequ281dguj" path="res://source/playerVehicle/movement.gd" id="2_h76px"]
 [ext_resource type="PackedScene" uid="uid://b6fgkqiqyryv3" path="res://source/weapon/weaponSlot/weapon_slot.tscn" id="3_wnbqt"]
 [ext_resource type="PackedScene" uid="uid://cpyb0cw8rsfca" path="res://source/playerVehicle/powerSystem/power_system.tscn" id="4_0jnxe"]
 [ext_resource type="Script" uid="uid://cxkecrxlh5uvc" path="res://source/weapon/weaponSlot/weapon_slot.gd" id="4_h76px"]
-[ext_resource type="PackedScene" uid="uid://cfh54to12buni" path="res://source/weapon/turret_double.tscn" id="6_yfph4"]
 [ext_resource type="AudioStream" uid="uid://coeo7hi67stsr" path="res://assets/audio/engine/thrusterFire_000.ogg" id="7_yfph4"]
 [ext_resource type="AudioStream" uid="uid://cqxth5jpd8kdx" path="res://assets/audio/engine/thrusterFire_001.ogg" id="8_o7e31"]
 [ext_resource type="AudioStream" uid="uid://dwijmxfurk04q" path="res://assets/audio/engine/thrusterFire_002.ogg" id="9_xjpet"]
@@ -218,8 +217,6 @@ script = ExtResource("4_h76px")
 [node name="TurretRightSpot" type="Marker3D" parent="TurretSlots"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599444, 0.492684, 0.05682)
 script = ExtResource("4_h76px")
-
-[node name="TurretDouble" parent="TurretSlots/TurretRightSpot" instance=ExtResource("6_yfph4")]
 
 [node name="TurretLeftSpot" type="Marker3D" parent="TurretSlots"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.609158, 0.492684, 0.05682)
