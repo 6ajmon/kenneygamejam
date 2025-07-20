@@ -6,6 +6,8 @@ class_name PlayerVehicle
 @export var velocity_damage_multiplier: float = 0.06
 @export var contact_slowdown_factor: float = 0.6
 
+@onready var audio_player = $AudioStreamPlayer
+
 @export var max_energy:float = 100
 @export var current_energy_usage:float = 1
 
@@ -29,13 +31,14 @@ func _ready() -> void:
 	GameData.PlayerPosition = global_position
 	GameData.PlayerRotation = rotation.y
 	Eventbus.connect("new_upgrade", get_new_upgrade)
-	weapon_slots = weapon_slots_node.get_children().filter(func(child): return child is WeaponSpot)
+	weapon_slots = weapon_slots_node.get_children().filter(func(child): return child is WeaponSlot)
 	drill_slot = $DrillSlot
 	turret_slots = turret_slots_node.get_children().filter(func(child): return child is WeaponSpot)
 	
 	max_energy += GameData.StatBoosts.max_power
 	power_system.maximum_energy = max_energy
 	power_system.initialize_power_system()
+	print(drill_slot.is_taken())
 	
 	contact_damage_timer = Timer.new()
 	contact_damage_timer.wait_time = 1.0
@@ -64,9 +67,12 @@ func _physics_process(delta: float) -> void:
 	movement.move_and_rotate(delta)
 	if Input.is_action_pressed("left_click"):
 		shoot()
+	
+	if (!audio_player.playing):
+		audio_player.play()
 
 func shoot() -> void:
-	for slot : WeaponSpot in weapon_slots:
+	for slot : WeaponSlot in weapon_slots:
 		if slot.is_taken():
 			var vehicle_speed = movement.get_current_speed()
 			if vehicle_speed < 0:
@@ -77,7 +83,7 @@ func get_new_upgrade(upgrade_name: String) -> void:
 	var new_upgrade_scene : PackedScene = GameData.Upgrades[upgrade_name].scene
 	var new_upgrade = new_upgrade_scene.instantiate()
 	if new_upgrade is Weapon:
-		for slot : WeaponSpot in weapon_slots:
+		for slot : WeaponSlot in weapon_slots:
 			if !slot.is_taken():
 				slot.add_child(new_upgrade)
 				slot.weapon = new_upgrade
@@ -90,7 +96,7 @@ func get_new_upgrade(upgrade_name: String) -> void:
 			else:
 				drill_slot.get_child(0).increase_drill_size()
 	elif new_upgrade is Turret:
-		for slot : WeaponSpot in turret_slots:
+		for slot : WeaponSlot in turret_slots:
 			if !slot.is_taken():
 				slot.add_child(new_upgrade)
 				slot.weapon = new_upgrade
@@ -99,7 +105,7 @@ func get_new_upgrade(upgrade_name: String) -> void:
 func load_upgrades() -> void:
 	for upgrade : Upgrade in GameData.UpgradesUnlocked:
 		if upgrade.type == GameData.upgradeTypes.Weapon:
-			for slot : WeaponSpot in weapon_slots:
+			for slot : WeaponSlot in weapon_slots:
 				if !slot.is_taken():
 					var new_weapon = upgrade.scene.instantiate()
 					slot.add_child(new_weapon)
@@ -113,7 +119,7 @@ func load_upgrades() -> void:
 			else:
 				drill_slot.get_child(0).increase_drill_size()
 		if upgrade.type == GameData.upgradeTypes.Turret:
-			for slot : WeaponSpot in turret_slots:
+			for slot : WeaponSlot in turret_slots:
 				if !slot.is_taken():
 					var new_turret = upgrade.scene.instantiate()
 					slot.add_child(new_turret)

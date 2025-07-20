@@ -9,7 +9,11 @@ class_name Weapon
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var muzzle: Marker3D = $Muzzle
 
+
 @export var BULLET : PackedScene = preload("res://source/weapon/bullet/bullet.tscn")
+
+@onready var audio_player = $AudioStreamPlayer
+
 
 var on_cooldown : bool = false
 
@@ -22,6 +26,7 @@ func shoot(vehicle_speed : float):
 	_init_bullet(vehicle_speed)
 	on_cooldown = true
 	cooldown_timer.start()
+	audio_player.play()
 
 func _init_bullet(vehicle_speed : float):
 	var bullet = BULLET.instantiate()

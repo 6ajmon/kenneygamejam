@@ -4,10 +4,10 @@ class_name AlienSpawner
 @export var alien_scenes: Array[PackedScene] = []
 @export var spawn_min_distance: float = 23.0
 @export var alien_wave_size: int = 6
-@export var wave_interval: float = 1.5
+@export var wave_interval: float = 1.0
 @export var wave_size_increase: int = 0
 @export var spawn_delay_between_aliens: float = 0.25
-@export var spawn_distance_variance: float = 1.0
+@export var spawn_distance_variance: float = 6.0
 
 var is_round_active: bool
 var current_wave: int = 0
