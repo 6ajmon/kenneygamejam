@@ -216,3 +216,6 @@ script = ExtResource("4_h76px")
 [node name="TurretBackSpot" type="Marker3D" parent="TurretSlots"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000855088, 0.768009, 0.166128)
 script = ExtResource("4_h76px")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
