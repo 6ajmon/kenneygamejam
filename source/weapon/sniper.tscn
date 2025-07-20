@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3ejj7ma08ncj"]
+[gd_scene load_steps=10 format=3 uid="uid://d3ejj7ma08ncj"]
 
 [ext_resource type="Script" uid="uid://cio0eniunjpat" path="res://source/weapon/weapon.gd" id="1_byg53"]
 [ext_resource type="PackedScene" uid="uid://bdowkc3nl01cg" path="res://source/weapon/bullet/bullet.tscn" id="2_7xj4l"]
 [ext_resource type="PackedScene" uid="uid://3qx5t7j0foaf" path="res://assets/Blasters/blaster-f.glb" id="2_jpf3x"]
+[ext_resource type="AudioStream" uid="uid://62hj1p0fq5wt" path="res://assets/audio/shooting/laserSmall_000.ogg" id="4_0jcqm"]
+[ext_resource type="AudioStream" uid="uid://cpmh11wjbn1wo" path="res://assets/audio/shooting/laserSmall_001.ogg" id="5_praqm"]
+[ext_resource type="AudioStream" uid="uid://b0je7wxcj4sc" path="res://assets/audio/shooting/laserSmall_002.ogg" id="6_14o7p"]
+[ext_resource type="AudioStream" uid="uid://csm7w074j6jiy" path="res://assets/audio/shooting/laserSmall_003.ogg" id="7_5e7iy"]
+[ext_resource type="AudioStream" uid="uid://b7csfbxcpaotv" path="res://assets/audio/shooting/laserSmall_004.ogg" id="8_gq2b3"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1krkd"]
+streams_count = 5
+stream_0/stream = ExtResource("4_0jcqm")
+stream_1/stream = ExtResource("5_praqm")
+stream_2/stream = ExtResource("6_14o7p")
+stream_3/stream = ExtResource("7_5e7iy")
+stream_4/stream = ExtResource("8_gq2b3")
 
 [node name="Sniper" type="Node3D"]
 script = ExtResource("1_byg53")
@@ -17,5 +30,11 @@ gizmo_extents = 0.5
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_1krkd")
+volume_db = -20.0
+pitch_scale = 0.5
+bus = &"SFX"
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

@@ -6,6 +6,8 @@ class_name DrillWeapon
 @export var tick_damage: float = 15.0
 var total_rotation: float = 0
 var can_deal_damage: bool = true
+@onready var audio_player = $AudioStreamPlayer
+
 
 func _physics_process(delta: float) -> void:
 	var rotation_angle = rotation_speed * delta
@@ -14,6 +16,8 @@ func _physics_process(delta: float) -> void:
 	if (total_rotation >= TAU):
 		total_rotation = fmod(total_rotation, TAU)
 		can_deal_damage = true
+	if (!audio_player.playing):
+		audio_player.play()
 
 func increase_drill_size() -> void:
 	var increase_value = 0.25

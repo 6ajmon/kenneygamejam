@@ -29,3 +29,6 @@ max_health = 1500.0
 [node name="CollisionShape3D" parent="HitboxComponent" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_6altx")
+
+[node name="AudioStreamPlayer" parent="." index="6"]
+volume_db = -20.0

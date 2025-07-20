@@ -6,6 +6,8 @@ class_name PlayerVehicle
 @export var velocity_damage_multiplier: float = 0.06
 @export var contact_slowdown_factor: float = 0.6
 
+@onready var audio_player = $AudioStreamPlayer
+
 @export var max_energy:float = 100
 @export var current_energy_usage:float = 1
 
@@ -60,6 +62,9 @@ func _physics_process(delta: float) -> void:
 	movement.move_and_rotate(delta)
 	if Input.is_action_pressed("left_click"):
 		shoot()
+	
+	if (!audio_player.playing):
+		audio_player.play()
 
 func shoot() -> void:
 	for slot : WeaponSlot in weapon_slots:

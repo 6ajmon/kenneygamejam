@@ -1,8 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://2utmysxbidfw"]
+[gd_scene load_steps=9 format=3 uid="uid://2utmysxbidfw"]
 
 [ext_resource type="Script" uid="uid://dhjond2fh8q7t" path="res://source/weapon/turret.gd" id="1_8nlmd"]
+[ext_resource type="AudioStream" uid="uid://62hj1p0fq5wt" path="res://assets/audio/shooting/laserSmall_000.ogg" id="2_7m1ee"]
+[ext_resource type="AudioStream" uid="uid://cpmh11wjbn1wo" path="res://assets/audio/shooting/laserSmall_001.ogg" id="3_c1sli"]
+[ext_resource type="AudioStream" uid="uid://b0je7wxcj4sc" path="res://assets/audio/shooting/laserSmall_002.ogg" id="4_ck8mj"]
+[ext_resource type="AudioStream" uid="uid://csm7w074j6jiy" path="res://assets/audio/shooting/laserSmall_003.ogg" id="5_8guin"]
+[ext_resource type="AudioStream" uid="uid://b7csfbxcpaotv" path="res://assets/audio/shooting/laserSmall_004.ogg" id="6_geacc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_at8g0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e81sa"]
+streams_count = 5
+stream_0/stream = ExtResource("2_7m1ee")
+stream_1/stream = ExtResource("3_c1sli")
+stream_2/stream = ExtResource("4_ck8mj")
+stream_3/stream = ExtResource("5_8guin")
+stream_4/stream = ExtResource("6_geacc")
 
 [node name="Turret" type="Node3D"]
 script = ExtResource("1_8nlmd")
@@ -15,3 +28,9 @@ collision_mask = 8
 shape = SubResource("SphereShape3D_at8g0")
 
 [node name="TurretBody" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_e81sa")
+volume_db = -20.0
+pitch_scale = 0.5
+bus = &"SFX"

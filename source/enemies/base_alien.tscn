@@ -649,5 +649,6 @@ shape = SubResource("CylinderShape3D_5xk7l")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_mkk58")
+bus = &"SFX"
 
 [connection signal="timeout" from="AlienLifespan" to="." method="_on_alien_lifespan_timeout"]
