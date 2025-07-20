@@ -1,5 +1,5 @@
 extends Marker3D
-class_name WeaponSpot
+class_name WeaponSlot
 
 var weapon : Node3D
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=16 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="8_nm0vn"]
 [ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://source/ui/collected_quota_label.gd" id="9_gebhe"]
 [ext_resource type="PackedScene" uid="uid://dw28pic0xfqh7" path="res://source/ui/game_ui.tscn" id="11_2iad3"]
+[ext_resource type="AudioStream" uid="uid://v7x343baq2h3" path="res://assets/audio/music/Not Enough Power.mp3" id="12_qtt0w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -60,45 +61,12 @@ shadow_enabled = true
 directional_shadow_mode = 1
 directional_shadow_max_distance = 200.0
 
-[node name="PlayerVehicle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_8110p")]
-camera = NodePath("../PlayerCamera")
-
-[node name="PowerBar" parent="PlayerVehicle/PowerSystem" index="0"]
-z_index = 0
-
-[node name="WeaponSlot4" parent="PlayerVehicle/WeaponSlotsNode" index="3"]
-script = null
-
-[node name="WeaponSlot5" parent="PlayerVehicle/WeaponSlotsNode" index="4"]
-script = null
-
-[node name="WeaponSlot6" parent="PlayerVehicle/WeaponSlotsNode" index="5"]
-script = null
-
-[node name="WeaponSlot7" parent="PlayerVehicle/WeaponSlotsNode" index="6"]
-script = null
-
-[node name="WeaponSlot8" parent="PlayerVehicle/WeaponSlotsNode" index="7"]
-script = null
-
-[node name="DrillSlot" parent="PlayerVehicle" index="6"]
-script = null
-
-[node name="TurretRightSpot" parent="PlayerVehicle/TurretSlots" index="0"]
-script = null
-
-[node name="TurretLeftSpot" parent="PlayerVehicle/TurretSlots" index="1"]
-script = null
-
-[node name="TurretFrontSpot" parent="PlayerVehicle/TurretSlots" index="2"]
-script = null
-
-[node name="TurretBackSpot" parent="PlayerVehicle/TurretSlots" index="3"]
-script = null
-
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 near = 0.25
 target = NodePath("../PlayerVehicle")
+
+[node name="PlayerVehicle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_8110p")]
+camera = NodePath("../PlayerCamera")
 
 [node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
 
@@ -125,6 +93,10 @@ max_health = 1e+06
 
 [node name="GameUI" parent="." instance=ExtResource("11_2iad3")]
 
-[editable path="PlayerVehicle"]
-[editable path="PlayerVehicle/PowerSystem"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_qtt0w")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+
 [editable path="TargetDummy"]
