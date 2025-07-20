@@ -17,5 +17,5 @@ func _on_energy_depleted() -> void:
 		GameData.CurrentRound += 1
 	else:
 		get_tree().change_scene_to_packed(failure_scene)
-		GameData.CurrentRound = 0
+		GameData.set_up_game_data()
 	GameData.SoulsCollectedThisRound = 0

@@ -56,7 +56,6 @@ camera = NodePath("../PlayerCamera")
 target = NodePath("../PlayerVehicle")
 
 [node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
-spawn_delay_between_aliens = 0.1
 
 [node name="temporary_ui" parent="." instance=ExtResource("6_sgigq")]
 

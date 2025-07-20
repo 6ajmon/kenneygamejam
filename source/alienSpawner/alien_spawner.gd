@@ -3,7 +3,7 @@ class_name AlienSpawner
 
 @onready var alien: PackedScene = preload("res://source/enemies/base_alien.tscn")
 @export var spawn_min_distance: float = 24.0
-@export var alien_wave_size: int = 5
+@export var alien_wave_size: int = 6
 @export var wave_interval: float = 5.0
 @export var wave_size_increase: int = 0
 @export var spawn_delay_between_aliens: float = 0.25
@@ -15,6 +15,7 @@ var wave_timer: Timer
 var is_spawning: bool = false
 
 func _ready() -> void:
+	alien_wave_size += GameData.CurrentRound
 	is_round_active = false
 	setup_wave_timer()
 
