@@ -25,6 +25,42 @@ var RequiredQuota: float
 var SoulsCollectedThisRound: float
 var CurrentRound: int
 
+var current_color_palette: Dictionary
+
+var color_palettes = [
+	# red orange
+	{
+		"low_color": Color(0.83, 0.35, 0.31, 1.0),
+		"tall_color": Color(0.57, 0.16, 0.13, 1.0)
+	},
+	# blue green
+	{
+		"low_color": Color(0.49, 0.67, 0.82, 1.0),
+		"tall_color": Color(0.23, 0.53, 0.36, 1.0)
+	},
+	# green purple
+	{
+		"low_color": Color(0.39, 0.8, 0.7, 1.0),
+		"tall_color": Color(0.5, 0.35, 0.78, 1.0)
+	},
+	# grey purple
+	{
+		"low_color": Color(0.27, 0.25, 0.32, 1.0),
+		"tall_color": Color(0.24, 0.32, 0.42, 1)
+	},
+	# brown yellow
+	{
+		"low_color": Color(0.65, 0.49, 0.38, 1),
+		"tall_color": Color(0.49, 0.35, 0.27, 1.0)
+	},
+	# white blue
+	{
+		"low_color": Color(0.29, 0.58, 0.69, 1),
+		"tall_color": Color(0.2, 0.3, 0.34, 1.0)
+	}
+]
+
+
 func _ready() -> void:
 	set_up_game_data()
 
@@ -38,6 +74,22 @@ func set_up_game_data() -> void:
 	rarePrice = 25
 	epicPrice = 36
 	legendaryPrice = 50
+	current_color_palette = color_palettes[0]
+
+func randomize_color_palette() -> void:
+	var random_index = (randi() % color_palettes.size())
+	current_color_palette = color_palettes[random_index]
+
+func get_current_color_palette() -> Dictionary:
+	if current_color_palette == null:
+		randomize_color_palette()
+	return current_color_palette
+
+func get_low_tile_color() -> Color:
+	return get_current_color_palette()["low_color"]
+
+func get_tall_tile_color() -> Color:
+	return get_current_color_palette()["tall_color"]
 
 func get_price(upgrade_rarity: int) -> float:
 	match upgrade_rarity:

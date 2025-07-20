@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://c5j1vg56en7a"]
+[gd_scene load_steps=13 format=4 uid="uid://c5j1vg56en7a"]
 
 [ext_resource type="Script" uid="uid://b8l3ctbg60j82" path="res://source/playerVehicle/player_vehicle.gd" id="1_vo0dx"]
+[ext_resource type="Script" uid="uid://cyfequ281dguj" path="res://source/playerVehicle/movement.gd" id="2_h76px"]
 [ext_resource type="PackedScene" uid="uid://b6fgkqiqyryv3" path="res://source/weapon/weaponSlot/weapon_slot.tscn" id="3_wnbqt"]
 [ext_resource type="PackedScene" uid="uid://cpyb0cw8rsfca" path="res://source/playerVehicle/powerSystem/power_system.tscn" id="4_0jnxe"]
 [ext_resource type="Script" uid="uid://cxkecrxlh5uvc" path="res://source/playerVehicle/weapon_slot.gd" id="4_h76px"]
@@ -128,6 +129,9 @@ size = Vector3(1.8, 1, 2.5)
 
 [node name="PlayerVehicle" type="CharacterBody3D" groups=["contact_damage"]]
 script = ExtResource("1_vo0dx")
+
+[node name="Movement" type="Node3D" parent="."]
+script = ExtResource("2_h76px")
 
 [node name="PowerSystem" parent="." instance=ExtResource("4_0jnxe")]
 

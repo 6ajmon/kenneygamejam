@@ -1,28 +1,21 @@
 extends CharacterBody3D
 class_name PlayerVehicle
 
-@export var max_speed: float = 30.0
-@export var acceleration: float = 5.0
-@export var deceleration: float = 8.0
-@export var turn_speed: float = 2.0  
-@export var backward_penalty: float = 0.6
-@export var turning_penalty : float = 0
-@export var backward_max_speed: float = 18
 @export var camera: PlayerCamera
 @export var contact_damage: float = 10
+@export var velocity_damage_multiplier: float = 0.06
+@export var contact_slowdown_factor: float = 0.6
 
 @export var max_energy:float = 100
 @export var current_energy_usage:float = 1
 
-var current_speed: float = 0.0
-var strafe := 0.0
-var previous_rotation_y: float = 0.0
 var previous_position: Vector3 = Vector3.ZERO
 var can_deal_damage: bool = true
 
 @onready var spotlight: SpotLight3D = $Beam/SpotLight3D
 @onready var weapon_slots_node: Node3D = $WeaponSlotsNode
 @onready var power_system = $PowerSystem
+@onready var movement: Node3D = $Movement
 var weapon_slots = []
 var drill_slot
 var contact_damage_timer: Timer
@@ -34,7 +27,6 @@ func _ready() -> void:
 	weapon_slots = weapon_slots_node.get_children()
 	drill_slot = $DrillSlot
 	
-	# Initialize power system
 	power_system.maximum_energy = max_energy
 	power_system.initialize_power_system()
 	
@@ -58,63 +50,15 @@ func _physics_process(delta: float) -> void:
 		GameData.PlayerPosition = global_position
 		previous_position = global_position
 
-	move_and_rotate(delta)
+	movement.move_and_rotate(delta)
 	if Input.is_action_pressed("left_click"):
 		shoot()
-
-func move_and_rotate(delta: float) -> void:
-	
-	var is_strafing = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
-		
-	if Input.is_action_pressed("move_forward"):
-		current_speed += acceleration * delta
-	elif Input.is_action_pressed("move_backward"):
-		if current_speed <= 0:
-			current_speed -= acceleration * delta * backward_penalty
-		else:
-			current_speed -= acceleration * delta
-	else:
-		current_speed = move_toward(current_speed, 0.0, deceleration * delta)
-	
-	if !is_strafing:
-		current_speed = clamp(current_speed, -backward_max_speed, max_speed)
-	else:
-		current_speed = clamp(current_speed, -backward_max_speed, backward_max_speed)
-	
-	if Input.is_action_pressed("move_left"):
-		strafe -= acceleration * delta * backward_penalty
-	elif Input.is_action_pressed("move_right"):
-		strafe += acceleration * delta * backward_penalty
-	else:
-		strafe = move_toward(strafe, 0, deceleration * delta)
-	
-	strafe = clamp(strafe, -backward_max_speed, backward_max_speed)
-	
-	var direction := _get_mouse_direction()
-	
-	if direction.length() > 0.01:
-		var target_angle := atan2(-direction.x, -direction.z)
-		rotation.y = lerp_angle(rotation.y, target_angle, turn_speed * delta)
-		var angle_change = abs(rotation.y - previous_rotation_y)
-		previous_rotation_y = rotation.y
-
-		var steering_penalty: float = angle_change * turning_penalty
-		current_speed = move_toward(current_speed, 0.0, steering_penalty)
-
-	
-	var forward_direction = -transform.basis.z.normalized()
-	var right_direction = transform.basis.x.normalized()
-
-
-	
-	velocity = forward_direction * current_speed + right_direction * strafe 
-	move_and_slide()
 
 func shoot() -> void:
 	for slot : WeaponSpot in weapon_slots:
 		if slot.is_taken():
-			var vehicle_speed = current_speed
-			if current_speed < 0:
+			var vehicle_speed = movement.get_current_speed()
+			if vehicle_speed < 0:
 				vehicle_speed = 0
 			slot.weapon.shoot(vehicle_speed)
 
@@ -152,26 +96,19 @@ func load_upgrades() -> void:
 			else:
 				drill_slot.get_child(0).increase_drill_size()
 
-func _get_mouse_direction() -> Vector3:
-	var mouse_pos := get_viewport().get_mouse_position()
-	var ray_origin := camera.project_ray_origin(mouse_pos)
-	var ray_dir := camera.project_ray_normal(mouse_pos)
-
-	var plane_y := global_transform.origin.y
-	var distance := (plane_y - ray_origin.y) / ray_dir.y
-	var target_pos := ray_origin + ray_dir * distance
-	
-	var direction := (target_pos - global_transform.origin)
-	direction.y = 0 
-	direction = direction.normalized()
-	
-	return direction
-
 func get_damage() -> float:
 	if can_deal_damage:
 		can_deal_damage = false
 		contact_damage_timer.start()
-		return contact_damage
+		
+		var current_velocity = velocity.length()
+		var velocity_multiplier = 1.0 + (current_velocity * velocity_damage_multiplier)
+		var damage = contact_damage * velocity_multiplier
+		
+		movement.current_speed *= (1.0 - contact_slowdown_factor)
+		movement.strafe *= (1.0 - contact_slowdown_factor)
+		
+		return damage
 	else:
 		return 0
 
