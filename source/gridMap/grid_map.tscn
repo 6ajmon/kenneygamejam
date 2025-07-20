@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
 [ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="8_7ywn6"]
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="8_nm0vn"]
-[ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://tmp/test_ui/label.gd" id="9_gebhe"]
+[ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://source/ui/collected_quota_label.gd" id="9_gebhe"]
 [ext_resource type="PackedScene" uid="uid://dw28pic0xfqh7" path="res://source/ui/game_ui.tscn" id="11_2iad3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dw28pic0xfqh7"]
+[gd_scene load_steps=19 format=3 uid="uid://dw28pic0xfqh7"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_a5gc0"]
 [ext_resource type="Script" uid="uid://0e5vy4jolju6" path="res://source/ui/game_ui.gd" id="1_uw8un"]
-[ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://tmp/test_ui/label.gd" id="2_vyu43"]
+[ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://source/ui/collected_quota_label.gd" id="2_vyu43"]
 [ext_resource type="Texture2D" uid="uid://dvhkh7gtrvtsi" path="res://assets/Icons/sheet_black2x.png" id="3_gqp31"]
 [ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="4_gqp31"]
+[ext_resource type="Script" uid="uid://c3mykbohbolse" path="res://source/ui/quota_label.gd" id="5_0mybr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0m1ej"]
 atlas = ExtResource("3_gqp31")
@@ -343,21 +344,29 @@ theme_override_font_sizes/font_size = 16
 text = "here is power of your ship
 when you run out of it your shift ends"
 
-[node name="SoulsColected" type="Label" parent="."]
-layout_mode = 0
-offset_left = 470.0
-offset_right = 810.0
-offset_bottom = 36.0
+[node name="QuotaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 52.0
+grow_horizontal = 2
 theme = ExtResource("1_a5gc0")
-text = "Quota reached:"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_0mybr")
 
-[node name="Quota" type="Label" parent="."]
-layout_mode = 0
-offset_left = 598.5
-offset_top = 56.0
-offset_right = 681.5
-offset_bottom = 92.0
+[node name="CollectedQuotaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 96.0
+grow_horizontal = 2
 theme = ExtResource("1_a5gc0")
-text = "0/10"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 horizontal_alignment = 1
 script = ExtResource("2_vyu43")
