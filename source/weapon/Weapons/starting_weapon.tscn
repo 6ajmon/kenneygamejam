@@ -5,6 +5,8 @@
 
 [node name="StartingWeapon" type="Node3D"]
 script = ExtResource("1_do7n1")
+bullets_per_second = 1.5
+bullet_speed = 10.0
 
 [node name="Muzzle" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0599753, -0.285857)

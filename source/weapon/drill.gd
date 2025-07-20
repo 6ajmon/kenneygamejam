@@ -7,6 +7,10 @@ class_name DrillWeapon
 var total_rotation: float = 0
 var can_deal_damage: bool = true
 
+func _ready() -> void:
+	if GameData.StatBoosts.damage != 0:
+		tick_damage *= GameData.StatBoosts.damage
+
 func _physics_process(delta: float) -> void:
 	var rotation_angle = rotation_speed * delta
 	drill_mesh.rotate(Vector3.FORWARD, rotation_angle)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://425kdjuplcyf"]
+
+[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://StatBoosts/StatBoost.gd" id="1_j1kmm"]
+
+[node name="MediumDamageBoost" type="Node3D"]
+script = ExtResource("1_j1kmm")
+damage = 1.2
+bullet_size = 1.2

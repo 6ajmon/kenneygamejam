@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy8r0kp3awswj"]
+
+[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://StatBoosts/StatBoost.gd" id="1_pjjss"]
+
+[node name="LegendaryVehicleUp" type="Node3D"]
+script = ExtResource("1_pjjss")
+max_power = 30.0
+bullets_per_second = 3.0
+max_speed = 10.0
+acceleration = 3.0

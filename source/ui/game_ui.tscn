@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=11 format=3 uid="uid://dw28pic0xfqh7"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_a5gc0"]
@@ -29,7 +30,6 @@ grow_vertical = 2
 script = ExtResource("1_uw8un")
 
 [node name="Tutorial" parent="." instance=ExtResource("2_uw8un")]
-visible = false
 
 [node name="QuotaLabel" type="Label" parent="."]
 layout_mode = 1

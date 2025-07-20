@@ -30,8 +30,13 @@ func set_sold():
 
 func _on_buyButton_pressed() -> void:
 	if GameData.AlienSouls >= upgrade_cost:
-		GameData.UpgradesUnlocked.append(upgrade)
+		if upgrade.type != GameData.upgradeTypes.StatBoost:
+			GameData.UpgradesUnlocked.append(upgrade)
+		else:
+			var stats : StatBoost = upgrade.scene.instantiate()
+			stats.apply()
+			print(GameData.StatBoosts.damage)
 		set_sold()
 		GameData.AlienSouls -= upgrade_cost
 		var shop = get_parent().get_parent()
-		shop.label.text = str(GameData.AlienSouls) + " souls"
+		shop.label.text = str(int(GameData.AlienSouls)) + " souls"
