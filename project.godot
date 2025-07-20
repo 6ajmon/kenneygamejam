@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="kenneygamejam"
+config/name="Deadline"
+config/description="Deadline is a game where you work for a corporation that exceeds in exterminating aliens."
 run/main_scene="uid://b3jm5t2yjn8pd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.0705882, 0.0705882, 0.0705882, 1)
