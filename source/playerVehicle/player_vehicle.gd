@@ -33,7 +33,7 @@ func _ready() -> void:
 	Eventbus.connect("new_upgrade", get_new_upgrade)
 	weapon_slots = weapon_slots_node.get_children().filter(func(child): return child is WeaponSlot)
 	drill_slot = $DrillSlot
-	turret_slots = turret_slots_node.get_children().filter(func(child): return child is WeaponSpot)
+	turret_slots = turret_slots_node.get_children().filter(func(child): return child is WeaponSlot)
 	
 	max_energy += GameData.StatBoosts.max_power
 	power_system.maximum_energy = max_energy

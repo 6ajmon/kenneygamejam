@@ -110,6 +110,7 @@ func _on_death() -> void:
 	is_dying = true
 
 	audio.play()
+	visible = false
 	await audio.finished
 	GameData.SoulsCollectedThisRound += alien_death_value
 	queue_free()
