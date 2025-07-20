@@ -21,6 +21,7 @@ var Upgrades = {
 var UpgradesUnlocked = []
 
 var PlayerPosition
+var PlayerRotation: float
 
 var AlienSouls: float
 var RequiredQuota: float
@@ -64,6 +65,7 @@ var color_palettes = [
 
 
 func _ready() -> void:
+	PlayerRotation = 0.0
 	set_up_game_data()
 
 func set_up_game_data() -> void:

@@ -1,11 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw28pic0xfqh7"]
+[gd_scene load_steps=11 format=3 uid="uid://dw28pic0xfqh7"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_a5gc0"]
 [ext_resource type="Script" uid="uid://0e5vy4jolju6" path="res://source/ui/game_ui.gd" id="1_uw8un"]
 [ext_resource type="PackedScene" uid="uid://d4jkrlqfn7r42" path="res://source/ui/tutorial.tscn" id="2_uw8un"]
 [ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://source/ui/collected_quota_label.gd" id="2_vyu43"]
-[ext_resource type="Script" uid="uid://cb2fwh6fbe565" path="res://source/ui/tutorial.gd" id="3_0mybr"]
 [ext_resource type="Script" uid="uid://c3mykbohbolse" path="res://source/ui/quota_label.gd" id="5_0mybr"]
+[ext_resource type="PackedScene" uid="uid://cbhgw85qrsahf" path="res://source/ui/minimap.tscn" id="6_0mybr"]
+[ext_resource type="Texture2D" uid="uid://plq8ewxwguin" path="res://assets/UI/UIassets/simpleSpace_tilesheet@2.png" id="7_2ug1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ayoe"]
+atlas = ExtResource("7_2ug1f")
+region = Rect2(512, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ug1f"]
+atlas = ExtResource("7_2ug1f")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m1ej"]
+atlas = SubResource("AtlasTexture_2ug1f")
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -17,7 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_uw8un")
 
 [node name="Tutorial" parent="." instance=ExtResource("2_uw8un")]
-script = ExtResource("3_0mybr")
+visible = false
 
 [node name="QuotaLabel" type="Label" parent="."]
 layout_mode = 1
@@ -45,3 +57,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 horizontal_alignment = 1
 script = ExtResource("2_vyu43")
+
+[node name="Minimap" parent="." instance=ExtResource("6_0mybr")]
+layout_mode = 1
+enemy_sprite = SubResource("AtlasTexture_7ayoe")
+player_sprite = SubResource("AtlasTexture_0m1ej")
