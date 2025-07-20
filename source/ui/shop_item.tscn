@@ -40,24 +40,28 @@ text = "10 souls"
 
 [node name="Upgrade" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 300.0
 
 [node name="Icon" type="TextureRect" parent="Upgrade"]
 layout_mode = 0
 offset_left = 88.0
-offset_top = 32.0
+offset_top = 17.0
 offset_right = 152.0
-offset_bottom = 96.0
+offset_bottom = 81.0
 texture = ExtResource("2_wxfep")
-stretch_mode = 1
+expand_mode = 1
 
 [node name="ItemName" type="Label" parent="Upgrade"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 80.0
-offset_right = 199.0
-offset_bottom = 107.0
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -70.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
@@ -68,14 +72,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Label" parent="Upgrade"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 100.0
-offset_right = 216.0
-offset_bottom = 220.0
-theme_override_colors/font_color = Color(0.838897, 0.838897, 0.838897, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -34.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_d8bsp")
 theme_override_font_sizes/font_size = 18
 text = "+Fire rate

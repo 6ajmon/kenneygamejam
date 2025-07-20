@@ -13,9 +13,9 @@ var Upgrades = {
 	"Weapon000" : Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common, "res://tmp/weapon_000.tscn", "res://assets/Icons/blaster-g.png", UpgradesDescriptions.weapon000),
 	"Starter": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/starting_weapon.tscn","res://assets/Icons/blaster-g.png", UpgradesDescriptions.starting_weapon ),
 	"Sniper": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Epic, "res://source/weapon/sniper.tscn","res://assets/Icons/blaster-f.png", UpgradesDescriptions.sniper),
-	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/drill.tscn", "res://assets/Icons/blaster-f.png", UpgradesDescriptions.drill),
-	"TurretSingle": Upgrade.new(upgradeTypes.Turret, upgradeRarities.Epic, "res://source/weapon/turret_single.tscn", "res://assets/Icons/blaster-f.png", UpgradesDescriptions.turret_single),
-	"TurretDouble": Upgrade.new(upgradeTypes.Turret, upgradeRarities.Legendary, "res://source/weapon/turret_double.tscn", "res://assets/Icons/blaster-f.png", UpgradesDescriptions.turret_double)
+	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/drill.tscn", "res://assets/Icons/drill.png", UpgradesDescriptions.drill),
+	"TurretSingle": Upgrade.new(upgradeTypes.Turret, upgradeRarities.Epic, "res://source/weapon/turret_single.tscn", "res://assets/Icons/turret_single.png", UpgradesDescriptions.turret_single),
+	"TurretDouble": Upgrade.new(upgradeTypes.Turret, upgradeRarities.Legendary, "res://source/weapon/turret_double.tscn", "res://assets/Icons/turret_double.png", UpgradesDescriptions.turret_double)
 }
 
 var UpgradesUnlocked = []

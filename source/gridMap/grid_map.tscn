@@ -97,6 +97,7 @@ script = null
 script = null
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
+near = 0.25
 target = NodePath("../PlayerVehicle")
 
 [node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
