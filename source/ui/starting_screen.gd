@@ -1,7 +1,7 @@
 extends Control
 
 @onready var loading_screen: PackedScene = preload("res://source/ui/loading_screen.tscn")
-@onready var moon_animation:AnimationPlayer = $SpaceBG/Mars/Moon/AnimationPlayer
+@onready var moon_animation: AnimationPlayer = $SpaceBG/Mars/Moon/AnimationPlayer
 
 func _ready() -> void:
 	moon_animation.play("moon_movement")
