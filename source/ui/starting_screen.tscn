@@ -63,10 +63,10 @@ tracks/1/path = NodePath(".:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.43333, 5.9),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.01, 3.43333, 5.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, -1, 0]
+"values": [0, 2, -1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6l04n"]
@@ -194,9 +194,9 @@ texture = ExtResource("4_goi8c")
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 530.0
-offset_top = 357.0
+offset_top = 490.0
 offset_right = 750.0
-offset_bottom = 537.0
+offset_bottom = 670.0
 theme_override_constants/separation = 36
 
 [node name="PlayButton" type="Button" parent="Buttons"]
@@ -218,61 +218,77 @@ toggle_mode = true
 text = "source"
 
 [node name="Title" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 580.0
-offset_top = 300.0
-offset_right = 580.0
-offset_bottom = 300.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 110.0
+offset_right = -640.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
 
 [node name="0" type="Sprite2D" parent="Title"]
-position = Vector2(-132, 8)
+modulate = Color(1, 0, 0, 0)
+position = Vector2(101, 102)
+scale = Vector2(2, 2)
 texture = ExtResource("4_nydhj")
 flip_h = true
 
 [node name="1" type="Sprite2D" parent="Title"]
-position = Vector2(-96, 8)
+modulate = Color(1, 0, 0, 0)
+position = Vector2(171.5, 102)
+scale = Vector2(2, 2)
+texture = ExtResource("3_fmg4o")
+
+[node name="5" type="Sprite2D" parent="Title"]
+modulate = Color(1, 0, 0, 0)
+position = Vector2(266.5, 102)
+scale = Vector2(2, 2)
 texture = ExtResource("3_fmg4o")
 
 [node name="2" type="Sprite2D" parent="Title"]
-position = Vector2(-48, 8)
+modulate = Color(1, 0, 0, 0)
+position = Vector2(359.5, 102)
+scale = Vector2(2, 2)
 texture = ExtResource("3_fmg4o")
 
 [node name="3" type="Sprite2D" parent="Title"]
-position = Vector2(0, 8)
+modulate = Color(1, 0, 0, 0)
+position = Vector2(415.5, 102)
+scale = Vector2(2, 2)
 texture = ExtResource("3_fmg4o")
 
 [node name="4" type="Sprite2D" parent="Title"]
-position = Vector2(48, 8)
+modulate = Color(1, 0, 0, 0)
+position = Vector2(457.5, 102)
+scale = Vector2(2, 2)
 texture = ExtResource("3_fmg4o")
 
 [node name="9" type="Sprite2D" parent="Title"]
-position = Vector2(276, 8)
+modulate = Color(1, 0, 0, 0)
+position = Vector2(529.5, 102)
+scale = Vector2(2, 2)
 texture = ExtResource("4_nydhj")
 
-[node name="5" type="Sprite2D" parent="Title"]
-position = Vector2(96, 8)
-texture = ExtResource("3_fmg4o")
-
-[node name="6" type="Sprite2D" parent="Title"]
-position = Vector2(144, 8)
-texture = ExtResource("3_fmg4o")
-
-[node name="7" type="Sprite2D" parent="Title"]
-position = Vector2(192, 8)
-texture = ExtResource("3_fmg4o")
-
-[node name="8" type="Sprite2D" parent="Title"]
-position = Vector2(240, 8)
-texture = ExtResource("3_fmg4o")
-
 [node name="Label" type="Label" parent="Title"]
-layout_mode = 0
-offset_left = -128.0
-offset_top = -10.0
-offset_right = 82.0
-offset_bottom = 13.0
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -114.5
+offset_bottom = -42.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_xkhn8")
-text = "Not enough POWER"
+theme_override_colors/font_shadow_color = Color(0.435294, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 22
+text = "Deadline"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Vehicle" parent="." instance=ExtResource("8_hlv7e")]
 
