@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://csm7w074j6jiy" path="res://assets/audio/shooting/laserSmall_003.ogg" id="5_8guin"]
 [ext_resource type="AudioStream" uid="uid://b7csfbxcpaotv" path="res://assets/audio/shooting/laserSmall_004.ogg" id="6_geacc"]
 
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_at8g0"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e81sa"]

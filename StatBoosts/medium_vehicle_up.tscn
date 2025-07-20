@@ -5,6 +5,6 @@
 [node name="MediumVehicleUp" type="Node3D"]
 script = ExtResource("1_5qo5e")
 max_power = 5.0
-bullets_per_second = 0.3
+bullets_per_second = 1.05
 max_speed = 2.0
 acceleration = 0.3

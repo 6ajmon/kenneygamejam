@@ -32,6 +32,7 @@ func _on_buyButton_pressed() -> void:
 	if GameData.AlienSouls >= upgrade_cost:
 		if upgrade.type != GameData.upgradeTypes.StatBoost:
 			GameData.UpgradesUnlocked.append(upgrade)
+			GameData.StatBoosts.power_usage += 1
 		else:
 			var stats : StatBoost = upgrade.scene.instantiate()
 			stats.apply()

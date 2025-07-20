@@ -13,7 +13,8 @@ class_name StatBoost
 
 func apply():
 	GameData.StatBoosts.acceleration += acceleration
-	GameData.StatBoosts.bullets_per_second += bullets_per_second
+	if bullets_per_second != 0:
+		GameData.StatBoosts.bullets_per_second *= bullets_per_second
 	if GameData.StatBoosts.bullet_range + bullet_range <= 0:
 		GameData.StatBoosts.bullet_range += bullet_range
 	else:

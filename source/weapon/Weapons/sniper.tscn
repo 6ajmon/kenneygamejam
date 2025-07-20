@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d3ejj7ma08ncj"]
 
 [ext_resource type="Script" uid="uid://cio0eniunjpat" path="res://source/weapon/weapon.gd" id="1_byg53"]
-[ext_resource type="PackedScene" uid="uid://bdowkc3nl01cg" path="res://source/weapon/bullet/bullet.tscn" id="2_7xj4l"]
+[ext_resource type="PackedScene" uid="uid://cn07mlnqwnk4b" path="res://source/weapon/bullet/bullet_sniper.tscn" id="2_8bgw7"]
 [ext_resource type="PackedScene" uid="uid://3qx5t7j0foaf" path="res://assets/Blasters/blaster-f.glb" id="2_jpf3x"]
 [ext_resource type="AudioStream" uid="uid://62hj1p0fq5wt" path="res://assets/audio/shooting/laserSmall_000.ogg" id="4_0jcqm"]
 [ext_resource type="AudioStream" uid="uid://cpmh11wjbn1wo" path="res://assets/audio/shooting/laserSmall_001.ogg" id="5_praqm"]
@@ -19,10 +19,11 @@ stream_4/stream = ExtResource("8_gq2b3")
 
 [node name="Sniper" type="Node3D"]
 script = ExtResource("1_byg53")
-bullets_per_second = 1.0
+bullets_per_second = 0.5
 bullet_speed = 30.0
 damage = 100.0
-pierce = 5.0
+pierce = 2.0
+BULLET = ExtResource("2_8bgw7")
 
 [node name="Muzzle" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0599753, -0.285857)

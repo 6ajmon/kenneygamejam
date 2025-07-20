@@ -13,6 +13,7 @@ func change_energy(value: float = 0) -> void:
 	current_energy = clamp(current_energy, 0, maximum_energy)
 	energy_changed.emit(value)
 	_update_power_bar()
+	print("Current energy: ", current_energy)
 	if current_energy <= 0:
 		Eventbus.energy_depleted.emit()
 
@@ -20,7 +21,7 @@ func decrease_energy(value: float) -> void:
 	change_energy(-value)
 
 func initialize_power_system() -> void:
-	current_energy = maximum_energy
+	current_energy = maximum_energy + GameData.StatBoosts.max_power
 	power_bar.max_value = maximum_energy
 	
 func _update_power_bar() -> void:

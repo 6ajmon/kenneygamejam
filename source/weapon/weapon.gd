@@ -9,9 +9,11 @@ class_name Weapon
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var muzzle: Marker3D = $Muzzle
 
+
+@export var BULLET : PackedScene = preload("res://source/weapon/bullet/bullet.tscn")
+
 @onready var audio_player = $AudioStreamPlayer
 
-const BULLET = preload("res://source/weapon/bullet/bullet.tscn")
 
 var on_cooldown : bool = false
 

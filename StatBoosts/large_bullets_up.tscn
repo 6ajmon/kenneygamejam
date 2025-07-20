@@ -6,6 +6,6 @@
 script = ExtResource("1_yfe64")
 damage = 1.05
 pierce = 1
-bullets_per_second = 1.5
+bullets_per_second = 1.3
 bullet_size = 1.1
 bullet_range = 3.0
