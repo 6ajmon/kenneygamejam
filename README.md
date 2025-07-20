@@ -16,3 +16,5 @@ https://kenney.itch.io/kenney-jam-resources
 https://kenney.nl/assets/game-icons-expansion
 
 https://kenney.nl/assets/game-icons
+
+https://kenney.nl/assets/simple-space
