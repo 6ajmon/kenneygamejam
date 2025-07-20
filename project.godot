@@ -29,11 +29,13 @@ SceneManager="*res://source/GameData/scene_manager.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [global_group]
 
 projectiles=""
 contact_damage=""
+enemies=""
 
 [input]
 
@@ -73,9 +75,11 @@ close_tutorial={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Ground"
 3d_physics/layer_3="Bullet"
+3d_physics/layer_4="enemies"
 3d_physics/layer_5="drill"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_3d=1

@@ -1,13 +1,13 @@
 extends Node3D
 class_name AlienSpawner
 
-@onready var alien: PackedScene = preload("res://source/enemies/base_alien.tscn")
-@export var spawn_min_distance: float = 24.0
+@export var alien_scenes: Array[PackedScene] = []
+@export var spawn_min_distance: float = 23.0
 @export var alien_wave_size: int = 6
-@export var wave_interval: float = 5.0
+@export var wave_interval: float = 1.5
 @export var wave_size_increase: int = 0
 @export var spawn_delay_between_aliens: float = 0.25
-@export var spawn_distance_variance: float = 6.0
+@export var spawn_distance_variance: float = 1.0
 
 var is_round_active: bool
 var current_wave: int = 0
@@ -15,6 +15,8 @@ var wave_timer: Timer
 var is_spawning: bool = false
 
 func _ready() -> void:
+	alien_scenes.append(preload("res://source/enemies/base_alien.tscn"))
+	alien_scenes.append(preload("res://source/enemies/giga_alien.tscn"))
 	alien_wave_size += GameData.CurrentRound
 	is_round_active = false
 	setup_wave_timer()
@@ -35,7 +37,7 @@ func stop_spawning() -> void:
 	wave_timer.stop()
 
 func spawn_aliens() -> void:
-	if not alien or is_spawning:
+	if alien_scenes.is_empty() or is_spawning:
 		return
 	
 	is_spawning = true
@@ -43,7 +45,16 @@ func spawn_aliens() -> void:
 	
 	for i in current_wave_size:
 		var spawn_position = get_spawn_position()
-		var alien_instance = alien.instantiate()
+		# 1/6 szansa na giga alien, reszta to base alien
+		var random_alien_scene: PackedScene
+		if randf() <= 1.0/6.0:
+			# Giga alien (indeks 1 w tablicy)
+			random_alien_scene = alien_scenes[1] if alien_scenes.size() > 1 else alien_scenes[0]
+		else:
+			# Base alien (indeks 0 w tablicy)
+			random_alien_scene = alien_scenes[0]
+		
+		var alien_instance = random_alien_scene.instantiate()
 		add_child(alien_instance)
 		alien_instance.visible = true
 		alien_instance.global_position = spawn_position
@@ -65,7 +76,7 @@ func get_spawn_position() -> Vector3:
 	
 	var spawn_pos = Vector3(
 		player_pos.x + cos(angle) * spawn_distance,
-		player_pos.y - 1,
+		player_pos.y - 0.25,
 		player_pos.z + sin(angle) * spawn_distance
 	)
 	

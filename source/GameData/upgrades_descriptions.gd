@@ -22,3 +22,5 @@ var small_power_up = "Your energy lasts longer"
 var medium_power_up = "Your power drains slower"
 
 var ultimate_power = "Everything you need for fair price"
+var turret_single = "Engineer's best friend"
+var turret_double = "double the barrels, double the fun!"

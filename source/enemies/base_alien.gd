@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name BaseAlien
 
 @export var minimum_speed: float = 6.0
-@export var maximum_speed: float = 16.0
+@export var maximum_speed: float = 15.0
 var speed: float
 
 @export var player_detection_range: float = 20.0
@@ -27,10 +27,10 @@ var detection_range_squared: float
 var is_player_in_range: bool = false
 
 func _ready() -> void:
-	minimum_speed += GameData.CurrentRound
-	maximum_speed += GameData.CurrentRound
+	add_to_group("enemies")
+	maximum_speed += 0.4 * GameData.CurrentRound
 	health_points += 10 * GameData.CurrentRound
-	alien_death_value += 2 * GameData.CurrentRound
+	alien_death_value += GameData.CurrentRound
 	
 	speed = randf_range(minimum_speed, maximum_speed)
 	health_component.max_health = health_points

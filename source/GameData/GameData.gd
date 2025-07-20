@@ -1,6 +1,6 @@
 extends Node
 
-enum upgradeTypes {Weapon, DrillWeapon, StatBoost}
+enum upgradeTypes {Weapon, DrillWeapon, StatBoost, Turret}
 
 enum upgradeRarities {Common, Rare, Epic, Legendary}
 
@@ -30,14 +30,16 @@ var Upgrades = {
 	"Weapon000" : Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/weapon_000.tscn", "res://assets/Icons/blaster-g.png", UpgradesDescriptions.weapon000),
 	"Starter": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/starting_weapon.tscn","res://assets/Icons/blaster-g.png", UpgradesDescriptions.starting_weapon ),
 	"Sniper": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Epic, "res://source/weapon/Weapons/sniper.tscn","res://assets/Icons/blaster-f.png", UpgradesDescriptions.sniper),
-	#Drill
-	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/Weapons/drill.tscn", "res://assets/Icons/blaster-f.png", UpgradesDescriptions.drill)
+	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/Weapons/drill.tscn", "res://assets/Icons/drill.png", UpgradesDescriptions.drill),
+	"TurretSingle": Upgrade.new(upgradeTypes.Turret, upgradeRarities.Epic, "res://source/weapon/turret_single.tscn", "res://assets/Icons/turret_single.png", UpgradesDescriptions.turret_single),
+	"TurretDouble": Upgrade.new(upgradeTypes.Turret, upgradeRarities.Legendary, "res://source/weapon/turret_double.tscn", "res://assets/Icons/turret_double.png", UpgradesDescriptions.turret_double)
 }
 
 var UpgradesUnlocked = []
 var StatBoosts : StatBoost = StatBoost.new() 
 
 var PlayerPosition
+var PlayerRotation: float
 
 var AlienSouls: float
 var RequiredQuota: float
@@ -81,6 +83,7 @@ var color_palettes = [
 
 
 func _ready() -> void:
+	PlayerRotation = 0.0
 	set_up_game_data()
 
 func set_up_game_data() -> void:

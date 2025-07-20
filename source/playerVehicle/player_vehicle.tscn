@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cyfequ281dguj" path="res://source/playerVehicle/movement.gd" id="2_h76px"]
 [ext_resource type="PackedScene" uid="uid://b6fgkqiqyryv3" path="res://source/weapon/weaponSlot/weapon_slot.tscn" id="3_wnbqt"]
 [ext_resource type="PackedScene" uid="uid://cpyb0cw8rsfca" path="res://source/playerVehicle/powerSystem/power_system.tscn" id="4_0jnxe"]
-[ext_resource type="Script" uid="uid://cxkecrxlh5uvc" path="res://source/playerVehicle/weapon_slot.gd" id="4_h76px"]
+[ext_resource type="Script" uid="uid://cxkecrxlh5uvc" path="res://source/weapon/weaponSlot/weapon_slot.gd" id="4_h76px"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jnxe"]
 resource_name = "metalDark"
@@ -175,6 +175,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.715, -1)
 [node name="WeaponSlot3" parent="WeaponSlotsNode" instance=ExtResource("3_wnbqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313707, 0.803596, -0.0462973)
 
+[node name="WeaponSlot4" type="Marker3D" parent="WeaponSlotsNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000239015, 0.239444, -1.23616)
+script = ExtResource("4_h76px")
+
+[node name="WeaponSlot5" type="Marker3D" parent="WeaponSlotsNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.392975, 0.495574, -1.23616)
+script = ExtResource("4_h76px")
+
+[node name="WeaponSlot6" type="Marker3D" parent="WeaponSlotsNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.410179, 0.495574, -1.23616)
+script = ExtResource("4_h76px")
+
+[node name="WeaponSlot7" type="Marker3D" parent="WeaponSlotsNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.802899, 0.38887, 0.0842884)
+script = ExtResource("4_h76px")
+
+[node name="WeaponSlot8" type="Marker3D" parent="WeaponSlotsNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.799698, 0.38887, 0.0842884)
+script = ExtResource("4_h76px")
+
 [node name="DrillSlot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.441216, -1.87732)
+script = ExtResource("4_h76px")
+
+[node name="TurretSlots" type="Node3D" parent="."]
+
+[node name="TurretRightSpot" type="Marker3D" parent="TurretSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599444, 0.492684, 0.05682)
+script = ExtResource("4_h76px")
+
+[node name="TurretLeftSpot" type="Marker3D" parent="TurretSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.609158, 0.492684, 0.05682)
+script = ExtResource("4_h76px")
+
+[node name="TurretFrontSpot" type="Marker3D" parent="TurretSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000855088, 0.769684, -0.525892)
+script = ExtResource("4_h76px")
+
+[node name="TurretBackSpot" type="Marker3D" parent="TurretSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000855088, 0.768009, 0.166128)
 script = ExtResource("4_h76px")

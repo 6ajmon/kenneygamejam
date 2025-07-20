@@ -66,7 +66,38 @@ camera = NodePath("../PlayerCamera")
 [node name="PowerBar" parent="PlayerVehicle/PowerSystem" index="0"]
 z_index = 0
 
+[node name="WeaponSlot4" parent="PlayerVehicle/WeaponSlotsNode" index="3"]
+script = null
+
+[node name="WeaponSlot5" parent="PlayerVehicle/WeaponSlotsNode" index="4"]
+script = null
+
+[node name="WeaponSlot6" parent="PlayerVehicle/WeaponSlotsNode" index="5"]
+script = null
+
+[node name="WeaponSlot7" parent="PlayerVehicle/WeaponSlotsNode" index="6"]
+script = null
+
+[node name="WeaponSlot8" parent="PlayerVehicle/WeaponSlotsNode" index="7"]
+script = null
+
+[node name="DrillSlot" parent="PlayerVehicle" index="6"]
+script = null
+
+[node name="TurretRightSpot" parent="PlayerVehicle/TurretSlots" index="0"]
+script = null
+
+[node name="TurretLeftSpot" parent="PlayerVehicle/TurretSlots" index="1"]
+script = null
+
+[node name="TurretFrontSpot" parent="PlayerVehicle/TurretSlots" index="2"]
+script = null
+
+[node name="TurretBackSpot" parent="PlayerVehicle/TurretSlots" index="3"]
+script = null
+
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
+near = 0.25
 target = NodePath("../PlayerVehicle")
 
 [node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
@@ -75,6 +106,7 @@ target = NodePath("../PlayerVehicle")
 visible = false
 
 [node name="Label" type="Label" parent="temporary_ui"]
+visible = false
 layout_mode = 0
 offset_left = 620.0
 offset_top = 56.0
@@ -96,4 +128,3 @@ max_health = 1e+06
 [editable path="PlayerVehicle"]
 [editable path="PlayerVehicle/PowerSystem"]
 [editable path="TargetDummy"]
-[editable path="TargetDummy/AlienAnimated"]
