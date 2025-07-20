@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2utmysxbidfw"]
+
+[ext_resource type="Script" uid="uid://dhjond2fh8q7t" path="res://source/weapon/turret.gd" id="1_8nlmd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_at8g0"]
+
+[node name="Turret" type="Node3D"]
+script = ExtResource("1_8nlmd")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_at8g0")
+
+[node name="TurretBody" type="Node3D" parent="."]

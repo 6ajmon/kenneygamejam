@@ -563,7 +563,7 @@ height = 1.0
 height = 10.0
 radius = 0.4
 
-[node name="BaseAlien" type="CharacterBody3D"]
+[node name="BaseAlien" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_lo783")

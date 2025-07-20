@@ -11,9 +11,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !visible:
 		visible = true
-	#direction.y = -falling_speed
-	var velocity = direction * speed
-	translate(velocity * delta)
+
+	translate(direction * speed * delta)
 
 func _on_area_entered(_area):
 	queue_free()
