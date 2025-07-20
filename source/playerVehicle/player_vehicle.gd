@@ -27,6 +27,7 @@ var energy_consumption_timer: Timer
 
 func _ready() -> void:
 	GameData.PlayerPosition = global_position
+	GameData.PlayerRotation = rotation.y
 	Eventbus.connect("new_upgrade", get_new_upgrade)
 	weapon_slots = weapon_slots_node.get_children().filter(func(child): return child is WeaponSpot)
 	drill_slot = $DrillSlot
@@ -53,6 +54,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if global_position.distance_to(previous_position) > 0.01:
 		GameData.PlayerPosition = global_position
+		GameData.PlayerRotation = rotation.y
 		previous_position = global_position
 
 	movement.move_and_rotate(delta)

@@ -27,6 +27,7 @@ var detection_range_squared: float
 var is_player_in_range: bool = false
 
 func _ready() -> void:
+	add_to_group("enemies")
 	maximum_speed += 0.4 * GameData.CurrentRound
 	health_points += 10 * GameData.CurrentRound
 	alien_death_value += GameData.CurrentRound

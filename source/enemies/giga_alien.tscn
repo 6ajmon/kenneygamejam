@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://rfd1r3mxj7sq"]
+
+[ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="1_6altx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ndphd"]
+radius = 1.0
+height = 2.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6altx"]
+height = 20.0
+radius = 1.0
+
+[node name="GigaAlien" instance=ExtResource("1_6altx")]
+minimum_speed = 3.0
+maximum_speed = 6.0
+rotation_speed = 3.0
+alien_death_value = 50
+health_points = 1500.0
+
+[node name="AlienAnimated" parent="." index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("CapsuleShape3D_ndphd")
+
+[node name="HealthComponent" parent="." index="3"]
+max_health = 1500.0
+
+[node name="CollisionShape3D" parent="HitboxComponent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_6altx")
