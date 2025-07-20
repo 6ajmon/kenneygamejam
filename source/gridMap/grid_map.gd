@@ -87,16 +87,16 @@ func create_wall(wall_position: Vector3, size: Vector3) -> void:
 	add_child(wall)
 
 func randomize_mesh_color() -> void:
-	var r = 0.3
-	var g = 1
-	var b = 0.1
-	var a = 1.0
-	set_tile_color(generator.TILE_LOW, Color(0, 0.3, 0.9, a))
-	set_tile_color(generator.TILE_TALL, Color(r, g, b, a))
-	set_tile_color(generator.TILE_TALL_ALT, Color(r, g, b, a))
-	set_tile_color(generator.TILE_SLOPE, Color(r, g, b, a))
-	set_tile_color(generator.TILE_SLOPE_INNER, Color(r, g, b, a))
-	set_tile_color(generator.TILE_SLOPE_OUTER, Color(r, g, b, a))
+	var low_color = GameData.get_low_tile_color()
+	var tall_color = GameData.get_tall_tile_color()
+
+	set_tile_color(generator.TILE_LOW, low_color)
+
+	set_tile_color(generator.TILE_TALL, tall_color)
+	set_tile_color(generator.TILE_TALL_ALT, tall_color)
+	set_tile_color(generator.TILE_SLOPE, tall_color)
+	set_tile_color(generator.TILE_SLOPE_INNER, tall_color)
+	set_tile_color(generator.TILE_SLOPE_OUTER, tall_color)
 	
 func set_tile_color(tile_type: int, color: Color) -> void:
 	var mesh_material = mesh_library.get_item_mesh(tile_type).surface_get_material(0) as StandardMaterial3D

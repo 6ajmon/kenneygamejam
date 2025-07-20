@@ -15,6 +15,7 @@ func _on_energy_depleted() -> void:
 		GameData.AlienSouls += GameData.SoulsCollectedThisRound
 		get_tree().change_scene_to_packed(shop_scene)
 		GameData.CurrentRound += 1
+		GameData.randomize_color_palette()
 	else:
 		get_tree().change_scene_to_packed(failure_scene)
 		GameData.set_up_game_data()
