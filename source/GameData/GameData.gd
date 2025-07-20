@@ -35,8 +35,28 @@ var color_palettes = [
 	},
 	# blue green
 	{
-		"low_color": Color(0.1, 0.5, 0.9, 1.0),
-		"tall_color": Color(0.3, 1.0, 0.1, 1.0)
+		"low_color": Color(0.49, 0.67, 0.82, 1.0),
+		"tall_color": Color(0.23, 0.53, 0.36, 1.0)
+	},
+	# green purple
+	{
+		"low_color": Color(0.39, 0.8, 0.7, 1.0),
+		"tall_color": Color(0.5, 0.35, 0.78, 1.0)
+	},
+	# grey purple
+	{
+		"low_color": Color(0.27, 0.25, 0.32, 1.0),
+		"tall_color": Color(0.24, 0.32, 0.42, 1)
+	},
+	# brown yellow
+	{
+		"low_color": Color(0.65, 0.49, 0.38, 1),
+		"tall_color": Color(0.49, 0.35, 0.27, 1.0)
+	},
+	# white blue
+	{
+		"low_color": Color(0.29, 0.58, 0.69, 1),
+		"tall_color": Color(0.2, 0.3, 0.34, 1.0)
 	}
 ]
 
