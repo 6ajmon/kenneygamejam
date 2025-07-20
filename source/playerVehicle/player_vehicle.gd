@@ -13,19 +13,24 @@ var previous_position: Vector3 = Vector3.ZERO
 var can_deal_damage: bool = true
 
 @onready var spotlight: SpotLight3D = $Beam/SpotLight3D
-@onready var weapon_slots_node: Node3D = $WeaponSlotsNode
 @onready var power_system = $PowerSystem
 @onready var movement: Node3D = $Movement
+
+@onready var weapon_slots_node: Node3D = $WeaponSlotsNode
+@onready var turret_slots_node: Node3D = $TurretSlots
 var weapon_slots = []
 var drill_slot
+var turret_slots = []
+
 var contact_damage_timer: Timer
 var energy_consumption_timer: Timer
 
 func _ready() -> void:
 	GameData.PlayerPosition = global_position
 	Eventbus.connect("new_upgrade", get_new_upgrade)
-	weapon_slots = weapon_slots_node.get_children()
+	weapon_slots = weapon_slots_node.get_children().filter(func(child): return child is WeaponSpot)
 	drill_slot = $DrillSlot
+	turret_slots = turret_slots_node.get_children().filter(func(child): return child is WeaponSpot)
 	
 	power_system.maximum_energy = max_energy
 	power_system.initialize_power_system()
@@ -78,6 +83,12 @@ func get_new_upgrade(upgrade_name: String) -> void:
 				return
 			else:
 				drill_slot.get_child(0).increase_drill_size()
+	elif new_upgrade is Turret:
+		for slot : WeaponSpot in turret_slots:
+			if !slot.is_taken():
+				slot.add_child(new_upgrade)
+				slot.weapon = new_upgrade
+				return
 
 func load_upgrades() -> void:
 	for upgrade : Upgrade in GameData.UpgradesUnlocked:
@@ -95,6 +106,13 @@ func load_upgrades() -> void:
 				drill_slot.weapon = new_drill
 			else:
 				drill_slot.get_child(0).increase_drill_size()
+		if upgrade.type == GameData.upgradeTypes.Turret:
+			for slot : WeaponSpot in turret_slots:
+				if !slot.is_taken():
+					var new_turret = upgrade.scene.instantiate()
+					slot.add_child(new_turret)
+					slot.weapon = new_turret
+					break
 
 func get_damage() -> float:
 	if can_deal_damage:

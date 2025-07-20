@@ -1,4 +1,4 @@
 extends Label
 
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	text = str(int(GameData.SoulsCollectedThisRound)) + " / " + str(int(GameData.RequiredQuota))

@@ -84,6 +84,19 @@ func create_wall(wall_position: Vector3, size: Vector3) -> void:
 	shape.shape = box
 	wall.position = wall_position
 	wall.add_child(shape)
+	
+	var mesh_instance = MeshInstance3D.new()
+	var box_mesh = BoxMesh.new()
+	box_mesh.size = size
+	mesh_instance.mesh = box_mesh
+	
+	var material = StandardMaterial3D.new()
+	material.albedo_color = Color(0.5, 0.8, 1.0, 0.3)
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.flags_transparent = true
+	mesh_instance.material_override = material
+	
+	wall.add_child(mesh_instance)
 	add_child(wall)
 
 func randomize_mesh_color() -> void:

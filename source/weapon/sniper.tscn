@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3ejj7ma08ncj"]
+[gd_scene load_steps=4 format=3 uid="uid://d3ejj7ma08ncj"]
 
 [ext_resource type="Script" uid="uid://cio0eniunjpat" path="res://source/weapon/weapon.gd" id="1_byg53"]
+[ext_resource type="PackedScene" uid="uid://bdowkc3nl01cg" path="res://source/weapon/bullet/bullet.tscn" id="2_7xj4l"]
 [ext_resource type="PackedScene" uid="uid://3qx5t7j0foaf" path="res://assets/Blasters/blaster-f.glb" id="2_jpf3x"]
 
 [node name="Sniper" type="Node3D"]
 script = ExtResource("1_byg53")
+bullet_scene = ExtResource("2_7xj4l")
 
 [node name="Muzzle" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0599753, -0.285857)
