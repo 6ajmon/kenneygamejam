@@ -1,14 +1,15 @@
 extends CharacterBody3D
 class_name BaseAlien
 
-@export var minimum_speed: float = 5.0
+@export var minimum_speed: float = 6.0
 @export var maximum_speed: float = 16.0
 var speed: float
 
 @export var player_detection_range: float = 20.0
 @export var max_slope_angle: float = 65.0
 @export var rotation_speed: float = 6.0
-@export var alien_death_value: int = 5
+@export var alien_death_value: int = 6
+@export var health_points: float = 60
 
 @onready var animation_player: AnimationPlayer = $AlienAnimated/tmpParent/AnimationPlayer
 @onready var lifespan_timer: Timer = $AlienLifespan
@@ -26,7 +27,13 @@ var detection_range_squared: float
 var is_player_in_range: bool = false
 
 func _ready() -> void:
+	minimum_speed += GameData.CurrentRound
+	maximum_speed += GameData.CurrentRound
+	health_points += 10 * GameData.CurrentRound
+	alien_death_value += 2 * GameData.CurrentRound
+	
 	speed = randf_range(minimum_speed, maximum_speed)
+	health_component.max_health = health_points
 	detection_range_squared = player_detection_range * player_detection_range
 	health_component.died.connect(_on_death)
 	health_component.damage_received.connect(_on_damage_received)
@@ -95,7 +102,7 @@ func _on_alien_lifespan_timeout() -> void:
 	queue_free()
 
 func _on_death() -> void:
-	SceneManager.souls_collected_this_round += alien_death_value
+	GameData.SoulsCollectedThisRound += alien_death_value
 	queue_free()
 
 func _on_damage_received(damage: float, number_position: Vector3) -> void:

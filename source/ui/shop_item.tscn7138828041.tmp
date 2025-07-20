@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b463n2ua5mcrw"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_glqc6"]
-[ext_resource type="Script" path="res://source/ui/shop_item.gd" id="1_y5tdm"]
+[ext_resource type="Script" uid="uid://bgom41he010mc" path="res://shop_item.gd" id="1_v846v"]
 [ext_resource type="Texture2D" uid="uid://d22rquou04kpk" path="res://assets/UI/UIassets/blaster-f.png" id="2_wxfep"]
 [ext_resource type="FontFile" uid="uid://cl6os7rp5p6r4" path="res://assets/UI/Font/Kenney Future Narrow.ttf" id="3_d8bsp"]
 
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_y5tdm")
+script = ExtResource("1_v846v")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="3_fkf4o"]
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="4_3u7xm"]
 [ext_resource type="FontFile" uid="uid://cl6os7rp5p6r4" path="res://assets/UI/Font/Kenney Future Narrow.ttf" id="5_woa3c"]
-[ext_resource type="Texture2D" uid="uid://cuf34dlnhssmr" path="res://assets/Icons/power.png" id="6_dd2jf"]
+[ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="7_iuhv7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku74v"]
 bg_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
@@ -140,6 +140,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 text = "Restart
 Power"
-icon = ExtResource("6_dd2jf")
+icon = ExtResource("7_iuhv7")
 
 [connection signal="pressed" from="Proceed" to="." method="_on_proceed_pressed"]

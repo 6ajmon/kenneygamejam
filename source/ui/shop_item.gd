@@ -9,7 +9,7 @@ class_name ShopItem
 
 var upgrade_name : String
 var upgrade : Upgrade
-var cost : int
+var upgrade_cost : float
 
 func set_item(_name : String, _upgrade : Upgrade) -> void:
 	item_name.text = _name
@@ -17,8 +17,8 @@ func set_item(_name : String, _upgrade : Upgrade) -> void:
 	description.text = _upgrade.description
 	upgrade_name = _name
 	upgrade = _upgrade
-	cost = upgrade.cost
-	button.text = str(cost) + "souls"
+	upgrade_cost = GameData.get_price(_upgrade.rarity)
+	button.text = str(int(ceil(upgrade_cost))) + " souls"
 
 func set_sold():
 	icon.texture = null
@@ -29,9 +29,9 @@ func set_sold():
 
 
 func _on_buyButton_pressed() -> void:
-	if GameData.AlienSouls >= cost:
+	if GameData.AlienSouls >= upgrade_cost:
 		GameData.UpgradesUnlocked.append(upgrade)
 		set_sold()
-		GameData.AlienSouls -= cost
+		GameData.AlienSouls -= upgrade_cost
 		var shop = get_parent().get_parent()
 		shop.label.text = str(GameData.AlienSouls) + " souls"

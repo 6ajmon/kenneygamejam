@@ -16,6 +16,10 @@ func _process(_delta) -> void:
 		var scene_res = ResourceLoader.load_threaded_get(target_scene_path)
 		var new_scene = scene_res.instantiate()
 
+		GameData.RequiredQuota = get_required_quota(GameData.CurrentRound)
 		get_tree().root.add_child(new_scene)
 		get_tree().current_scene.queue_free()
 		get_tree().current_scene = new_scene
+
+func get_required_quota(current_round: int) -> int:
+	return 36 + 6 * current_round * current_round
