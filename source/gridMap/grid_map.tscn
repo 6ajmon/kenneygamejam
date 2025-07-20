@@ -75,6 +75,7 @@ target = NodePath("../PlayerVehicle")
 visible = false
 
 [node name="Label" type="Label" parent="temporary_ui"]
+visible = false
 layout_mode = 0
 offset_left = 620.0
 offset_top = 56.0

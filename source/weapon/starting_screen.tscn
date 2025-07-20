@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gujym6v8ljbx"]
+[gd_scene load_steps=7 format=3 uid="uid://b8rjmj4awtb7y"]
 
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_7vb47"]
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="2_bvrli"]

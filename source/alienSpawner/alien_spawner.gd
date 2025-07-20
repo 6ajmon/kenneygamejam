@@ -2,12 +2,12 @@ extends Node3D
 class_name AlienSpawner
 
 @onready var alien: PackedScene = preload("res://source/enemies/base_alien.tscn")
-@export var spawn_min_distance: float = 24.0
+@export var spawn_min_distance: float = 23.0
 @export var alien_wave_size: int = 6
-@export var wave_interval: float = 5.0
+@export var wave_interval: float = 1.5
 @export var wave_size_increase: int = 0
 @export var spawn_delay_between_aliens: float = 0.25
-@export var spawn_distance_variance: float = 6.0
+@export var spawn_distance_variance: float = 1.0
 
 var is_round_active: bool
 var current_wave: int = 0
@@ -65,7 +65,7 @@ func get_spawn_position() -> Vector3:
 	
 	var spawn_pos = Vector3(
 		player_pos.x + cos(angle) * spawn_distance,
-		player_pos.y - 1,
+		player_pos.y - 0.25,
 		player_pos.z + sin(angle) * spawn_distance
 	)
 	
