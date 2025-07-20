@@ -17,7 +17,6 @@ func _ready() -> void:
 	randomize_mesh_color()
 	
 	generator.generate_map()
-	generator.generate_slopes()
 	
 	spawn_player()
 	var used_cells = get_used_cells()

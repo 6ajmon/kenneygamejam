@@ -1,0 +1,336 @@
+[gd_scene load_steps=17 format=3 uid="uid://d4jkrlqfn7r42"]
+
+[ext_resource type="Script" uid="uid://cb2fwh6fbe565" path="res://source/ui/tutorial.gd" id="1_0n348"]
+[ext_resource type="Texture2D" uid="uid://dvhkh7gtrvtsi" path="res://assets/Icons/sheet_black2x.png" id="1_n8rfw"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="2_0n348"]
+[ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="3_vchu7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m1ej"]
+atlas = ExtResource("1_n8rfw")
+region = Rect2(0, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_875dp"]
+atlas = ExtResource("1_n8rfw")
+region = Rect2(0, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mybr"]
+atlas = ExtResource("1_n8rfw")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyu43"]
+atlas = ExtResource("1_n8rfw")
+region = Rect2(200, 900, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqp31"]
+atlas = ExtResource("1_n8rfw")
+region = Rect2(600, 800, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kynvy"]
+atlas = ExtResource("1_n8rfw")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vyu43"]
+load_path = "res://.godot/imported/sheet_black2x.png-ec9b4d314d5f8a6dec13fcdbaf5448b3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw8un"]
+atlas = SubResource("CompressedTexture2D_vyu43")
+region = Rect2(700, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ug1f"]
+atlas = SubResource("CompressedTexture2D_vyu43")
+region = Rect2(0, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ayoe"]
+atlas = SubResource("CompressedTexture2D_vyu43")
+region = Rect2(200, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kvty"]
+atlas = SubResource("CompressedTexture2D_vyu43")
+region = Rect2(600, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5sxg"]
+atlas = SubResource("CompressedTexture2D_vyu43")
+region = Rect2(0, 300, 100, 100)
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0n348")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -66.0
+offset_right = 22.0
+offset_bottom = -26.0
+scale = Vector2(33.1305, 24.0928)
+
+[node name="Welcome" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 204.0
+
+[node name="welcome_to_you_first_day" type="Control" parent="Welcome"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Welcome/welcome_to_you_first_day"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 113.0
+offset_bottom = 121.0
+texture = SubResource("AtlasTexture_0m1ej")
+
+[node name="Label" type="Label" parent="Welcome/welcome_to_you_first_day"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 68.0
+offset_right = 870.0
+offset_bottom = 104.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "Welcome to your first day on the job"
+
+[node name="to_make_your_first_day" type="Control" parent="Welcome"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Welcome/to_make_your_first_day"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 113.0
+offset_bottom = 121.0
+texture = SubResource("AtlasTexture_875dp")
+
+[node name="Label" type="Label" parent="Welcome/to_make_your_first_day"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 68.0
+offset_right = 870.0
+offset_bottom = 104.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "to make your first day easy 
+i prepared a few instructions just for you!"
+
+[node name="Controls" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 280.0
+offset_right = 105.0
+offset_bottom = 588.0
+
+[node name="move_your_mouse" type="Control" parent="Controls"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Controls/move_your_mouse"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 113.0
+offset_bottom = 121.0
+texture = SubResource("AtlasTexture_0mybr")
+
+[node name="TextureRect2" type="TextureRect" parent="Controls/move_your_mouse"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -19.0
+offset_right = 111.0
+offset_bottom = 81.0
+texture = SubResource("AtlasTexture_vyu43")
+
+[node name="Label" type="Label" parent="Controls/move_your_mouse"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 68.0
+offset_right = 870.0
+offset_bottom = 104.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "move your mouse to set direction"
+
+[node name="wsad_to_move" type="Control" parent="Controls"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Controls/wsad_to_move"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 113.0
+offset_bottom = 121.0
+texture = SubResource("AtlasTexture_gqp31")
+
+[node name="Label" type="Label" parent="Controls/wsad_to_move"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 68.0
+offset_right = 870.0
+offset_bottom = 104.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "wsad to move"
+
+[node name="left_to_shoot" type="Control" parent="Controls"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Controls/left_to_shoot"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 113.0
+offset_bottom = 121.0
+texture = SubResource("AtlasTexture_kynvy")
+
+[node name="Label" type="Label" parent="Controls/left_to_shoot"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 60.0
+offset_right = 870.0
+offset_bottom = 120.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "left click to shoot
+(that's the most important part
+of the job)"
+
+[node name="Goal" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -45.0
+offset_right = 395.0
+offset_bottom = 367.0
+
+[node name="reach_the_quota" type="Control" parent="Goal"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Goal/reach_the_quota"]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 114.0
+offset_right = 806.0
+offset_bottom = 214.0
+texture = SubResource("AtlasTexture_uw8un")
+
+[node name="Label" type="Label" parent="Goal/reach_the_quota"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 151.0
+offset_right = 1554.0
+offset_bottom = 211.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "reach the quota before you run out of 
+power"
+
+[node name="how_can_you_do_that" type="Control" parent="Goal"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Goal/how_can_you_do_that"]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 114.0
+offset_right = 806.0
+offset_bottom = 214.0
+texture = SubResource("AtlasTexture_2ug1f")
+
+[node name="Label" type="Label" parent="Goal/how_can_you_do_that"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 151.0
+offset_right = 1554.0
+offset_bottom = 211.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "how can you do that? 
+it's really simple..."
+
+[node name="by_" type="Control" parent="Goal"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Goal/by_"]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 115.0
+offset_right = 771.0
+offset_bottom = 215.0
+texture = SubResource("AtlasTexture_7ayoe")
+
+[node name="Label" type="Label" parent="Goal/by_"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 151.0
+offset_right = 1554.0
+offset_bottom = 211.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "by collecting souls of these poor 
+creatures... For the glory of 
+intergalactic earth empire!"
+
+[node name="TextureRect2" type="TextureRect" parent="Goal/by_"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 92.0
+offset_right = 820.0
+offset_bottom = 192.0
+texture = SubResource("AtlasTexture_5kvty")
+
+[node name="click_q" type="Control" parent="Goal"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Goal/click_q"]
+layout_mode = 0
+offset_left = 708.0
+offset_top = 126.0
+offset_right = 808.0
+offset_bottom = 226.0
+texture = SubResource("AtlasTexture_q5sxg")
+
+[node name="Label" type="Label" parent="Goal/click_q"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 151.0
+offset_right = 1554.0
+offset_bottom = 211.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "you can close this instructions by 
+clicking \"q\"
+Good luck!"
+
+[node name="PowerReminder" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 58.0
+offset_top = -2.0
+offset_right = 98.0
+offset_bottom = 38.0
+
+[node name="TextureRect" type="TextureRect" parent="PowerReminder"]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 618.0
+offset_right = 419.0
+offset_bottom = 718.0
+texture = ExtResource("3_vchu7")
+
+[node name="Label" type="Label" parent="PowerReminder"]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 651.0
+offset_right = 1169.0
+offset_bottom = 711.0
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "here is power of your ship
+when you run out of it your shift ends"
