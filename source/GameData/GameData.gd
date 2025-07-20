@@ -25,7 +25,7 @@ var RequiredQuota: float
 var SoulsCollectedThisRound: float
 var CurrentRound: int
 
-var current_color_palette
+var current_color_palette: Dictionary
 
 var color_palettes = [
 	# red orange

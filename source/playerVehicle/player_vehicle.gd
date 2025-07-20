@@ -105,9 +105,8 @@ func get_damage() -> float:
 		var velocity_multiplier = 1.0 + (current_velocity * velocity_damage_multiplier)
 		var damage = contact_damage * velocity_multiplier
 		
-		if movement:
-			movement.current_speed *= (1.0 - contact_slowdown_factor)
-			movement.strafe *= (1.0 - contact_slowdown_factor)
+		movement.current_speed *= (1.0 - contact_slowdown_factor)
+		movement.strafe *= (1.0 - contact_slowdown_factor)
 		
 		return damage
 	else:
