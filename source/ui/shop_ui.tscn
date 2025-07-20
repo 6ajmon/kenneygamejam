@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b463n2ua5mcrw" path="res://source/ui/shop_item.tscn" id="1_dk53a"]
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="1_grrqa"]
-[ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop_ui.gd" id="1_tqhkx"]
+[ext_resource type="Script" path="res://source/ui/shop_ui.gd" id="1_tqhkx"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_55gbp"]
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="3_oxnpl"]
 [ext_resource type="Texture2D" uid="uid://b7orqky07oio4" path="res://assets/UI/PNG/Red/Double/button_square_header_large_square_screws.png" id="8_xp8ka"]

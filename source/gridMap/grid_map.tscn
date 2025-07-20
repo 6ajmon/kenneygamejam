@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://db61l0m2cijbi" path="res://source/enemies/base_alien.tscn" id="8_7ywn6"]
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="8_nm0vn"]
 [ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://tmp/test_ui/label.gd" id="9_gebhe"]
-[ext_resource type="PackedScene" uid="uid://82q4b1htx6uc" path="res://source/ui/game_ui.tscn" id="11_2iad3"]
+[ext_resource type="PackedScene" uid="uid://dw28pic0xfqh7" path="res://source/ui/game_ui.tscn" id="11_2iad3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -52,6 +52,9 @@ shadow_enabled = true
 
 [node name="PlayerVehicle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_8110p")]
 camera = NodePath("../PlayerCamera")
+
+[node name="PowerBar" parent="PlayerVehicle/PowerSystem" index="0"]
+z_index = 0
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3w0rk")]
 target = NodePath("../PlayerVehicle")

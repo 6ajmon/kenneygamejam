@@ -13,7 +13,7 @@ var Upgrades = {
 	"Weapon000" : Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common, "res://tmp/weapon_000.tscn", "res://assets/Icons/blaster-g.png", UpgradesDescriptions.weapon000),
 	"Starter": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/starting_weapon.tscn","res://assets/Icons/blaster-g.png", UpgradesDescriptions.starting_weapon ),
 	"Sniper": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Epic, "res://source/weapon/sniper.tscn","res://assets/Icons/blaster-f.png", UpgradesDescriptions.sniper),
-	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/drill.tscn", "", UpgradesDescriptions.drill)
+	"Drill": Upgrade.new(upgradeTypes.DrillWeapon, upgradeRarities.Legendary, "res://source/weapon/drill.tscn", "res://assets/Icons/blaster-f.png", UpgradesDescriptions.drill)
 }
 
 var UpgradesUnlocked = []
@@ -52,4 +52,3 @@ func get_price(upgrade_rarity: int) -> float:
 	return 0
 
 var tutorial_closed = false
-

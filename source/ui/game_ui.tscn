@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://82q4b1htx6uc"]
+[gd_scene load_steps=18 format=3 uid="uid://dw28pic0xfqh7"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_a5gc0"]
 [ext_resource type="Script" uid="uid://0e5vy4jolju6" path="res://source/ui/game_ui.gd" id="1_uw8un"]
 [ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://tmp/test_ui/label.gd" id="2_vyu43"]
 [ext_resource type="Texture2D" uid="uid://dvhkh7gtrvtsi" path="res://assets/Icons/sheet_black2x.png" id="3_gqp31"]
-[ext_resource type="Texture2D" uid="uid://cuf34dlnhssmr" path="res://assets/Icons/power.png" id="4_gqp31"]
+[ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="4_gqp31"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0m1ej"]
 atlas = ExtResource("3_gqp31")
@@ -53,10 +53,6 @@ region = Rect2(600, 300, 100, 100)
 atlas = SubResource("CompressedTexture2D_vyu43")
 region = Rect2(0, 300, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_woat8"]
-atlas = ExtResource("4_gqp31")
-region = Rect2(0, 0, 100, 100)
-
 [node name="GameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -89,6 +85,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Tutorial/Welcome/welcome_to_you_first_day"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 21.0
 offset_right = 113.0
@@ -96,6 +93,7 @@ offset_bottom = 121.0
 texture = SubResource("AtlasTexture_0m1ej")
 
 [node name="Label" type="Label" parent="Tutorial/Welcome/welcome_to_you_first_day"]
+layout_mode = 0
 offset_left = 116.0
 offset_top = 68.0
 offset_right = 870.0
@@ -109,6 +107,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Tutorial/Welcome/to_make_your_first_day"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 21.0
 offset_right = 113.0
@@ -116,6 +115,7 @@ offset_bottom = 121.0
 texture = SubResource("AtlasTexture_875dp")
 
 [node name="Label" type="Label" parent="Tutorial/Welcome/to_make_your_first_day"]
+layout_mode = 0
 offset_left = 116.0
 offset_top = 68.0
 offset_right = 870.0
@@ -228,6 +228,7 @@ offset_bottom = 214.0
 texture = SubResource("AtlasTexture_uw8un")
 
 [node name="Label" type="Label" parent="Tutorial/Goal/reach_the_quota"]
+layout_mode = 0
 offset_left = 800.0
 offset_top = 151.0
 offset_right = 1554.0
@@ -250,6 +251,7 @@ offset_bottom = 214.0
 texture = SubResource("AtlasTexture_2ug1f")
 
 [node name="Label" type="Label" parent="Tutorial/Goal/how_can_you_do_that"]
+layout_mode = 0
 offset_left = 800.0
 offset_top = 151.0
 offset_right = 1554.0
@@ -272,6 +274,7 @@ offset_bottom = 215.0
 texture = SubResource("AtlasTexture_7ayoe")
 
 [node name="Label" type="Label" parent="Tutorial/Goal/by_"]
+layout_mode = 0
 offset_left = 800.0
 offset_top = 151.0
 offset_right = 1554.0
@@ -283,6 +286,7 @@ creatures... For the glory of
 intergalactic earth empire!"
 
 [node name="TextureRect2" type="TextureRect" parent="Tutorial/Goal/by_"]
+layout_mode = 0
 offset_left = 720.0
 offset_top = 92.0
 offset_right = 820.0
@@ -302,6 +306,7 @@ offset_bottom = 226.0
 texture = SubResource("AtlasTexture_q5sxg")
 
 [node name="Label" type="Label" parent="Tutorial/Goal/click_q"]
+layout_mode = 0
 offset_left = 800.0
 offset_top = 151.0
 offset_right = 1554.0
@@ -320,13 +325,15 @@ offset_right = 98.0
 offset_bottom = 38.0
 
 [node name="TextureRect" type="TextureRect" parent="Tutorial/PowerReminder"]
+layout_mode = 0
 offset_left = 319.0
 offset_top = 618.0
 offset_right = 419.0
 offset_bottom = 718.0
-texture = SubResource("AtlasTexture_woat8")
+texture = ExtResource("4_gqp31")
 
 [node name="Label" type="Label" parent="Tutorial/PowerReminder"]
+layout_mode = 0
 offset_left = 415.0
 offset_top = 651.0
 offset_right = 1169.0
@@ -345,6 +352,7 @@ theme = ExtResource("1_a5gc0")
 text = "Quota reached:"
 
 [node name="Quota" type="Label" parent="."]
+layout_mode = 0
 offset_left = 598.5
 offset_top = 56.0
 offset_right = 681.5
