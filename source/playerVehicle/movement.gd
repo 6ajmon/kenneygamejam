@@ -1,19 +1,24 @@
 extends Node3D
 class_name VehicleMovement
 
-@export var max_speed: float = 30.0
-@export var acceleration: float = 5.0
+@export var max_speed: float = 15.0
+@export var acceleration: float = 3.0
 @export var deceleration: float = 8.0
 @export var turn_speed: float = 3.0 
 @export var backward_penalty: float = 0.6
 @export var turning_penalty: float = 0
-@export var backward_max_speed: float = 18
+@export var backward_max_speed: float = 9
 
 var current_speed: float = 0.0
 var strafe: float = 0.0
 var previous_rotation_y: float = 0.0
 
 @onready var player: PlayerVehicle = $".."
+
+func _ready() -> void:
+	max_speed += GameData.StatBoosts.max_speed
+	backward_max_speed = 3.0/5.0 * max_speed
+	acceleration += GameData.StatBoosts.acceleration
 
 func move_and_rotate(delta: float) -> void:
 	var is_strafing = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")

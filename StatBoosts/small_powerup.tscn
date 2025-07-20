@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmj8c27ff08k7"]
+
+[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://StatBoosts/StatBoost.gd" id="1_pnr7p"]
+
+[node name="SmallPowerup" type="Node3D"]
+script = ExtResource("1_pnr7p")
+max_power = 5.0

@@ -9,6 +9,10 @@ var can_deal_damage: bool = true
 @onready var audio_player = $AudioStreamPlayer
 
 
+func _ready() -> void:
+	if GameData.StatBoosts.damage != 0:
+		tick_damage *= GameData.StatBoosts.damage
+
 func _physics_process(delta: float) -> void:
 	var rotation_angle = rotation_speed * delta
 	drill_mesh.rotate(Vector3.FORWARD, rotation_angle)
