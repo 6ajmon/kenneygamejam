@@ -22,7 +22,13 @@ sky_material = SubResource("ProceduralSkyMaterial_8110p")
 [sub_resource type="Environment" id="Environment_3w0rk"]
 background_mode = 2
 sky = SubResource("Sky_m3mdr")
-tonemap_mode = 2
+ambient_light_sky_contribution = 0.7
+ambient_light_energy = 0.9
+tonemap_mode = 3
+glow_enabled = true
+glow_bloom = 0.05
+fog_enabled = true
+fog_light_color = Color(0.397625, 0.430288, 0.481627, 1)
 
 [node name="GridMap" type="GridMap" node_paths=PackedStringArray("generator", "player_vehicle", "player_camera", "alien_spawner", "target_dummy")]
 mesh_library = ExtResource("1_yyekg")
@@ -51,6 +57,8 @@ environment = SubResource("Environment_3w0rk")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_max_distance = 200.0
 
 [node name="PlayerVehicle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_8110p")]
 camera = NodePath("../PlayerCamera")
