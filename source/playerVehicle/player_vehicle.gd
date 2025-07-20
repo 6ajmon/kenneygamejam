@@ -3,6 +3,8 @@ class_name PlayerVehicle
 
 @export var camera: PlayerCamera
 @export var contact_damage: float = 10
+@export var velocity_damage_multiplier: float = 0.06
+@export var contact_slowdown_factor: float = 0.6
 
 @export var max_energy:float = 100
 @export var current_energy_usage:float = 1
@@ -25,7 +27,6 @@ func _ready() -> void:
 	weapon_slots = weapon_slots_node.get_children()
 	drill_slot = $DrillSlot
 	
-	# Initialize power system
 	power_system.maximum_energy = max_energy
 	power_system.initialize_power_system()
 	
@@ -99,7 +100,16 @@ func get_damage() -> float:
 	if can_deal_damage:
 		can_deal_damage = false
 		contact_damage_timer.start()
-		return contact_damage
+		
+		var current_velocity = velocity.length()
+		var velocity_multiplier = 1.0 + (current_velocity * velocity_damage_multiplier)
+		var damage = contact_damage * velocity_multiplier
+		
+		if movement:
+			movement.current_speed *= (1.0 - contact_slowdown_factor)
+			movement.strafe *= (1.0 - contact_slowdown_factor)
+		
+		return damage
 	else:
 		return 0
 
