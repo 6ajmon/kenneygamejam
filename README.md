@@ -5,6 +5,7 @@ Deadline is a game made for Kenneys GameJam 2025 where the theme was POWER!
 
 # You can play it here!
 https://6ajmon.itch.io/deadline
+### But we recommend downloading the release [here](https://github.com/6ajmon/kenneygamejam/releases) for better performance
 
 # Assets used
 https://kaylousberg.itch.io/space-base-bits
