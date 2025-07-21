@@ -9,6 +9,7 @@
 ## 🧠 Core Mechanics
 
 - **Harvest Souls**: Collect alien souls to fulfill your quota and use them as currency.
+- **Energy System**: Your ship’s **power** steadily drains over time, and faster depending on the weapons and turrets you have equipped. When power reaches zero, the mission **ends immediately**—regardless of your progress.
 - **The Shop**: Between missions, spend souls on:
   - New **weapons** *(up to 8 slots)*
   - Deployable **turrets** *(up to 4 slots)*
