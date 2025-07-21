@@ -9,3 +9,5 @@ export.cfg
 exportcredentials.cfg
 
 *.translation
+
+*.cfg
