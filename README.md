@@ -1,7 +1,55 @@
-# Deadline
+
 <img width="1279" height="697" alt="image" src="https://github.com/user-attachments/assets/3863606c-18ad-4ec0-bcd2-021680b11c9e" />
 
-Deadline is a game made for Kenneys GameJam 2025 where the theme was POWER!
+# Deadline  
+*Meet the quota or meet your end.*
+
+**Deadline** is a sci-fi action roguelike where you play as a mid-level corporate grunt working for **Xenocorp Industries**—a ruthless, galaxy-spanning conglomerate contracted to "normalize" alien populations for resource extraction. You're not here to ask questions. You're here to hit your **daily kill quota**—before your ship’s dwindling **power cells** run dry.
+
+## 🧠 Core Mechanics
+
+- **Harvest Souls**: Collect alien souls to fulfill your quota and use them as currency.
+- **The Shop**: Between missions, spend souls on:
+  - New **weapons** *(up to 8 slots)*
+  - Deployable **turrets** *(up to 4 slots)*
+  - **Stat upgrades**
+  - The **GIGA DRILL** – a unique weapon that devours an entire slot.
+- **Procedural World Map**: Every mission takes place on a randomly generated alien planet.
+- **Increasing Difficulty**: Each completed mission raises the stakes:
+  - Tougher enemies
+  - Higher quotas
+  - Inflated shop prices
+
+
+## 🚀 Made for Kenney Game Jam 2025
+
+This game was created in just **2 days**, during the **Kenney Game Jam 2025**, which ran from **July 18th to July 20th, 2025**. The Theme for this jam was **POWER**.
+
+### 🛠 Built With
+
+- **Engine**: [Godot Engine 4.4.1](https://godotengine.org/)
+- **Language**: GDScript
+- **All assets** used in this project were made by:
+  - [Kenney](https://kenney.nl/)
+  - [KayKit](https://kaylousberg.itch.io/)
+
+*(list of links to individual assets we used is bellow)*
+
+
+## 📸 Screenshots
+
+### Main Menu
+<img width="1790" height="1002" alt="Screenshot 1" src="https://github.com/user-attachments/assets/88d04f8f-cddb-4098-995d-5f1062ff0e08" />
+
+### First mission
+<img width="1791" height="1004" alt="image" src="https://github.com/user-attachments/assets/b69d3b39-d542-4bb0-b324-15f27e81c5a6" />
+
+### Shop
+<img width="1795" height="1003" alt="Screenshot 3" src="https://github.com/user-attachments/assets/f02d780c-5886-49ea-9556-701018c75149" />
+
+### Drill
+<img width="1787" height="1003" alt="Screenshot 4" src="https://github.com/user-attachments/assets/bcf10837-deb4-4e88-9bec-3f9d17545147" />
+
 
 # You can play it here!
 https://6ajmon.itch.io/deadline
