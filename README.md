@@ -22,9 +22,9 @@
   - Inflated shop prices
 
 
-## 🚀 Made for Kenney Game Jam 2025
+## 🚀 Made for Kenney Jam 2025
 
-This game was created in just **2 days**, during the **Kenney Game Jam 2025**, which ran from **July 18th to July 20th, 2025**. The Theme for this jam was **POWER**.
+This game was created in just **2 days**, during the **Kenney Jam 2025**, which ran from **July 18th to July 20th, 2025**. The Theme for this jam was **POWER**.
 
 ### 🛠 Built With
 
