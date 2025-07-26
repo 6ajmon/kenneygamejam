@@ -1,6 +1,9 @@
 extends Control
 
 
+func _ready():
+	$Buttons/PlayButton.grab_focus()
+
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(SceneManager.loading_screen)
 

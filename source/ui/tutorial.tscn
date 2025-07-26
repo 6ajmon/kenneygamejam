@@ -155,7 +155,7 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "move your mouse to set direction"
+text = "move your mouse to set direction (or use left stick on your controlelr)"
 autowrap_mode = 3
 
 [node name="wsad_to_move" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft"]
@@ -171,7 +171,7 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "wasd to move"
+text = "wasd to move (On controller: R2=Forward, L2=back, l1=left, r1=right)"
 autowrap_mode = 3
 
 [node name="left_to_shoot" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft"]
@@ -187,7 +187,7 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "left click to shoot (that's the most important part of the job)"
+text = "left mouse click /  Cross or A on controller to shoot (that's the most important part of the job)"
 autowrap_mode = 3
 
 [node name="VBoxContainerRight" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]

@@ -78,3 +78,5 @@ text = "99 souls"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+
+[editable path="GridContainer/ShopItem"]
