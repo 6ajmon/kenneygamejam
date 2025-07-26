@@ -9,3 +9,5 @@
 *.translation
 
 *.cfg
+
+*.tmp
