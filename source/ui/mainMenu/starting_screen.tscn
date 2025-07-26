@@ -53,16 +53,20 @@ vertical_alignment = 1
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 530.0
-offset_top = 490.0
+offset_top = 425.0
 offset_right = 750.0
-offset_bottom = 670.0
-theme_override_constants/separation = 36
+offset_bottom = 635.0
+theme_override_constants/separation = 22
 
 [node name="PlayButton" type="Button" parent="Buttons"]
 layout_mode = 2
 theme = ExtResource("1_xkhn8")
 toggle_mode = true
 text = "Play"
+
+[node name="TutorialButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "tutorial"
 
 [node name="OptionsButton" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -77,5 +81,6 @@ toggle_mode = true
 text = "source"
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/SourceCodeButton" to="." method="_on_source_code_button_pressed"]

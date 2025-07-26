@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cb2fwh6fbe565" path="res://source/ui/tutorial.gd" id="1_0n348"]
 [ext_resource type="Texture2D" uid="uid://dvhkh7gtrvtsi" path="res://assets/Icons/sheet_black2x.png" id="1_n8rfw"]
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="2_0n348"]
+[ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_vchu7"]
 [ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="3_vchu7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0m1ej"]
@@ -48,10 +49,6 @@ region = Rect2(200, 700, 100, 100)
 atlas = SubResource("CompressedTexture2D_vyu43")
 region = Rect2(600, 300, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q5sxg"]
-atlas = SubResource("CompressedTexture2D_vyu43")
-region = Rect2(0, 300, 100, 100)
-
 [node name="Tutorial" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -59,13 +56,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_0n348")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="SpaceBG" parent="." instance=ExtResource("2_vchu7")]
+
+[node name="Panel" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -18.0
 offset_top = -66.0
 offset_right = 22.0
 offset_bottom = -26.0
 scale = Vector2(33.1305, 24.0928)
+color = Color(0.184314, 0.184314, 0.184314, 0.788235)
 
 [node name="Welcome" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -275,7 +275,7 @@ theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
 text = "by collecting souls of these poor 
 creatures... For the glory of 
-intergalactic earth empire!"
+Xenocorp Industries!"
 
 [node name="TextureRect2" type="TextureRect" parent="Goal/by_"]
 layout_mode = 0
@@ -285,52 +285,23 @@ offset_right = 820.0
 offset_bottom = 192.0
 texture = SubResource("AtlasTexture_5kvty")
 
-[node name="click_q" type="Control" parent="Goal"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Goal/click_q"]
+[node name="PowerReminder" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 708.0
-offset_top = 126.0
-offset_right = 808.0
-offset_bottom = 226.0
-texture = SubResource("AtlasTexture_q5sxg")
-
-[node name="Label" type="Label" parent="Goal/click_q"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 151.0
-offset_right = 1554.0
-offset_bottom = 211.0
-theme = ExtResource("2_0n348")
-theme_override_font_sizes/font_size = 16
-text = "you can close this instructions by 
-clicking \"q\"
-Good luck!"
-
-[node name="PowerReminder" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 58.0
-offset_top = -2.0
-offset_right = 98.0
-offset_bottom = 38.0
+offset_left = 703.0
+offset_top = 452.0
+offset_right = 1180.0
+offset_bottom = 552.0
 
 [node name="TextureRect" type="TextureRect" parent="PowerReminder"]
-layout_mode = 0
-offset_left = 319.0
-offset_top = 618.0
-offset_right = 419.0
-offset_bottom = 718.0
+layout_mode = 2
 texture = ExtResource("3_vchu7")
+stretch_mode = 2
 
 [node name="Label" type="Label" parent="PowerReminder"]
-layout_mode = 0
-offset_left = 415.0
-offset_top = 651.0
-offset_right = 1169.0
-offset_bottom = 711.0
+custom_minimum_size = Vector2(373.09, 100)
+layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "here is power of your ship
-when you run out of it your shift ends"
+text = "Your ship have limited power. When it runs out your shift ends. Make sure to collect as many souls as  you can."
+vertical_alignment = 1
+autowrap_mode = 3
