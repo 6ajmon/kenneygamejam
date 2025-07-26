@@ -5,6 +5,7 @@ var shop_scene: PackedScene = preload("res://source/ui/shop/shop_ui.tscn")
 var main_screen_scene: PackedScene = preload("res://source/ui/mainMenu/starting_screen.tscn")
 var loading_screen: PackedScene = preload("res://source/ui/loading_screen.tscn")
 var settings_screen: PackedScene = preload("res://source/ui/settings_screen.tscn")
+var tutorial_screen: PackedScene = preload("res://source/ui/tutorial.tscn")
 
 var settings_instance: Node = null
 

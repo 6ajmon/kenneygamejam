@@ -1,9 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	visible = not GameData.tutorial_closed
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("close_tutorial"):
-		GameData.tutorial_closed = not GameData.tutorial_closed
-		visible = not GameData.tutorial_closed
+	$VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton.grab_focus()
+	
+func _on_go_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://source/ui/mainMenu/starting_screen.tscn")

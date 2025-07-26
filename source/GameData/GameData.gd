@@ -136,5 +136,3 @@ func get_price(upgrade_rarity: int) -> float:
 		upgradeRarities.Legendary:
 			return legendaryPrice
 	return 0
-
-var tutorial_closed = false

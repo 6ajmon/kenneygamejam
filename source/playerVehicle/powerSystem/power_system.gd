@@ -13,7 +13,6 @@ func change_energy(value: float = 0) -> void:
 	current_energy = clamp(current_energy, 0, maximum_energy)
 	energy_changed.emit(value)
 	_update_power_bar()
-	print("Current energy: ", current_energy)
 	if current_energy <= 0:
 		Eventbus.energy_depleted.emit()
 

@@ -8,7 +8,8 @@ var items = []
 func _ready() -> void:
 	set_up_prices(GameData.CurrentRound)
 	reset_shop()
-	
+	$GridContainer/ShopItem/Button.grab_focus()
+
 func reset_shop():
 	label.text = str(int(floor(GameData.AlienSouls))) + " souls"
 	items = grid_container.get_children()
