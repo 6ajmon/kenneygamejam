@@ -32,7 +32,7 @@ var is_player_in_range: bool = false
 func _ready() -> void:
 	add_to_group("enemies")
 	maximum_speed += 0.4 * GameData.CurrentRound
-	health_component.max_health *= (GameData.CurrentRound - 2)^2
+	health_component.max_health *= max((GameData.CurrentRound - 1)^2, 1)
 	alien_death_value += GameData.CurrentRound + GameData.CurrentRound * GameData.CurrentRound / 10.0
 	
 	speed = randf_range(minimum_speed, maximum_speed)
