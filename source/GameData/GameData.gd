@@ -107,6 +107,9 @@ func set_up_game_data() -> void:
 	legendaryPrice = 100
 	current_color_palette = color_palettes[0]
 
+func _on_soul_collected(value: float) -> void:
+	SoulsCollectedThisRound += value
+
 func randomize_color_palette() -> void:
 	var random_index = (randi() % color_palettes.size())
 	current_color_palette = color_palettes[random_index]

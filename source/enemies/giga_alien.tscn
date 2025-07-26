@@ -32,3 +32,4 @@ shape = SubResource("CylinderShape3D_6altx")
 
 [node name="AudioStreamPlayer" parent="." index="6"]
 volume_db = -20.0
+bus = &"Master"

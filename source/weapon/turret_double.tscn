@@ -201,3 +201,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323798, 0.262737, -0.21355
 transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8y4lg")
 skeleton = NodePath("")
+
+[node name="AudioStreamPlayer" parent="." index="3"]
+bus = &"Master"

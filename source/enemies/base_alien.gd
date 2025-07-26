@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name BaseAlien
 
+signal soul_collected(value: float)
+
 @export var minimum_speed: float = 6.0
 @export var maximum_speed: float = 15.0
 var speed: float
@@ -30,6 +32,7 @@ var is_player_in_range: bool = false
 @onready var audio = $AudioStreamPlayer
 
 func _ready() -> void:
+	soul_collected.connect(GameData._on_soul_collected)
 	add_to_group("enemies")
 	maximum_speed += 0.4 * GameData.CurrentRound
 	health_component.max_health *= max((GameData.CurrentRound - 1)^2, 1)
@@ -110,8 +113,8 @@ func _on_death() -> void:
 
 	audio.play()
 	visible = false
+	soul_collected.emit(alien_death_value)
 	await audio.finished
-	GameData.SoulsCollectedThisRound += alien_death_value
 	queue_free()
 
 func _on_damage_received(damage: float, number_position: Vector3) -> void:

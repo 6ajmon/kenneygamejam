@@ -39,6 +39,5 @@ one_shot = true
 stream = SubResource("AudioStreamRandomizer_1krkd")
 volume_db = -20.0
 pitch_scale = 0.5
-bus = &"SFX"
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
