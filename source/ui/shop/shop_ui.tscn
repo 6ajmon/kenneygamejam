@@ -161,11 +161,11 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Button" type="Button" parent="Content/MarginContainer/Shop/VBoxContainer"]
+[node name="StatisticsLabel" type="Label" parent="Content/MarginContainer/Shop/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-disabled = true
-text = "reroll(20)"
+text = "Statistics"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="Content/MarginContainer/Shop/VBoxContainer"]
 layout_mode = 2
@@ -198,6 +198,8 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Content/MarginContainer/Shop/VBoxContainer/Panel/MarginContainer/ScrollContainer/Statistics/Damage"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
 text = "damage"
 vertical_alignment = 1
 
@@ -206,20 +208,31 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="ContinueButton" type="Button" parent="Content/MarginContainer/Shop/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/MarginContainer/Shop/VBoxContainer"]
+layout_mode = 2
+
+[node name="RerollButton" type="Button" parent="Content/MarginContainer/Shop/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+disabled = true
+text = "reroll(20)"
+
+[node name="ContinueButton" type="Button" parent="Content/MarginContainer/Shop/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_styles/hover = SubResource("StyleBoxTexture_nn17r")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qxq0j")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qxq0j")
 icon = ExtResource("9_xp8ka")
 icon_alignment = 1
 
-[connection signal="pressed" from="Content/MarginContainer/Shop/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Content/MarginContainer/Shop/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 
 [editable path="Content/MarginContainer/Shop/ShopItems/ShopItem"]
