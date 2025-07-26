@@ -11,21 +11,21 @@ var legendaryPrice: float
 
 var Upgrades = {
 	#Stats
-	"Damage+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://statBoosts/MediumDamageBoost.tscn","", UpgradesDescriptions.medium_damage_boost),
-	"Damage++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://statBoosts/LargeDamageBoost.tscn","", UpgradesDescriptions.large_damage_boost),
-	"Damage+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary,"res://statBoosts/legendary_damage_boost.tscn" ,"", UpgradesDescriptions.legendary_damage_boost),
+	"Damage+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/MediumDamageBoost.tscn","", UpgradesDescriptions.medium_damage_boost),
+	"Damage++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://source/statBoosts/LargeDamageBoost.tscn","", UpgradesDescriptions.large_damage_boost),
+	"Damage+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary,"res://source/statBoosts/legendary_damage_boost.tscn" ,"", UpgradesDescriptions.legendary_damage_boost),
 	
-	"Bullets+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://statBoosts/medium_bullets_up.tscn","", UpgradesDescriptions.medium_bullets_up),
-	"Bullets++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://statBoosts/large_bullets_up.tscn","", UpgradesDescriptions.large_bullets_up),
-	"Bullets+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://statBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_bullets_up),
+	"Bullets+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/medium_bullets_up.tscn","", UpgradesDescriptions.medium_bullets_up),
+	"Bullets++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://source/statBoosts/large_bullets_up.tscn","", UpgradesDescriptions.large_bullets_up),
+	"Bullets+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://source/statBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_bullets_up),
 	
-	"Vehicle+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://statBoosts/medium_vehicle_up.tscn","", UpgradesDescriptions.medium_vehicle_up),
-	"Vehicle++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://statBoosts/large_vehicle_up.tscn","", UpgradesDescriptions.large_vehicle_up),
-	"Vehicle+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://statBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_vehicle_up),
+	"Vehicle+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/medium_vehicle_up.tscn","", UpgradesDescriptions.medium_vehicle_up),
+	"Vehicle++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://source/statBoosts/large_vehicle_up.tscn","", UpgradesDescriptions.large_vehicle_up),
+	"Vehicle+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://source/statBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_vehicle_up),
 	
-	"Battery+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Common, "res://statBoosts/small_powerup.tscn","", UpgradesDescriptions.small_power_up),
-	"Battery++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://statBoosts/medium_powerup.tscn","", UpgradesDescriptions.medium_power_up),
-	"Ultimate Power" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://statBoosts/ultimate_power.tscn" ,"", UpgradesDescriptions.ultimate_power),
+	"Battery+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Common, "res://source/statBoosts/small_powerup.tscn","", UpgradesDescriptions.small_power_up),
+	"Battery++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/medium_powerup.tscn","", UpgradesDescriptions.medium_power_up),
+	"Ultimate Power" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://source/statBoosts/ultimate_power.tscn" ,"", UpgradesDescriptions.ultimate_power),
 	#Weapons
 	"Weapon000" : Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/weapon_000.tscn", "res://assets/Icons/blaster-g.png", UpgradesDescriptions.weapon000),
 	"Starter": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/starting_weapon.tscn","res://assets/Icons/blaster-g.png", UpgradesDescriptions.starting_weapon ),
