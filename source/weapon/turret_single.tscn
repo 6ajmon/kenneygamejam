@@ -295,6 +295,8 @@ shadow_mesh = SubResource("ArrayMesh_5i5fh")
 
 [node name="TurretSingle" instance=ExtResource("1_at8g0")]
 script = ExtResource("2_sctk4")
+damage = 12.0
+pierce = 2
 
 [node name="turret" type="MeshInstance3D" parent="TurretBody" index="0"]
 transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0, 0.21875, -0.00698769)

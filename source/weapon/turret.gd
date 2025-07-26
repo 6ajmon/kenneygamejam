@@ -55,7 +55,7 @@ func _find_markers_recursive(node: Node) -> Array[Marker3D]:
 
 func setup_shoot_timer() -> void:
 	shoot_timer = Timer.new()
-	shoot_timer.wait_time = 1.0 / shots_per_second
+	shoot_timer.wait_time = 1.0 / (shots_per_second * GameData.statBoosts.bullets_per_second)
 	shoot_timer.one_shot = true
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	add_child(shoot_timer)
@@ -93,11 +93,11 @@ func aim_at_target(delta: float) -> void:
 	var current_transform = turret_body.global_transform
 	var target_transform = current_transform.looking_at(target_position, Vector3.UP)
 	
-	var current_basis = current_transform.basis
-	var target_basis = target_transform.basis
-	var lerped_basis = current_basis.slerp(target_basis, rotation_speed * delta)
+	var current_quat = current_transform.basis.get_rotation_quaternion()
+	var target_quat = target_transform.basis.get_rotation_quaternion()
+	var lerped_quat = current_quat.slerp(target_quat, rotation_speed * delta)
 	
-	turret_body.global_transform.basis = lerped_basis
+	turret_body.global_transform.basis = Basis(lerped_quat)
 
 func shoot() -> void:
 	if not can_shoot or fire_points.size() == 0:
@@ -131,18 +131,3 @@ func _on_target_exited(body: Node3D) -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
-
-func set_damage(new_damage: float) -> void:
-	damage = new_damage
-
-func set_fire_rate(new_shots_per_second: float) -> void:
-	shots_per_second = new_shots_per_second
-	if shoot_timer:
-		shoot_timer.wait_time = 1.0 / shots_per_second
-
-func set_detection_range(new_range: float) -> void:
-	detection_range = new_range
-	setup_detection_area()
-
-func set_bullet_speed(new_speed: float) -> void:
-	bullet_speed = new_speed

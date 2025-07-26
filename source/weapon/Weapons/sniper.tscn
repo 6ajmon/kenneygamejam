@@ -19,10 +19,10 @@ stream_4/stream = ExtResource("8_gq2b3")
 
 [node name="Sniper" type="Node3D"]
 script = ExtResource("1_byg53")
-bullets_per_second = 0.5
+bullets_per_second = 0.325
 bullet_speed = 30.0
 damage = 100.0
-pierce = 2.0
+pierce = 3.0
 BULLET = ExtResource("2_8bgw7")
 
 [node name="Muzzle" type="Marker3D" parent="."]

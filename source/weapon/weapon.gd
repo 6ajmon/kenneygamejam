@@ -18,7 +18,7 @@ class_name Weapon
 var on_cooldown : bool = false
 
 func _ready() -> void:
-	cooldown_timer.wait_time = 1.0 / (bullets_per_second + GameData.StatBoosts.bullets_per_second)
+	cooldown_timer.wait_time = 1.0 / (bullets_per_second * GameData.statBoosts.bullets_per_second)
 
 func shoot(vehicle_speed : float):
 	if on_cooldown:
@@ -37,7 +37,7 @@ func _init_bullet(vehicle_speed : float):
 	bullet.global_rotation.y = global_rotation.y
 	bullet.speed = bullet_speed + vehicle_speed
 	bullet.damage = damage
-	bullet.pierce += pierce
+	bullet.pierce = pierce
 	
 func _on_CooldownTimer_timeout() -> void:
 	on_cooldown = false

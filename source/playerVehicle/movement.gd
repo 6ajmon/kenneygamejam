@@ -16,9 +16,9 @@ var previous_rotation_y: float = 0.0
 @onready var player: PlayerVehicle = $".."
 
 func _ready() -> void:
-	max_speed += GameData.StatBoosts.max_speed
+	max_speed += GameData.statBoosts.max_speed
 	backward_max_speed = 3.0/5.0 * max_speed
-	acceleration += GameData.StatBoosts.acceleration
+	acceleration += GameData.statBoosts.acceleration
 
 func move_and_rotate(delta: float) -> void:
 	var is_strafing = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")

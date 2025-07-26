@@ -12,18 +12,18 @@ class_name StatBoost
 @export var power_usage : float
 
 func apply():
-	GameData.StatBoosts.acceleration += acceleration
+	GameData.statBoosts.acceleration += acceleration
 	if bullets_per_second != 0:
-		GameData.StatBoosts.bullets_per_second *= bullets_per_second
-	if GameData.StatBoosts.bullet_range + bullet_range <= 0:
-		GameData.StatBoosts.bullet_range += bullet_range
+		GameData.statBoosts.bullets_per_second *= bullets_per_second
+	if GameData.statBoosts.bullet_range + bullet_range <= 0:
+		GameData.statBoosts.bullet_range += bullet_range
 	else:
-		GameData.StatBoosts.bullet_range = 0
+		GameData.statBoosts.bullet_range = 0
 	if bullet_size != 0:
-		GameData.StatBoosts.bullet_size *= bullet_size
+		GameData.statBoosts.bullet_size *= bullet_size
 	if damage != 0:
-		GameData.StatBoosts.damage *= damage
-	GameData.StatBoosts.max_power += max_power
-	GameData.StatBoosts.max_speed += max_speed
-	GameData.StatBoosts.pierce += pierce
-	GameData.StatBoosts.power_usage += power_usage
+		GameData.statBoosts.damage *= damage
+	GameData.statBoosts.max_power += max_power
+	GameData.statBoosts.max_speed += max_speed
+	GameData.statBoosts.pierce += pierce
+	GameData.statBoosts.power_usage += power_usage

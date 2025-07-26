@@ -35,7 +35,7 @@ func _ready() -> void:
 	drill_slot = $DrillSlot
 	turret_slots = turret_slots_node.get_children().filter(func(child): return child is WeaponSlot)
 	
-	max_energy += GameData.StatBoosts.max_power
+	max_energy += GameData.statBoosts.max_power
 	power_system.maximum_energy = max_energy
 	power_system.initialize_power_system()
 	print(drill_slot.is_taken())
@@ -53,8 +53,8 @@ func _ready() -> void:
 	add_child(energy_consumption_timer)
 	energy_consumption_timer.start()
 
-	if GameData.StatBoosts.damage != 0:
-		contact_damage *= GameData.StatBoosts.damage
+	if GameData.statBoosts.damage != 0:
+		contact_damage *= GameData.statBoosts.damage
 	
 	load_upgrades()
 
@@ -147,5 +147,5 @@ func _reset_damage_ability() -> void:
 
 func _consume_energy() -> void:
 	if power_system:
-		var energy_drain = current_energy_usage + GameData.StatBoosts.power_usage + (0.3 * (GameData.CurrentRound - 1))
+		var energy_drain = current_energy_usage + GameData.statBoosts.power_usage + (0.6 * (GameData.CurrentRound - 1))
 		power_system.change_energy(-energy_drain)

@@ -9,7 +9,7 @@ var is_dying := false
 @export var player_detection_range: float = 20.0
 @export var max_slope_angle: float = 65.0
 @export var rotation_speed: float = 6.0
-@export var alien_death_value: int = 6
+@export var alien_death_value: float = 6
 @export var health_points: float = 60
 
 @onready var animation_player: AnimationPlayer = $AlienAnimated/tmpParent/AnimationPlayer
@@ -32,11 +32,10 @@ var is_player_in_range: bool = false
 func _ready() -> void:
 	add_to_group("enemies")
 	maximum_speed += 0.4 * GameData.CurrentRound
-	health_component.max_health = int(health_component.max_health)^GameData.CurrentRound
-	alien_death_value += GameData.CurrentRound
+	health_component.max_health *= (GameData.CurrentRound - 2)^2
+	alien_death_value += GameData.CurrentRound + GameData.CurrentRound * GameData.CurrentRound / 10.0
 	
 	speed = randf_range(minimum_speed, maximum_speed)
-	health_component.max_health = health_points
 	detection_range_squared = player_detection_range * player_detection_range
 	health_component.died.connect(_on_death)
 	health_component.damage_received.connect(_on_damage_received)
