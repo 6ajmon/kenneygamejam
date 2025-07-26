@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://45pqplbplvht"]
+[gd_scene load_steps=12 format=3 uid="uid://b3jm5t2yjn8pd"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_xkhn8"]
-[ext_resource type="Script" path="res://source/ui/starting_screen.gd" id="2_6l04n"]
+[ext_resource type="Script" uid="uid://c3wi32xibg7tv" path="res://source/ui/mainMenu/starting_screen.gd" id="2_6l04n"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_7vb47"]
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="2_bvrli"]
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="4_goi8c"]

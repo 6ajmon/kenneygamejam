@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bubjom5vxxijd"]
+[gd_scene load_steps=13 format=3 uid="uid://cbyirvkxyb7gq"]
 
-[ext_resource type="PackedScene" uid="uid://b463n2ua5mcrw" path="res://source/ui/shop_item.tscn" id="1_dk53a"]
+[ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop/shop_ui.gd" id="1_8apib"]
 [ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="1_grrqa"]
-[ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop_ui.gd" id="1_tqhkx"]
 [ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_55gbp"]
 [ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="3_oxnpl"]
+[ext_resource type="PackedScene" uid="uid://6odb45k0yc8o" path="res://source/ui/shop/shop_item.tscn" id="5_8apib"]
 [ext_resource type="Texture2D" uid="uid://b7orqky07oio4" path="res://assets/UI/PNG/Red/Double/button_square_header_large_square_screws.png" id="8_xp8ka"]
 [ext_resource type="Texture2D" uid="uid://ykw20mk6n1s2" path="res://assets/UI/PNG/Red/Double/button_square_header_small_square.png" id="9_nn17r"]
 [ext_resource type="Texture2D" uid="uid://cl1isgylepm7j" path="res://assets/UI/UIassets/right.png" id="9_xp8ka"]
@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tqhkx")
+script = ExtResource("1_8apib")
 
 [node name="SpaceBG" type="Control" parent="."]
 layout_mode = 3
@@ -131,22 +131,22 @@ offset_right = 1008.0
 offset_bottom = 690.0
 columns = 3
 
-[node name="ShopItem" parent="GridContainer" instance=ExtResource("1_dk53a")]
+[node name="ShopItem" parent="GridContainer" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem2" parent="GridContainer" instance=ExtResource("1_dk53a")]
+[node name="ShopItem2" parent="GridContainer" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem3" parent="GridContainer" instance=ExtResource("1_dk53a")]
+[node name="ShopItem3" parent="GridContainer" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem4" parent="GridContainer" instance=ExtResource("1_dk53a")]
+[node name="ShopItem4" parent="GridContainer" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem5" parent="GridContainer" instance=ExtResource("1_dk53a")]
+[node name="ShopItem5" parent="GridContainer" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem6" parent="GridContainer" instance=ExtResource("1_dk53a")]
+[node name="ShopItem6" parent="GridContainer" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
 [node name="ContinueButton" type="Button" parent="."]
