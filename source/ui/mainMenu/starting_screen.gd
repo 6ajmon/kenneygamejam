@@ -1,9 +1,5 @@
 extends Control
 
-@onready var moon_animation: AnimationPlayer = $SpaceBG/Mars/Moon/AnimationPlayer
-
-func _ready() -> void:
-	moon_animation.play("moon_movement")
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(SceneManager.loading_screen)

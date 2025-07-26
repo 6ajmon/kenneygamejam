@@ -1,17 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbyirvkxyb7gq"]
+[gd_scene load_steps=10 format=3 uid="uid://cbyirvkxyb7gq"]
 
 [ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop/shop_ui.gd" id="1_8apib"]
-[ext_resource type="Texture2D" uid="uid://66xxsdqq3yqi" path="res://assets/UI/Planet Parts/sphere0.png" id="1_grrqa"]
-[ext_resource type="Texture2D" uid="uid://pxcnhf5ipji3" path="res://assets/UI/Planets/planet08.png" id="2_55gbp"]
-[ext_resource type="Texture2D" uid="uid://wu4cskleu2de" path="res://assets/UI/Planets/planet03.png" id="3_oxnpl"]
+[ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_rx3n6"]
 [ext_resource type="PackedScene" uid="uid://6odb45k0yc8o" path="res://source/ui/shop/shop_item.tscn" id="5_8apib"]
 [ext_resource type="Texture2D" uid="uid://b7orqky07oio4" path="res://assets/UI/PNG/Red/Double/button_square_header_large_square_screws.png" id="8_xp8ka"]
 [ext_resource type="Texture2D" uid="uid://ykw20mk6n1s2" path="res://assets/UI/PNG/Red/Double/button_square_header_small_square.png" id="9_nn17r"]
 [ext_resource type="Texture2D" uid="uid://cl1isgylepm7j" path="res://assets/UI/UIassets/right.png" id="9_xp8ka"]
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="11_nn17r"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o63lq"]
-bg_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nn17r"]
 texture = ExtResource("8_xp8ka")
@@ -28,101 +23,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8apib")
 
-[node name="SpaceBG" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel" type="Panel" parent="SpaceBG"]
-layout_mode = 0
-offset_left = -50.0
-offset_top = -85.0
-offset_right = 1350.0
-offset_bottom = 915.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o63lq")
-
-[node name="Stars" type="Control" parent="SpaceBG"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Sphere0" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(157, 354)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere1" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(312, 278)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere2" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(418, 95)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere3" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(988, 306)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere4" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(787, 79)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere5" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(339, 517)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere6" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(537, 56)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere7" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(993, 420)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere8" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(361, 658)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere9" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(116, 553)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere10" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(1119, 111)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere11" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(1175, 335)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Sphere12" type="Sprite2D" parent="SpaceBG/Stars"]
-position = Vector2(1029, 613)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("1_grrqa")
-
-[node name="Mars" type="Sprite2D" parent="SpaceBG"]
-position = Vector2(640, 360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_55gbp")
-
-[node name="Earth" type="Sprite2D" parent="SpaceBG"]
-position = Vector2(143, 158)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("3_oxnpl")
+[node name="SpaceBG" parent="." instance=ExtResource("2_rx3n6")]
 
 [node name="GridContainer" type="GridContainer" parent="."]
+z_index = 2
 custom_minimum_size = Vector2(130, 166)
 layout_mode = 0
 offset_left = 280.0
