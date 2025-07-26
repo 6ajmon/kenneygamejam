@@ -51,14 +51,17 @@ region = Rect2(600, 300, 100, 100)
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_0n348")
 script = ExtResource("1_0n348")
 
 [node name="SpaceBG" parent="." instance=ExtResource("2_vchu7")]
 
-[node name="Panel" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -18.0
 offset_top = -66.0
@@ -67,241 +70,213 @@ offset_bottom = -26.0
 scale = Vector2(33.1305, 24.0928)
 color = Color(0.184314, 0.184314, 0.184314, 0.788235)
 
-[node name="Welcome" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 204.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_0n348")
+theme_override_constants/separation = 16
+alignment = 1
 
-[node name="welcome_to_you_first_day" type="Control" parent="Welcome"]
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="welcome_to_you_first_day" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Welcome/welcome_to_you_first_day"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 21.0
-offset_right = 113.0
-offset_bottom = 121.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/welcome_to_you_first_day"]
+layout_mode = 2
 texture = SubResource("AtlasTexture_0m1ej")
 
-[node name="Label" type="Label" parent="Welcome/welcome_to_you_first_day"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 68.0
-offset_right = 870.0
-offset_bottom = 104.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/welcome_to_you_first_day"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
 text = "Welcome to your first day on the job"
+autowrap_mode = 3
 
-[node name="to_make_your_first_day" type="Control" parent="Welcome"]
+[node name="to_make_your_first_day" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Welcome/to_make_your_first_day"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 21.0
-offset_right = 113.0
-offset_bottom = 121.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/to_make_your_first_day"]
+layout_mode = 2
 texture = SubResource("AtlasTexture_875dp")
 
-[node name="Label" type="Label" parent="Welcome/to_make_your_first_day"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 68.0
-offset_right = 870.0
-offset_bottom = 104.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/to_make_your_first_day"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "to make your first day easy 
-i prepared a few instructions just for you!"
+text = "to make your first day easy i prepared a few instructions just for you!"
+autowrap_mode = 3
 
-[node name="Controls" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 280.0
-offset_right = 105.0
-offset_bottom = 588.0
-
-[node name="move_your_mouse" type="Control" parent="Controls"]
+[node name="move_your_mouse" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Controls/move_your_mouse"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/move_your_mouse"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/move_your_mouse/Control"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 21.0
-offset_right = 113.0
-offset_bottom = 121.0
+offset_top = 16.0
+offset_right = 100.0
+offset_bottom = 116.0
 texture = SubResource("AtlasTexture_0mybr")
 
-[node name="TextureRect2" type="TextureRect" parent="Controls/move_your_mouse"]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/move_your_mouse/Control"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = -19.0
-offset_right = 111.0
-offset_bottom = 81.0
+offset_top = -22.0
+offset_right = 100.0
+offset_bottom = 78.0
 texture = SubResource("AtlasTexture_vyu43")
 
-[node name="Label" type="Label" parent="Controls/move_your_mouse"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 68.0
-offset_right = 870.0
-offset_bottom = 104.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/move_your_mouse"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
 text = "move your mouse to set direction"
+autowrap_mode = 3
 
-[node name="wsad_to_move" type="Control" parent="Controls"]
+[node name="wsad_to_move" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Controls/wsad_to_move"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 21.0
-offset_right = 113.0
-offset_bottom = 121.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/wsad_to_move"]
+layout_mode = 2
 texture = SubResource("AtlasTexture_gqp31")
 
-[node name="Label" type="Label" parent="Controls/wsad_to_move"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 68.0
-offset_right = 870.0
-offset_bottom = 104.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/wsad_to_move"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "wsad to move"
+text = "wasd to move"
+autowrap_mode = 3
 
-[node name="left_to_shoot" type="Control" parent="Controls"]
+[node name="left_to_shoot" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Controls/left_to_shoot"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 21.0
-offset_right = 113.0
-offset_bottom = 121.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/left_to_shoot"]
+layout_mode = 2
 texture = SubResource("AtlasTexture_kynvy")
 
-[node name="Label" type="Label" parent="Controls/left_to_shoot"]
-layout_mode = 0
-offset_left = 116.0
-offset_top = 60.0
-offset_right = 870.0
-offset_bottom = 120.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/left_to_shoot"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "left click to shoot
-(that's the most important part
-of the job)"
+text = "left click to shoot (that's the most important part of the job)"
+autowrap_mode = 3
 
-[node name="Goal" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -45.0
-offset_right = 395.0
-offset_bottom = 367.0
+[node name="VBoxContainerRight" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
 
-[node name="reach_the_quota" type="Control" parent="Goal"]
-custom_minimum_size = Vector2(100, 100)
+[node name="PowerReminder" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerRight"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Goal/reach_the_quota"]
-layout_mode = 0
-offset_left = 706.0
-offset_top = 114.0
-offset_right = 806.0
-offset_bottom = 214.0
-texture = SubResource("AtlasTexture_uw8un")
-
-[node name="Label" type="Label" parent="Goal/reach_the_quota"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 151.0
-offset_right = 1554.0
-offset_bottom = 211.0
-theme = ExtResource("2_0n348")
-theme_override_font_sizes/font_size = 16
-text = "reach the quota before you run out of 
-power"
-
-[node name="how_can_you_do_that" type="Control" parent="Goal"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Goal/how_can_you_do_that"]
-layout_mode = 0
-offset_left = 706.0
-offset_top = 114.0
-offset_right = 806.0
-offset_bottom = 214.0
-texture = SubResource("AtlasTexture_2ug1f")
-
-[node name="Label" type="Label" parent="Goal/how_can_you_do_that"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 151.0
-offset_right = 1554.0
-offset_bottom = 211.0
-theme = ExtResource("2_0n348")
-theme_override_font_sizes/font_size = 16
-text = "how can you do that? 
-it's really simple..."
-
-[node name="by_" type="Control" parent="Goal"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Goal/by_"]
-layout_mode = 0
-offset_left = 671.0
-offset_top = 115.0
-offset_right = 771.0
-offset_bottom = 215.0
-texture = SubResource("AtlasTexture_7ayoe")
-
-[node name="Label" type="Label" parent="Goal/by_"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 151.0
-offset_right = 1554.0
-offset_bottom = 211.0
-theme = ExtResource("2_0n348")
-theme_override_font_sizes/font_size = 16
-text = "by collecting souls of these poor 
-creatures... For the glory of 
-Xenocorp Industries!"
-
-[node name="TextureRect2" type="TextureRect" parent="Goal/by_"]
-layout_mode = 0
-offset_left = 720.0
-offset_top = 92.0
-offset_right = 820.0
-offset_bottom = 192.0
-texture = SubResource("AtlasTexture_5kvty")
-
-[node name="PowerReminder" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 703.0
-offset_top = 452.0
-offset_right = 1180.0
-offset_bottom = 552.0
-
-[node name="TextureRect" type="TextureRect" parent="PowerReminder"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/PowerReminder"]
 layout_mode = 2
 texture = ExtResource("3_vchu7")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="PowerReminder"]
-custom_minimum_size = Vector2(373.09, 100)
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/PowerReminder"]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme = ExtResource("2_0n348")
 theme_override_font_sizes/font_size = 16
-text = "Your ship have limited power. When it runs out your shift ends. Make sure to collect as many souls as  you can."
+text = "Your ship have limited power. When it runs out your shift ends."
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="reach_the_quota" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerRight"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/reach_the_quota"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uw8un")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/reach_the_quota"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "reach the quota before you run out of power"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="how_can_you_do_that" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerRight"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/how_can_you_do_that"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2ug1f")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/how_can_you_do_that"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "how can you do that? it's really simple..."
+autowrap_mode = 3
+
+[node name="by_" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainerRight"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/by_"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/by_/Control"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = SubResource("AtlasTexture_7ayoe")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/by_/Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -35.0
+offset_right = 124.0
+offset_bottom = 65.0
+texture = SubResource("AtlasTexture_5kvty")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/by_"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("2_0n348")
+theme_override_font_sizes/font_size = 16
+text = "by collecting souls of these poor creatures... For the glory of 
+Xenocorp Industries!"
+autowrap_mode = 3
+
+[node name="GoBackButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight"]
+layout_mode = 2
+text = "Back to main menu"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" to="." method="_on_go_back_button_pressed"]

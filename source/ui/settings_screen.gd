@@ -15,4 +15,4 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://source/ui/starting_screen.tscn")
+	get_tree().change_scene_to_file("res://source/ui/mainMenu/starting_screen.tscn")
