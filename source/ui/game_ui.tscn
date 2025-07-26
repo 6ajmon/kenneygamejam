@@ -1,11 +1,64 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw28pic0xfqh7"]
+[gd_scene load_steps=23 format=3 uid="uid://dw28pic0xfqh7"]
 
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_a5gc0"]
 [ext_resource type="Script" uid="uid://0e5vy4jolju6" path="res://source/ui/game_ui.gd" id="1_uw8un"]
+[ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="2_5kvty"]
 [ext_resource type="Script" uid="uid://bw3bh5bsg0rhx" path="res://source/ui/collected_quota_label.gd" id="2_vyu43"]
+[ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="3_woat8"]
+[ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="4_q5sxg"]
 [ext_resource type="Script" uid="uid://c3mykbohbolse" path="res://source/ui/quota_label.gd" id="5_0mybr"]
+[ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="5_d1wrv"]
 [ext_resource type="PackedScene" uid="uid://cbhgw85qrsahf" path="res://source/ui/minimap.tscn" id="6_0mybr"]
+[ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="6_6ym6y"]
 [ext_resource type="Texture2D" uid="uid://plq8ewxwguin" path="res://assets/UI/UIassets/simpleSpace_tilesheet@2.png" id="7_2ug1f"]
+[ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="7_4ckr6"]
+[ext_resource type="PackedScene" uid="uid://rg2eygu0pdhc" path="res://source/ui/dayCount/day_count.tscn" id="7_7ayoe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
+texture = ExtResource("3_woat8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3mee"]
+texture = ExtResource("4_q5sxg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
+texture = ExtResource("4_q5sxg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05tig"]
+texture = ExtResource("5_d1wrv")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3twp"]
+texture = ExtResource("6_6ym6y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbigv"]
+texture = ExtResource("7_4ckr6")
+
+[sub_resource type="Theme" id="Theme_dtmfh"]
+default_font = ExtResource("2_5kvty")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_5kvty")
+Button/styles/hover = SubResource("StyleBoxTexture_mihib")
+Button/styles/normal = SubResource("StyleBoxTexture_f3mee")
+Button/styles/pressed = SubResource("StyleBoxTexture_ttqs8")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/colors/font_hovered_color = Color(0.999999, 0.972682, 0.534705, 1)
+ItemList/colors/font_outline_color = Color(0.435294, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(0, 0.749434, 0, 1)
+ItemList/constants/outline_size = 3
+ItemList/font_sizes/font_size = 24
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("2_5kvty")
+Panel/styles/panel = SubResource("StyleBoxTexture_05tig")
+ProgressBar/constants/outline_size = 6
+ProgressBar/styles/background = SubResource("StyleBoxTexture_i3twp")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_vbigv")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ayoe"]
 atlas = ExtResource("7_2ug1f")
@@ -33,7 +86,7 @@ offset_left = 45.0
 offset_top = 584.0
 offset_right = 313.0
 offset_bottom = 620.0
-theme = ExtResource("1_a5gc0")
+theme = SubResource("Theme_dtmfh")
 text = "Power left:"
 
 [node name="QuotaLabel" type="Label" parent="."]
@@ -45,7 +98,7 @@ offset_top = 53.0
 offset_right = -20.0
 offset_bottom = 89.0
 grow_horizontal = 2
-theme = ExtResource("1_a5gc0")
+theme = SubResource("Theme_dtmfh")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 text = "Reach quota:"
@@ -62,7 +115,7 @@ offset_top = 92.0
 offset_right = -22.0
 offset_bottom = 128.0
 grow_horizontal = 2
-theme = ExtResource("1_a5gc0")
+theme = SubResource("Theme_dtmfh")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 text = "0/41"
@@ -74,11 +127,9 @@ layout_mode = 1
 enemy_sprite = SubResource("AtlasTexture_7ayoe")
 player_sprite = SubResource("AtlasTexture_0m1ej")
 
-[node name="Day" type="Label" parent="."]
+[node name="Day" parent="." instance=ExtResource("7_7ayoe")]
 layout_mode = 0
-offset_left = 567.0
-offset_top = 12.0
-offset_right = 672.0
-offset_bottom = 48.0
-theme = ExtResource("1_a5gc0")
-text = "Day 1"
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 105.0
+offset_bottom = 36.0

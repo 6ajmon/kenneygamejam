@@ -1,5 +1,4 @@
-extends Control
-@onready var day: Label = $Day
+extends Label
 
 func _process(_delta: float) -> void:
-	day.text = "Day " + str(GameData.CurrentRound)
+	text = "Day " + str(GameData.CurrentRound)

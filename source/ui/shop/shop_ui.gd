@@ -1,14 +1,14 @@
 extends Control
 
-@onready var grid_container: GridContainer = $GridContainer
-@onready var label: Label = $Label
+@onready var grid_container: GridContainer = $Content/MarginContainer/Shop/ShopItems
+@onready var label: Label = $Content/TopBar/SoulsCount
 
 var items = []
 
 func _ready() -> void:
 	set_up_prices(GameData.CurrentRound)
 	reset_shop()
-	$GridContainer/ShopItem/Button.grab_focus()
+	$Content/MarginContainer/Shop/ShopItems/ShopItem.grab_focus()
 
 func reset_shop():
 	label.text = str(int(floor(GameData.AlienSouls))) + " souls"
