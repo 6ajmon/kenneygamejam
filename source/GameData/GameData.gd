@@ -11,21 +11,21 @@ var legendaryPrice: float
 
 var Upgrades = {
 	#Stats
-	"Damage+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/MediumDamageBoost.tscn","", UpgradesDescriptions.medium_damage_boost),
-	"Damage++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://StatBoosts/LargeDamageBoost.tscn","", UpgradesDescriptions.large_damage_boost),
-	"Damage+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary,"res://StatBoosts/legendary_damage_boost.tscn" ,"", UpgradesDescriptions.legendary_damage_boost),
+	"Damage+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/MediumDamageBoost.tscn","", UpgradesDescriptions.medium_damage_boost),
+	"Damage++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://source/statBoosts/LargeDamageBoost.tscn","", UpgradesDescriptions.large_damage_boost),
+	"Damage+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary,"res://source/statBoosts/legendary_damage_boost.tscn" ,"", UpgradesDescriptions.legendary_damage_boost),
 	
-	"Bullets+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/medium_bullets_up.tscn","", UpgradesDescriptions.medium_bullets_up),
-	"Bullets++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://StatBoosts/large_bullets_up.tscn","", UpgradesDescriptions.large_bullets_up),
-	"Bullets+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://StatBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_bullets_up),
+	"Bullets+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/medium_bullets_up.tscn","", UpgradesDescriptions.medium_bullets_up),
+	"Bullets++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://source/statBoosts/large_bullets_up.tscn","", UpgradesDescriptions.large_bullets_up),
+	"Bullets+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://source/statBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_bullets_up),
 	
-	"Vehicle+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/medium_vehicle_up.tscn","", UpgradesDescriptions.medium_vehicle_up),
-	"Vehicle++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://StatBoosts/large_vehicle_up.tscn","", UpgradesDescriptions.large_vehicle_up),
-	"Vehicle+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://StatBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_vehicle_up),
+	"Vehicle+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/medium_vehicle_up.tscn","", UpgradesDescriptions.medium_vehicle_up),
+	"Vehicle++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Epic, "res://source/statBoosts/large_vehicle_up.tscn","", UpgradesDescriptions.large_vehicle_up),
+	"Vehicle+++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://source/statBoosts/legendary_bullets_up.tscn","", UpgradesDescriptions.legendary_vehicle_up),
 	
-	"Battery+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Common, "res://StatBoosts/small_powerup.tscn","", UpgradesDescriptions.small_power_up),
-	"Battery++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://StatBoosts/medium_powerup.tscn","", UpgradesDescriptions.medium_power_up),
-	"Ultimate Power" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://StatBoosts/ultimate_power.tscn" ,"", UpgradesDescriptions.ultimate_power),
+	"Battery+" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Common, "res://source/statBoosts/small_powerup.tscn","", UpgradesDescriptions.small_power_up),
+	"Battery++" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Rare, "res://source/statBoosts/medium_powerup.tscn","", UpgradesDescriptions.medium_power_up),
+	"Ultimate Power" : Upgrade.new(upgradeTypes.StatBoost, upgradeRarities.Legendary, "res://source/statBoosts/ultimate_power.tscn" ,"", UpgradesDescriptions.ultimate_power),
 	#Weapons
 	"Weapon000" : Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/weapon_000.tscn", "res://assets/Icons/blaster-g.png", UpgradesDescriptions.weapon000),
 	"Starter": Upgrade.new(upgradeTypes.Weapon, upgradeRarities.Common,"res://source/weapon/Weapons/starting_weapon.tscn","res://assets/Icons/blaster-g.png", UpgradesDescriptions.starting_weapon ),
@@ -36,7 +36,7 @@ var Upgrades = {
 }
 
 var UpgradesUnlocked = []
-var StatBoosts : StatBoost = StatBoost.new() 
+var statBoosts : StatBoost 
 
 var PlayerPosition
 var PlayerRotation: float
@@ -87,20 +87,24 @@ func _ready() -> void:
 	set_up_game_data()
 
 func set_up_game_data() -> void:
-	StatBoosts = StatBoost.new() 
+	statBoosts = StatBoost.new() 
 	UpgradesUnlocked.clear()
+	statBoosts.damage = 1
+	statBoosts.bullet_size = 1
+	statBoosts.bullets_per_second = 1
 	UpgradesUnlocked.append(Upgrades["Starter"])
-	StatBoosts.damage = 1
-	StatBoosts.bullet_size = 1
-	StatBoosts.bullets_per_second = 1
+	# UpgradesUnlocked.append(Upgrades["TurretDouble"])
+	# UpgradesUnlocked.append(Upgrades["Damage+++"])
+	# var damage_upgrade : StatBoost = Upgrades["Damage+++"].scene.instantiate()
+	# damage_upgrade.apply()
 	AlienSouls = 0
 	RequiredQuota = 0
 	SoulsCollectedThisRound = 0
 	CurrentRound = 1
-	commonPrice = 16
-	rarePrice = 25
-	epicPrice = 36
-	legendaryPrice = 50
+	commonPrice = 35
+	rarePrice = 50
+	epicPrice = 70
+	legendaryPrice = 100
 	current_color_palette = color_palettes[0]
 
 func randomize_color_palette() -> void:

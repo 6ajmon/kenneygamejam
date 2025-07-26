@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b463n2ua5mcrw"]
+[gd_scene load_steps=5 format=3 uid="uid://6odb45k0yc8o"]
 
+[ext_resource type="Script" uid="uid://b133s7xd8aao6" path="res://source/ui/shop/shop_item.gd" id="1_fvi6t"]
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_glqc6"]
-[ext_resource type="Script" uid="uid://bgom41he010mc" path="res://shop_item.gd" id="1_v846v"]
 [ext_resource type="Texture2D" uid="uid://d22rquou04kpk" path="res://assets/UI/UIassets/blaster-f.png" id="2_wxfep"]
 [ext_resource type="FontFile" uid="uid://cl6os7rp5p6r4" path="res://assets/UI/Font/Kenney Future Narrow.ttf" id="3_d8bsp"]
 
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_v846v")
+script = ExtResource("1_fvi6t")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -40,24 +40,28 @@ text = "10 souls"
 
 [node name="Upgrade" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 241.0
 
 [node name="Icon" type="TextureRect" parent="Upgrade"]
 layout_mode = 0
 offset_left = 88.0
-offset_top = 32.0
+offset_top = 17.0
 offset_right = 152.0
-offset_bottom = 96.0
+offset_bottom = 81.0
 texture = ExtResource("2_wxfep")
-stretch_mode = 1
+expand_mode = 1
 
 [node name="ItemName" type="Label" parent="Upgrade"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 80.0
-offset_right = 199.0
-offset_bottom = 107.0
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -43.5
+offset_bottom = -16.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
@@ -68,14 +72,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Label" parent="Upgrade"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 100.0
-offset_right = 216.0
-offset_bottom = 220.0
-theme_override_colors/font_color = Color(0.838897, 0.838897, 0.838897, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -7.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_d8bsp")
 theme_override_font_sizes/font_size = 18
 text = "+Fire rate

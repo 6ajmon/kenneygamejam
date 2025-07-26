@@ -5,9 +5,9 @@
 .nomedia
 
 .import/
-export.cfg
-exportcredentials.cfg
 
 *.translation
 
 *.cfg
+
+*.tmp

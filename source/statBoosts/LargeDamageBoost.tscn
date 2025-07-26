@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b68h835hag5c3"]
 
-[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://StatBoosts/StatBoost.gd" id="1_jua40"]
+[ext_resource type="Script" uid="uid://c11fxm7ea7mwd" path="res://source/StatBoosts/StatBoost.gd" id="1_jua40"]
 
 [node name="LargeDamageBoost" type="Node3D"]
 script = ExtResource("1_jua40")

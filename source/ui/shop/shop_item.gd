@@ -11,13 +11,16 @@ var upgrade_name : String
 var upgrade : Upgrade
 var upgrade_cost : float
 
+func calculate_random_cost(base_cost: float, variation_percent: float = 0.16) -> float:
+	return base_cost * randf_range(1.0 - variation_percent, 1.0 + variation_percent)
+
 func set_item(_name : String, _upgrade : Upgrade) -> void:
 	item_name.text = _name
 	icon.texture = _upgrade.icon
 	description.text = _upgrade.description
 	upgrade_name = _name
 	upgrade = _upgrade
-	upgrade_cost = GameData.get_price(_upgrade.rarity)
+	upgrade_cost = calculate_random_cost(GameData.get_price(_upgrade.rarity))
 	button.text = str(int(ceil(upgrade_cost))) + " souls"
 
 func set_sold():
@@ -27,16 +30,15 @@ func set_sold():
 	sold.visible = true
 	button.visible = false
 
-
 func _on_buyButton_pressed() -> void:
 	if GameData.AlienSouls >= upgrade_cost:
 		if upgrade.type != GameData.upgradeTypes.StatBoost:
 			GameData.UpgradesUnlocked.append(upgrade)
-			GameData.StatBoosts.power_usage += 1
+			GameData.statBoosts.power_usage += 0.5
 		else:
+			GameData.statBoosts.power_usage -= 0.1
 			var stats : StatBoost = upgrade.scene.instantiate()
 			stats.apply()
-			print(GameData.StatBoosts.damage)
 		set_sold()
 		GameData.AlienSouls -= upgrade_cost
 		var shop = get_parent().get_parent()

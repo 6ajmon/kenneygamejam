@@ -10,8 +10,8 @@ var can_deal_damage: bool = true
 
 
 func _ready() -> void:
-	if GameData.StatBoosts.damage != 0:
-		tick_damage *= GameData.StatBoosts.damage
+	if GameData.statBoosts.damage != 0:
+		tick_damage *= GameData.statBoosts.damage
 
 func _physics_process(delta: float) -> void:
 	var rotation_angle = rotation_speed * delta

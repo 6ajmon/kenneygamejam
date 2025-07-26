@@ -21,7 +21,7 @@ func decrease_energy(value: float) -> void:
 	change_energy(-value)
 
 func initialize_power_system() -> void:
-	current_energy = maximum_energy + GameData.StatBoosts.max_power
+	current_energy = maximum_energy + GameData.statBoosts.max_power
 	power_bar.max_value = maximum_energy
 	
 func _update_power_bar() -> void:

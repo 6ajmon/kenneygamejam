@@ -1,8 +1,8 @@
 extends Node
 
 var failure_scene: PackedScene = preload("res://source/ui/game_over.tscn")
-var shop_scene: PackedScene = preload("res://source/ui/shop_ui.tscn")
-var main_screen_scene: PackedScene = preload("res://source/ui/starting_screen.tscn")
+var shop_scene: PackedScene = preload("res://source/ui/shop/shop_ui.tscn")
+var main_screen_scene: PackedScene = preload("res://source/ui/mainMenu/starting_screen.tscn")
 var loading_screen: PackedScene = preload("res://source/ui/loading_screen.tscn")
 var settings_screen: PackedScene = preload("res://source/ui/settings_screen.tscn")
 
