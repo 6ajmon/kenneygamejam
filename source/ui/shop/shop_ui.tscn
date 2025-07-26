@@ -191,3 +191,4 @@ icon_alignment = 1
 [connection signal="pressed" from="Content/ShopMarginContainer/Shop/RightContainer/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
 
 [editable path="Content/ShopMarginContainer/Shop/ShopItems/ShopItem"]
+[editable path="Content/ShopMarginContainer/Shop/RightContainer/StatisticsPanel"]
