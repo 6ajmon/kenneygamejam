@@ -31,17 +31,17 @@ func _ready() -> void:
 	Eventbus.item_purchased.connect(update_statistics)
 	
 func update_statistics(_upgrade_name: String = "", _upgrade: Upgrade = null) -> void:
-	if GameData.statBoosts == null:
+	if stat == null:
 		return
 		
 	damage_value_label.text = MULT + str(stat.damage)
 	bullets_per_second_value_label.text = MULT + str(stat.bullets_per_second)
-	pierce_value_label.text = ADD + str(stat.pierce)
-	power_capacity_value_label.text = ADD + str(stat.max_power)
-	power_usage_value_label.text = SUB + str(abs(stat.power_usage)) if stat.power_usage < 0 else ADD + str(stat.power_usage)
-	top_speed_value_label.text = ADD + str(stat.max_speed)
-	acceleration_value_label.text = ADD + str(stat.acceleration)
-	bullet_range_value_label.text = ADD + str(stat.bullet_range)
+	pierce_value_label.text = get_number_sign(stat.pierce) + str(abs(stat.pierce))
+	power_capacity_value_label.text = get_number_sign(stat.max_power) + str(abs(stat.max_power))
+	power_usage_value_label.text = get_number_sign(stat.power_usage) + str(abs(stat.power_usage))
+	top_speed_value_label.text = get_number_sign(stat.max_speed) + str(abs(stat.max_speed))
+	acceleration_value_label.text = get_number_sign(stat.acceleration) + str(abs(stat.acceleration))
+	bullet_range_value_label.text = get_number_sign(stat.bullet_range) + str(abs(stat.bullet_range))
 	bullet_size_value_label.text = MULT + str(stat.bullet_size)
 
 	guns_value_label.text = str(GameData.gunsEquipped) + OUT_OF + str(GameData.MAX_GUNS) 
@@ -52,3 +52,9 @@ func update_statistics(_upgrade_name: String = "", _upgrade: Upgrade = null) -> 
 	total_kills_value_label.text = str(GameData.totalKills)
 	total_souls_collected_value_label.text = str(int(GameData.totalSoulsCollected))
 	total_damage_dealt_value_label.text = str(int(GameData.totalDamageDealt))
+
+func get_number_sign(value: float) -> String:
+	if value < 0:
+		return SUB
+	else:
+		return ADD
