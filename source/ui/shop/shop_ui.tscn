@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbyirvkxyb7gq"]
+[gd_scene load_steps=25 format=3 uid="uid://cbyirvkxyb7gq"]
 
 [ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop/shop_ui.gd" id="1_8apib"]
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_wcwpf"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b7orqky07oio4" path="res://assets/UI/PNG/Red/Double/button_square_header_large_square_screws.png" id="8_xp8ka"]
 [ext_resource type="Texture2D" uid="uid://ykw20mk6n1s2" path="res://assets/UI/PNG/Red/Double/button_square_header_small_square.png" id="9_nn17r"]
 [ext_resource type="Texture2D" uid="uid://cl1isgylepm7j" path="res://assets/UI/UIassets/right.png" id="9_xp8ka"]
+[ext_resource type="PackedScene" uid="uid://7mnkvgwf7axf" path="res://source/ui/soulsCount/souls_count.tscn" id="10_h6ueb"]
 [ext_resource type="PackedScene" uid="uid://cqh0omnkpxpab" path="res://source/ui/statisticsPanel/statistics_panel.tscn" id="11_wcwpf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
@@ -109,13 +110,8 @@ text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SoulsCount" type="Label" parent="Content/TopBar"]
+[node name="SoulsCount" parent="Content/TopBar" instance=ExtResource("10_h6ueb")]
 layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_dtmfh")
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-text = "99 souls"
-horizontal_alignment = 1
 
 [node name="ShopMarginContainer" type="MarginContainer" parent="Content"]
 layout_mode = 2

@@ -446,3 +446,28 @@ text = "×10"
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="TotalDamageDealt" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalDamageDealt"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Damage Dealt"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalDamageDealt"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1

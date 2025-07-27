@@ -30,7 +30,6 @@ var energy_consumption_timer: Timer
 func _ready() -> void:
 	GameData.PlayerPosition = global_position
 	GameData.PlayerRotation = rotation.y
-	Eventbus.connect("new_upgrade", get_new_upgrade)
 	weapon_slots = weapon_slots_node.get_children().filter(func(child): return child is WeaponSlot)
 	drill_slot = $DrillSlot
 	turret_slots = turret_slots_node.get_children().filter(func(child): return child is WeaponSlot)
@@ -78,29 +77,6 @@ func shoot() -> void:
 			if vehicle_speed < 0:
 				vehicle_speed = 0
 			slot.weapon.shoot(vehicle_speed)
-
-func get_new_upgrade(upgrade_name: String) -> void:
-	var new_upgrade_scene : PackedScene = GameData.Upgrades[upgrade_name].scene
-	var new_upgrade = new_upgrade_scene.instantiate()
-	if new_upgrade is Weapon:
-		for slot : WeaponSlot in weapon_slots:
-			if !slot.is_taken():
-				slot.add_child(new_upgrade)
-				slot.weapon = new_upgrade
-				return
-	elif new_upgrade is DrillWeapon:
-			if !drill_slot.is_taken():
-				drill_slot.add_child(new_upgrade)
-				drill_slot.weapon = new_upgrade
-				return
-			else:
-				drill_slot.get_child(0).increase_drill_size()
-	elif new_upgrade is Turret:
-		for slot : WeaponSlot in turret_slots:
-			if !slot.is_taken():
-				slot.add_child(new_upgrade)
-				slot.weapon = new_upgrade
-				return
 
 func load_upgrades() -> void:
 	for upgrade : Upgrade in GameData.UpgradesUnlocked:

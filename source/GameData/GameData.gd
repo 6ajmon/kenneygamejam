@@ -4,6 +4,19 @@ enum upgradeTypes {Weapon, DrillWeapon, StatBoost, Turret}
 
 enum upgradeRarities {Common, Rare, Epic, Legendary}
 
+var highestDamageDealt : float = 0.0
+var totalDamageDealt : float = 0.0
+var totalKills : int = 0
+var totalSoulsCollected : float = 0.0
+
+var gunsEquipped: int = 0
+var turretsEquipped: int = 0
+var specialWeaponsEquipped: int = 0
+
+const MAX_GUNS: int = 8
+const MAX_TURRETS: int = 4
+const MAX_SPECIAL_WEAPONS: int = 1
+
 var commonPrice: float
 var rarePrice: float
 var epicPrice: float
@@ -93,6 +106,7 @@ func set_up_game_data() -> void:
 	statBoosts.bullet_size = 1
 	statBoosts.bullets_per_second = 1
 	UpgradesUnlocked.append(Upgrades["Starter"])
+	gunsEquipped += 1
 	# UpgradesUnlocked.append(Upgrades["TurretDouble"])
 	# UpgradesUnlocked.append(Upgrades["Damage+++"])
 	# var damage_upgrade : StatBoost = Upgrades["Damage+++"].scene.instantiate()

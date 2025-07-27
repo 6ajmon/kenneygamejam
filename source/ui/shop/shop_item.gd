@@ -35,11 +35,17 @@ func _on_buyButton_pressed() -> void:
 		if upgrade.type != GameData.upgradeTypes.StatBoost:
 			GameData.UpgradesUnlocked.append(upgrade)
 			GameData.statBoosts.power_usage += 0.5
+			if upgrade.type == GameData.upgradeTypes.Weapon:
+				GameData.gunsEquipped += 1
+			elif upgrade.type == GameData.upgradeTypes.Turret:
+				GameData.turretsEquipped += 1
+			elif upgrade.type == GameData.upgradeTypes.DrillWeapon:
+				GameData.specialWeaponsEquipped += 1
 		else:
 			GameData.statBoosts.power_usage -= 0.1
 			var stats : StatBoost = upgrade.scene.instantiate()
 			stats.apply()
 		set_sold()
 		GameData.AlienSouls -= upgrade_cost
-		var shop = get_parent().get_parent()
-		shop.label.text = str(int(GameData.AlienSouls)) + " souls"
+
+		Eventbus.item_purchased.emit(upgrade_name, upgrade)
