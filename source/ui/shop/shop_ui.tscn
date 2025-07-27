@@ -1,12 +1,67 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbyirvkxyb7gq"]
+[gd_scene load_steps=25 format=3 uid="uid://cbyirvkxyb7gq"]
 
 [ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop/shop_ui.gd" id="1_8apib"]
+[ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_wcwpf"]
+[ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="2_h6ueb"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_rx3n6"]
+[ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="3_rucwb"]
+[ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="4_f0n3w"]
 [ext_resource type="PackedScene" uid="uid://6odb45k0yc8o" path="res://source/ui/shop/shop_item.tscn" id="5_8apib"]
+[ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_j8idn"]
+[ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_xeffi"]
+[ext_resource type="PackedScene" uid="uid://rg2eygu0pdhc" path="res://source/ui/dayCount/day_count.tscn" id="8_q0b4e"]
 [ext_resource type="Texture2D" uid="uid://b7orqky07oio4" path="res://assets/UI/PNG/Red/Double/button_square_header_large_square_screws.png" id="8_xp8ka"]
 [ext_resource type="Texture2D" uid="uid://ykw20mk6n1s2" path="res://assets/UI/PNG/Red/Double/button_square_header_small_square.png" id="9_nn17r"]
 [ext_resource type="Texture2D" uid="uid://cl1isgylepm7j" path="res://assets/UI/UIassets/right.png" id="9_xp8ka"]
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="11_nn17r"]
+[ext_resource type="PackedScene" uid="uid://7mnkvgwf7axf" path="res://source/ui/soulsCount/souls_count.tscn" id="10_h6ueb"]
+[ext_resource type="PackedScene" uid="uid://cqh0omnkpxpab" path="res://source/ui/statisticsPanel/statistics_panel.tscn" id="11_wcwpf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
+texture = ExtResource("2_h6ueb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3mee"]
+texture = ExtResource("3_rucwb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
+texture = ExtResource("3_rucwb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05tig"]
+texture = ExtResource("4_f0n3w")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3twp"]
+texture = ExtResource("5_j8idn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbigv"]
+texture = ExtResource("6_xeffi")
+
+[sub_resource type="Theme" id="Theme_dtmfh"]
+default_font = ExtResource("1_wcwpf")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_wcwpf")
+Button/styles/hover = SubResource("StyleBoxTexture_mihib")
+Button/styles/normal = SubResource("StyleBoxTexture_f3mee")
+Button/styles/pressed = SubResource("StyleBoxTexture_ttqs8")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/colors/font_hovered_color = Color(0.999999, 0.972682, 0.534705, 1)
+ItemList/colors/font_outline_color = Color(0.435294, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(0, 0.749434, 0, 1)
+ItemList/constants/outline_size = 3
+ItemList/font_sizes/font_size = 24
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_wcwpf")
+Panel/styles/panel = SubResource("StyleBoxTexture_05tig")
+ProgressBar/constants/outline_size = 6
+ProgressBar/styles/background = SubResource("StyleBoxTexture_i3twp")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_vbigv")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nn17r"]
 texture = ExtResource("8_xp8ka")
@@ -21,62 +76,115 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_dtmfh")
 script = ExtResource("1_8apib")
 
 [node name="SpaceBG" parent="." instance=ExtResource("2_rx3n6")]
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="Content" type="VBoxContainer" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+alignment = 1
+
+[node name="DayCount" parent="Content/TopBar" instance=ExtResource("8_q0b4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="ShopTitle" type="Label" parent="Content/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_dtmfh")
+theme_override_colors/font_outline_color = Color(0.431373, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoulsCount" parent="Content/TopBar" instance=ExtResource("10_h6ueb")]
+layout_mode = 2
+
+[node name="ShopMarginContainer" type="MarginContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="Shop" type="HBoxContainer" parent="Content/ShopMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="ShopItems" type="GridContainer" parent="Content/ShopMarginContainer/Shop"]
 z_index = 2
 custom_minimum_size = Vector2(130, 166)
-layout_mode = 0
-offset_left = 280.0
-offset_top = 86.0
-offset_right = 1008.0
-offset_bottom = 690.0
+layout_mode = 2
 columns = 3
 
-[node name="ShopItem" parent="GridContainer" instance=ExtResource("5_8apib")]
+[node name="ShopItem" parent="Content/ShopMarginContainer/Shop/ShopItems" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem2" parent="GridContainer" instance=ExtResource("5_8apib")]
+[node name="ShopItem2" parent="Content/ShopMarginContainer/Shop/ShopItems" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem3" parent="GridContainer" instance=ExtResource("5_8apib")]
+[node name="ShopItem3" parent="Content/ShopMarginContainer/Shop/ShopItems" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem4" parent="GridContainer" instance=ExtResource("5_8apib")]
+[node name="ShopItem4" parent="Content/ShopMarginContainer/Shop/ShopItems" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem5" parent="GridContainer" instance=ExtResource("5_8apib")]
+[node name="ShopItem5" parent="Content/ShopMarginContainer/Shop/ShopItems" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ShopItem6" parent="GridContainer" instance=ExtResource("5_8apib")]
+[node name="ShopItem6" parent="Content/ShopMarginContainer/Shop/ShopItems" instance=ExtResource("5_8apib")]
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1088.0
-offset_top = 336.0
-offset_right = 1196.0
-offset_bottom = 444.0
+[node name="RightContainer" type="VBoxContainer" parent="Content/ShopMarginContainer/Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="StatisticsLabel" type="Label" parent="Content/ShopMarginContainer/Shop/RightContainer"]
+layout_mode = 2
+text = "Statistics"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatisticsPanel" parent="Content/ShopMarginContainer/Shop/RightContainer" instance=ExtResource("11_wcwpf")]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Content/ShopMarginContainer/Shop/RightContainer"]
+layout_mode = 2
+
+[node name="RerollButton" type="Button" parent="Content/ShopMarginContainer/Shop/RightContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "reroll(20)"
+
+[node name="ContinueButton" type="Button" parent="Content/ShopMarginContainer/Shop/RightContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_styles/hover = SubResource("StyleBoxTexture_nn17r")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qxq0j")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qxq0j")
 icon = ExtResource("9_xp8ka")
 icon_alignment = 1
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 21.0
-offset_bottom = 57.0
-grow_horizontal = 2
-theme = ExtResource("11_nn17r")
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-text = "99 souls"
-horizontal_alignment = 1
+[connection signal="pressed" from="Content/ShopMarginContainer/Shop/RightContainer/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
 
-[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
-
-[editable path="GridContainer/ShopItem"]
+[editable path="Content/ShopMarginContainer/Shop/ShopItems/ShopItem"]
+[editable path="Content/ShopMarginContainer/Shop/RightContainer/StatisticsPanel"]

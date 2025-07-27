@@ -114,6 +114,8 @@ func _on_death() -> void:
 	audio.play()
 	visible = false
 	soul_collected.emit(alien_death_value)
+	GameData.totalKills += 1
+	GameData.totalSoulsCollected += alien_death_value
 	await audio.finished
 	queue_free()
 

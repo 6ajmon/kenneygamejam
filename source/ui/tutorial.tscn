@@ -1,10 +1,62 @@
-[gd_scene load_steps=17 format=3 uid="uid://d4jkrlqfn7r42"]
+[gd_scene load_steps=29 format=3 uid="uid://d4jkrlqfn7r42"]
 
 [ext_resource type="Script" uid="uid://cb2fwh6fbe565" path="res://source/ui/tutorial.gd" id="1_0n348"]
+[ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_35tnj"]
 [ext_resource type="Texture2D" uid="uid://dvhkh7gtrvtsi" path="res://assets/Icons/sheet_black2x.png" id="1_n8rfw"]
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="2_0n348"]
+[ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="2_ulu6u"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_vchu7"]
+[ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="3_e4oud"]
 [ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="3_vchu7"]
+[ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="4_4ywyy"]
+[ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_5itt2"]
+[ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_3wgnn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
+texture = ExtResource("2_ulu6u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3mee"]
+texture = ExtResource("3_e4oud")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
+texture = ExtResource("3_e4oud")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05tig"]
+texture = ExtResource("4_4ywyy")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3twp"]
+texture = ExtResource("5_5itt2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbigv"]
+texture = ExtResource("6_3wgnn")
+
+[sub_resource type="Theme" id="Theme_dtmfh"]
+default_font = ExtResource("1_35tnj")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_35tnj")
+Button/styles/hover = SubResource("StyleBoxTexture_mihib")
+Button/styles/normal = SubResource("StyleBoxTexture_f3mee")
+Button/styles/pressed = SubResource("StyleBoxTexture_ttqs8")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/colors/font_hovered_color = Color(0.999999, 0.972682, 0.534705, 1)
+ItemList/colors/font_outline_color = Color(0.435294, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(0, 0.749434, 0, 1)
+ItemList/constants/outline_size = 3
+ItemList/font_sizes/font_size = 24
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_35tnj")
+Panel/styles/panel = SubResource("StyleBoxTexture_05tig")
+ProgressBar/constants/outline_size = 6
+ProgressBar/styles/background = SubResource("StyleBoxTexture_i3twp")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_vbigv")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0m1ej"]
 atlas = ExtResource("1_n8rfw")
@@ -56,7 +108,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 script = ExtResource("1_0n348")
 
 [node name="SpaceBG" parent="." instance=ExtResource("2_vchu7")]
@@ -77,7 +129,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_constants/separation = 16
 alignment = 1
 
@@ -107,7 +159,7 @@ texture = SubResource("AtlasTexture_0m1ej")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/welcome_to_you_first_day"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "Welcome to your first day on the job"
 autowrap_mode = 3
@@ -123,7 +175,7 @@ texture = SubResource("AtlasTexture_875dp")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/to_make_your_first_day"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "to make your first day easy i prepared a few instructions just for you!"
 autowrap_mode = 3
@@ -153,7 +205,7 @@ texture = SubResource("AtlasTexture_vyu43")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/move_your_mouse"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "move your mouse to set direction (or use left stick on your controller)"
 autowrap_mode = 3
@@ -169,7 +221,7 @@ texture = SubResource("AtlasTexture_gqp31")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/wsad_to_move"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "wasd to move (On controller: R2=Forward, L2=back, l1=left, r1=right)"
 autowrap_mode = 3
@@ -185,7 +237,7 @@ texture = SubResource("AtlasTexture_kynvy")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerLeft/left_to_shoot"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "left mouse click /  Cross or A on controller to shoot (that's the most important part of the job)"
 autowrap_mode = 3
@@ -205,7 +257,7 @@ stretch_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/PowerReminder"]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "Your ship have limited power. When it runs out your shift ends."
 vertical_alignment = 1
@@ -222,7 +274,7 @@ texture = SubResource("AtlasTexture_uw8un")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/reach_the_quota"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "reach the quota before you run out of power"
 vertical_alignment = 1
@@ -239,7 +291,7 @@ texture = SubResource("AtlasTexture_2ug1f")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/how_can_you_do_that"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "how can you do that? it's really simple..."
 autowrap_mode = 3
@@ -269,7 +321,7 @@ texture = SubResource("AtlasTexture_5kvty")
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainerRight/by_"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme = ExtResource("2_0n348")
+theme = SubResource("Theme_dtmfh")
 theme_override_font_sizes/font_size = 16
 text = "by collecting souls of these poor creatures... For the glory of 
 Xenocorp Industries!"

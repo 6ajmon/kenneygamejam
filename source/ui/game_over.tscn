@@ -1,10 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba2yo0ppmh2ya"]
+[gd_scene load_steps=18 format=3 uid="uid://ba2yo0ppmh2ya"]
 
 [ext_resource type="Script" uid="uid://bsshqdv5x76o5" path="res://source/ui/game_over_screen.gd" id="1_k2vha"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_nppp7"]
-[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="4_3u7xm"]
+[ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="3_ecaca"]
+[ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="4_s0dpg"]
+[ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="5_ebs17"]
 [ext_resource type="FontFile" uid="uid://cl6os7rp5p6r4" path="res://assets/UI/Font/Kenney Future Narrow.ttf" id="5_woa3c"]
+[ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="6_uugij"]
+[ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="7_d5yr0"]
 [ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="7_iuhv7"]
+[ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="8_uubkf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
+texture = ExtResource("4_s0dpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3mee"]
+texture = ExtResource("5_ebs17")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
+texture = ExtResource("5_ebs17")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05tig"]
+texture = ExtResource("6_uugij")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3twp"]
+texture = ExtResource("7_d5yr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbigv"]
+texture = ExtResource("8_uubkf")
+
+[sub_resource type="Theme" id="Theme_dtmfh"]
+default_font = ExtResource("3_ecaca")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("3_ecaca")
+Button/styles/hover = SubResource("StyleBoxTexture_mihib")
+Button/styles/normal = SubResource("StyleBoxTexture_f3mee")
+Button/styles/pressed = SubResource("StyleBoxTexture_ttqs8")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+ItemList/colors/font_hovered_color = Color(0.999999, 0.972682, 0.534705, 1)
+ItemList/colors/font_outline_color = Color(0.435294, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(0, 0.749434, 0, 1)
+ItemList/constants/outline_size = 3
+ItemList/font_sizes/font_size = 24
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("3_ecaca")
+Panel/styles/panel = SubResource("StyleBoxTexture_05tig")
+ProgressBar/constants/outline_size = 6
+ProgressBar/styles/background = SubResource("StyleBoxTexture_i3twp")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_vbigv")
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -23,7 +75,7 @@ offset_left = 460.0
 offset_top = 337.5
 offset_right = 821.0
 offset_bottom = 382.5
-theme = ExtResource("4_3u7xm")
+theme = SubResource("Theme_dtmfh")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 20
 theme_override_constants/shadow_offset_y = 20
@@ -38,7 +90,7 @@ offset_left = 942.0
 offset_top = 577.0
 offset_right = 1232.0
 offset_bottom = 677.0
-theme = ExtResource("4_3u7xm")
+theme = SubResource("Theme_dtmfh")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 text = "Restart"

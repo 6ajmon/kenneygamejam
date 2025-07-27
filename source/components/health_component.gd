@@ -14,7 +14,9 @@ func _ready() -> void:
 func take_damage(damage: float) -> void:
 	current_health = max(0, current_health - damage)
 	damage_received.emit(damage, global_position)
-	
+	GameData.highestDamageDealt = max(GameData.highestDamageDealt, damage)
+	GameData.totalDamageDealt += damage
+
 	if current_health <= 0:
 		died.emit()
 

@@ -1,0 +1,494 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqh0omnkpxpab"]
+
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_eveul"]
+[ext_resource type="Script" uid="uid://b7kd1eyksjyn4" path="res://source/ui/statisticsPanel/statistics_panel.gd" id="2_g01rs"]
+
+[node name="StatisticsPanel" type="Panel"]
+size_flags_vertical = 3
+theme = ExtResource("1_eveul")
+script = ExtResource("2_g01rs")
+
+[node name="StatisticsMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 56
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 32
+
+[node name="StatisticsScrollContainer" type="ScrollContainer" parent="StatisticsMarginContainer"]
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+
+[node name="StatisticsList" type="VBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerStats" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/PlayerStats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.435294, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = "Player Stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Damage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "damage"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Damage"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="BulletsPerSecond" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/BulletsPerSecond"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Bullets / s"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/BulletsPerSecond"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Pierce" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Pierce"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Pierce"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Pierce"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="PowerCapacity" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/PowerCapacity"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Power Capacity"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/PowerCapacity"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="PowerUsage" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/PowerUsage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Power Usage"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/PowerUsage"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="TopSpeed" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TopSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Top Speed"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TopSpeed"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Acceleration" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Acceleration"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Acceleration"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Acceleration"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="BulletSize" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/BulletSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Bullet Size"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/BulletSize"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="BulletRange" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/BulletRange"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Bullet Range"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/BulletRange"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="WeaponsEquipped" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/WeaponsEquipped"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.435294, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = "Weapons Equipped"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guns" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Guns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Guns"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Guns"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "1/8"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Turrets" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Turrets"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Turrets"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/Turrets"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "0/4"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="SpecialWeapons" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/SpecialWeapons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Special Weapons"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/SpecialWeapons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "0/1"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="GameStats" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/GameStats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.435294, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = "Game Stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighestDamageDealt" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/HighestDamageDealt"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Highest Damage"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/HighestDamageDealt"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="TotalKills" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalKills"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Total Kills"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalKills"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="TotalSoulsCollected" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalSoulsCollected"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Souls Collected"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalSoulsCollected"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="TotalDamageDealt" type="HBoxContainer" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList"]
+layout_mode = 2
+focus_mode = 2
+
+[node name="Label" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalDamageDealt"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.716296, 0.716296, 0.716296, 1)
+theme_override_font_sizes/font_size = 24
+text = "Damage Dealt"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="StatisticsMarginContainer/StatisticsScrollContainer/StatisticsList/TotalDamageDealt"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
+text = "×10"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 1
