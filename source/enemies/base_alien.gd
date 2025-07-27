@@ -6,7 +6,6 @@ signal soul_collected(value: float)
 @export var minimum_speed: float = 6.0
 @export var maximum_speed: float = 15.0
 var speed: float
-var is_dying := false
 
 @export var player_detection_range: float = 20.0
 @export var max_slope_angle: float = 65.0
