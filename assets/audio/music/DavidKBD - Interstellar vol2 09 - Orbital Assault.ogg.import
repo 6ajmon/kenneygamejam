@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cn32w8lvuy7al"
+path="res://.godot/imported/DavidKBD - Interstellar vol2 09 - Orbital Assault.ogg-fb55d3bd9699ba8fb03d682163cc407b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - Interstellar vol2 09 - Orbital Assault.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Interstellar vol2 09 - Orbital Assault.ogg-fb55d3bd9699ba8fb03d682163cc407b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

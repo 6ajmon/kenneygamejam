@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	$Buttons/PlayButton.grab_focus()
+	AudioManager.emit_signal("menu_music")
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(SceneManager.loading_screen)

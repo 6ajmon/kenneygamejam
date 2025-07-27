@@ -9,6 +9,7 @@ func _ready() -> void:
 	set_up_prices(GameData.CurrentRound)
 	reset_shop()
 	focus_button.grab_focus()
+	AudioManager.emit_signal("shop_entered")
 
 func reset_shop():
 	items = grid_container.get_children()

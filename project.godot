@@ -19,6 +19,10 @@ boot_splash/image="uid://bjfs4idqp8o4r"
 config/icon="uid://duf723vhxa8op"
 boot_splash/minimum_display_time=100
 
+[audio]
+
+buses/default_bus_layout="uid://cvndvysy102r8"
+
 [autoload]
 
 Eventbus="*res://source/Eventbus/Eventbus.gd"

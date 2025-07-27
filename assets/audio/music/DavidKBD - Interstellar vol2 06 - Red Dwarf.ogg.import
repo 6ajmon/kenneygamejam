@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bal37yxgtmp81"
+path="res://.godot/imported/DavidKBD - Interstellar vol2 06 - Red Dwarf.ogg-5f6c9baa7c6b203a83bac93026957a49.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - Interstellar vol2 06 - Red Dwarf.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Interstellar vol2 06 - Red Dwarf.ogg-5f6c9baa7c6b203a83bac93026957a49.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
