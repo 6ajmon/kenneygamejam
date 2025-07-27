@@ -24,6 +24,7 @@ func reset_shop():
 
 
 func _on_continue_button_pressed() -> void:
+	AudioManager.emit_signal("button_pressed")
 	get_tree().change_scene_to_packed(SceneManager.loading_screen)
 
 func set_up_prices(current_round: int) -> void:

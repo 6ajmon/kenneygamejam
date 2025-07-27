@@ -1,11 +1,15 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://dofvdjc4ba08v"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dofvdjc4ba08v"]
 
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_gb5im"]
 [ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="2_hjaf5"]
+[ext_resource type="Texture2D" uid="uid://djpq0t4mo1o4i" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_rectangle_screws.png" id="2_vbigv"]
 [ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="4_goxao"]
 [ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="5_gb5im"]
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_i3twp"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_vbigv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c03pb"]
+texture = ExtResource("2_vbigv")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("2_hjaf5")
@@ -36,6 +40,7 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 5
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_gb5im")
+Button/styles/disabled = SubResource("StyleBoxTexture_c03pb")
 Button/styles/hover = SubResource("StyleBoxTexture_mihib")
 Button/styles/normal = SubResource("StyleBoxTexture_f3mee")
 Button/styles/pressed = SubResource("StyleBoxTexture_ttqs8")

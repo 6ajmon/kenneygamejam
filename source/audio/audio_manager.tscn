@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d4oll83xmwll"]
+[gd_scene load_steps=35 format=3 uid="uid://d4oll83xmwll"]
 
 [ext_resource type="Script" uid="uid://bk7y2ii8m7ijf" path="res://source/audio/audio_manager.gd" id="1_iqk28"]
 [ext_resource type="AudioStream" uid="uid://beqw74yby6jdf" path="res://assets/audio/drill/spaceEngineSmall_000.ogg" id="6_3w53m"]
@@ -20,8 +20,10 @@
 [ext_resource type="AudioStream" uid="uid://da0lndtkyxtvp" path="res://assets/audio/engine/thrusterFire_004.ogg" id="15_4q4yh"]
 [ext_resource type="AudioStream" uid="uid://l7lhrpxq7til" path="res://assets/audio/music/DavidKBD - Interstellar vol2 02 - Solar Storm.ogg" id="16_rd3ht"]
 [ext_resource type="AudioStream" uid="uid://dc18terobn17s" path="res://assets/audio/music/DavidKBD - Interstellar vol2 03 - Space Odyssey.ogg" id="17_3qq0c"]
+[ext_resource type="AudioStream" uid="uid://ch40k2t2noe0a" path="res://assets/audio/ui/FUI Holographic Button Press-1.wav" id="18_gca1e"]
 [ext_resource type="AudioStream" uid="uid://da5lq4fjnbdtv" path="res://assets/audio/music/DavidKBD - Interstellar vol2 04 - Galactic Battle.ogg" id="18_vnmao"]
 [ext_resource type="AudioStream" uid="uid://dcmo7s18vpgjb" path="res://assets/audio/music/DavidKBD - Interstellar vol2 05 - Cosmic Clash.ogg" id="19_75frb"]
+[ext_resource type="AudioStream" uid="uid://2oe4343y5ih1" path="res://assets/audio/ui/Error Triplet-5.wav" id="19_qhbfs"]
 [ext_resource type="AudioStream" uid="uid://bal37yxgtmp81" path="res://assets/audio/music/DavidKBD - Interstellar vol2 06 - Red Dwarf.ogg" id="20_gca1e"]
 [ext_resource type="AudioStream" uid="uid://bl7ddt3agnb1j" path="res://assets/audio/music/DavidKBD - Interstellar vol2 07 - Stellar Confrontation.ogg" id="21_qhbfs"]
 [ext_resource type="AudioStream" uid="uid://hchhdcbdpojj" path="res://assets/audio/music/DavidKBD - Interstellar vol2 08 - Nebula.ogg" id="22_bmvoc"]
@@ -74,44 +76,54 @@ script = ExtResource("1_iqk28")
 
 [node name="Drill" type="AudioStreamPlayer" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_lsrtn")
-volume_db = -24.979
-bus = &"SFX"
-
-[node name="PlayerVehicle" type="AudioStreamPlayer" parent="SFX"]
-stream = SubResource("AudioStreamRandomizer_dr5h3")
-volume_db = -24.979
-bus = &"SFX"
-
-[node name="PlayerShoot" type="AudioStreamPlayer" parent="SFX"]
-stream = SubResource("AudioStreamRandomizer_rd3ht")
-volume_db = -20.0
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="AlienDeath" type="Node" parent="SFX"]
 
 [node name="Scream" type="AudioStreamPlayer" parent="SFX/AlienDeath"]
 stream = ExtResource("12_14y0u")
-volume_db = -21.06
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="Splatter" type="AudioStreamPlayer" parent="SFX/AlienDeath"]
 stream = ExtResource("13_c8qql")
-volume_db = -21.06
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="Falling" type="AudioStreamPlayer" parent="SFX/AlienDeath"]
 stream = ExtResource("14_g2g0t")
-volume_db = -21.06
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="PlayerVehicle" type="AudioStreamPlayer" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_dr5h3")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="PlayerShoot" type="AudioStreamPlayer" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_rd3ht")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("18_gca1e")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ButtonFailed" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("19_qhbfs")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="Music" type="Node" parent="."]
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="Music"]
 stream = SubResource("AudioStreamRandomizer_ijm81")
-volume_db = -20.0
+volume_db = -10.0
 bus = &"Music"
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("25_rd3ht")
-volume_db = -20.0
+volume_db = -10.0
 bus = &"Music"

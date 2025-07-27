@@ -12,6 +12,9 @@ signal level_music()
 
 signal shop_entered()
 
+signal button_pressed()
+signal button_failed()
+
 enum MusicType {
 	MENU,
 	LEVEL
@@ -19,6 +22,7 @@ enum MusicType {
 
 var current_music: MusicType
 @onready var music_bus_index = AudioServer.get_bus_index("Music")
+@onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
 
 
 func _ready() -> void:
@@ -30,6 +34,12 @@ func _ready() -> void:
 	level_music.connect(_on_level_music)
 	menu_music.connect(_on_menu_music)
 	shop_entered.connect(_on_shop_entered)
+	
+	button_failed.connect(_on_button_failed)
+	button_pressed.connect(_on_button_pressed)
+
+	AudioServer.set_bus_volume_db(music_bus_index, linear_to_db(0.25))
+	AudioServer.set_bus_volume_db(sfx_bus_index, linear_to_db(0.25))    
 
 func _on_alien_death() -> void:
 	var Scream = $SFX/AlienDeath/Scream
@@ -75,5 +85,13 @@ func _on_menu_music() -> void:
 	switch_music()
 
 func _on_shop_entered() -> void:
-	AudioServer.set_bus_effect_enabled(music_bus_index, 0, true)
 	AudioServer.set_bus_effect_enabled(music_bus_index, 1, true)
+
+
+func _on_button_pressed() -> void:
+	var audioPlayer = $SFX/ButtonPressed
+	audioPlayer.play()
+
+func _on_button_failed() -> void:
+	var audioPlayer = $SFX/ButtonFailed
+	audioPlayer.play()

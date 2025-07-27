@@ -1,14 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3jm5t2yjn8pd"]
+[gd_scene load_steps=19 format=3 uid="uid://b3jm5t2yjn8pd"]
 
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_l10jr"]
 [ext_resource type="Script" uid="uid://c3wi32xibg7tv" path="res://source/ui/mainMenu/starting_screen.gd" id="2_6l04n"]
 [ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="2_6lpil"]
+[ext_resource type="Texture2D" uid="uid://bo3e6n8gnhfut" path="res://assets/UI/PNG/Grey/Default/button_square_header_small_rectangle_screws.png" id="2_mjld7"]
 [ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="3_mjld7"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="3_whib7"]
 [ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="4_1yyqy"]
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_kotje"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_ppp0u"]
 [ext_resource type="PackedScene" uid="uid://dd3mcaijpd7g7" path="res://source/ui/vehicle.tscn" id="8_hlv7e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yyqy"]
+texture = ExtResource("2_mjld7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("2_6lpil")
@@ -39,6 +43,7 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 5
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_l10jr")
+Button/styles/disabled = SubResource("StyleBoxTexture_1yyqy")
 Button/styles/hover = SubResource("StyleBoxTexture_mihib")
 Button/styles/normal = SubResource("StyleBoxTexture_f3mee")
 Button/styles/pressed = SubResource("StyleBoxTexture_ttqs8")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbyirvkxyb7gq"]
+[gd_scene load_steps=26 format=3 uid="uid://cbyirvkxyb7gq"]
 
 [ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop/shop_ui.gd" id="1_8apib"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_rucwb"]
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_wcwpf"]
 [ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="2_h6ueb"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_rx3n6"]
@@ -76,7 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_dtmfh")
+theme = ExtResource("1_rucwb")
 script = ExtResource("1_8apib")
 
 [node name="SpaceBG" parent="." instance=ExtResource("2_rx3n6")]
@@ -172,6 +173,7 @@ layout_mode = 2
 [node name="RerollButton" type="Button" parent="Content/ShopMarginContainer/Shop/RightContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_rucwb")
 disabled = true
 text = "reroll(20)"
 
