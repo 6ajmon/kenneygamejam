@@ -13,6 +13,7 @@ var map_size: Vector2i
 var level_bounds: AABB
 
 func _ready() -> void:
+	AudioManager.emit_signal("level_music")
 	randomize_mesh_color()
 	
 	generator.generate_map()

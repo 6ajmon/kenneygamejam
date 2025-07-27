@@ -1,20 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx63gtep8pc1v"]
+[gd_scene load_steps=3 format=3 uid="uid://dx63gtep8pc1v"]
 
 [ext_resource type="Script" uid="uid://cio0eniunjpat" path="res://source/weapon/weapon.gd" id="1_oll5y"]
 [ext_resource type="PackedScene" uid="uid://bfiwuhpdefusx" path="res://assets/Blasters/blaster-g.glb" id="1_ydt8j"]
-[ext_resource type="AudioStream" uid="uid://62hj1p0fq5wt" path="res://assets/audio/shooting/laserSmall_000.ogg" id="3_fatoo"]
-[ext_resource type="AudioStream" uid="uid://cpmh11wjbn1wo" path="res://assets/audio/shooting/laserSmall_001.ogg" id="4_lsdsf"]
-[ext_resource type="AudioStream" uid="uid://b0je7wxcj4sc" path="res://assets/audio/shooting/laserSmall_002.ogg" id="5_dlyp4"]
-[ext_resource type="AudioStream" uid="uid://csm7w074j6jiy" path="res://assets/audio/shooting/laserSmall_003.ogg" id="6_tamst"]
-[ext_resource type="AudioStream" uid="uid://b7csfbxcpaotv" path="res://assets/audio/shooting/laserSmall_004.ogg" id="7_e4ypf"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sa8hl"]
-streams_count = 5
-stream_0/stream = ExtResource("3_fatoo")
-stream_1/stream = ExtResource("4_lsdsf")
-stream_2/stream = ExtResource("5_dlyp4")
-stream_3/stream = ExtResource("6_tamst")
-stream_4/stream = ExtResource("7_e4ypf")
 
 [node name="Weapon000" type="Node3D"]
 script = ExtResource("1_oll5y")
@@ -31,10 +18,5 @@ gizmo_extents = 0.5
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_sa8hl")
-volume_db = -20.0
-pitch_scale = 0.5
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

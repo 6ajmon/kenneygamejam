@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=11 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
 [ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
 [ext_resource type="PackedScene" uid="uid://dw28pic0xfqh7" path="res://source/ui/game_ui.tscn" id="11_2iad3"]
-[ext_resource type="AudioStream" uid="uid://v7x343baq2h3" path="res://assets/audio/music/Not Enough Power.mp3" id="12_qtt0w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -66,9 +65,3 @@ camera = NodePath("../PlayerCamera")
 [node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
 
 [node name="GameUI" parent="." instance=ExtResource("11_2iad3")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_qtt0w")
-volume_db = -20.0
-autoplay = true
-bus = &"Music"

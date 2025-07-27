@@ -25,6 +25,7 @@ Eventbus="*res://source/Eventbus/Eventbus.gd"
 UpgradesDescriptions="*res://source/GameData/upgrades_descriptions.gd"
 GameData="*res://source/GameData/GameData.gd"
 SceneManager="*res://source/GameData/scene_manager.gd"
+AudioManager="*res://source/audio/audio_manager.tscn"
 
 [display]
 
