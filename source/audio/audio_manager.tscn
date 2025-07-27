@@ -1,0 +1,129 @@
+[gd_scene load_steps=35 format=3 uid="uid://d4oll83xmwll"]
+
+[ext_resource type="Script" uid="uid://bk7y2ii8m7ijf" path="res://source/audio/audio_manager.gd" id="1_iqk28"]
+[ext_resource type="AudioStream" uid="uid://beqw74yby6jdf" path="res://assets/audio/drill/spaceEngineSmall_000.ogg" id="6_3w53m"]
+[ext_resource type="AudioStream" uid="uid://b3n6bsoq63v3o" path="res://assets/audio/drill/spaceEngineSmall_001.ogg" id="7_ajayd"]
+[ext_resource type="AudioStream" uid="uid://cxiv0txy5gwgs" path="res://assets/audio/drill/spaceEngineSmall_002.ogg" id="8_14y0u"]
+[ext_resource type="AudioStream" uid="uid://dkgrq3smyjkrf" path="res://assets/audio/drill/spaceEngineSmall_003.ogg" id="9_c8qql"]
+[ext_resource type="AudioStream" uid="uid://bagbmlnklqrmf" path="res://assets/audio/drill/spaceEngineSmall_004.ogg" id="10_g2g0t"]
+[ext_resource type="AudioStream" uid="uid://coeo7hi67stsr" path="res://assets/audio/engine/thrusterFire_000.ogg" id="11_lsrtn"]
+[ext_resource type="AudioStream" uid="uid://2yeaqq47oox7" path="res://assets/audio/death sounds/scream.wav" id="12_14y0u"]
+[ext_resource type="AudioStream" uid="uid://bdngn7eu8qokh" path="res://assets/audio/shooting/LASRGun_Classic Blaster A Fire_03.wav" id="12_75frb"]
+[ext_resource type="AudioStream" uid="uid://cqxth5jpd8kdx" path="res://assets/audio/engine/thrusterFire_001.ogg" id="12_ujh5k"]
+[ext_resource type="AudioStream" uid="uid://b3dt864b5yc1k" path="res://assets/audio/death sounds/GORESplt_Giblet Splatter_02.wav" id="13_c8qql"]
+[ext_resource type="AudioStream" uid="uid://bsfsjeej2bgsf" path="res://assets/audio/shooting/LASRGun_Particle Compressor Fire_01.wav" id="13_gca1e"]
+[ext_resource type="AudioStream" uid="uid://dwijmxfurk04q" path="res://assets/audio/engine/thrusterFire_002.ogg" id="13_oj4l7"]
+[ext_resource type="AudioStream" uid="uid://cw8v6ytgpbi0g" path="res://assets/audio/engine/thrusterFire_003.ogg" id="14_eu2m7"]
+[ext_resource type="AudioStream" uid="uid://b4m3wdd768x1m" path="res://assets/audio/death sounds/mixkit-falling-hit-757.wav" id="14_g2g0t"]
+[ext_resource type="AudioStream" uid="uid://dtn7lsml6qpku" path="res://assets/audio/shooting/LASRGun_Plasma Rifle Fire_03.wav" id="14_qhbfs"]
+[ext_resource type="AudioStream" uid="uid://dwgh8xj0wo77w" path="res://assets/audio/music/DavidKBD - Interstellar vol2 01 - Meteor Shower.ogg" id="15_4axg7"]
+[ext_resource type="AudioStream" uid="uid://da0lndtkyxtvp" path="res://assets/audio/engine/thrusterFire_004.ogg" id="15_4q4yh"]
+[ext_resource type="AudioStream" uid="uid://l7lhrpxq7til" path="res://assets/audio/music/DavidKBD - Interstellar vol2 02 - Solar Storm.ogg" id="16_rd3ht"]
+[ext_resource type="AudioStream" uid="uid://dc18terobn17s" path="res://assets/audio/music/DavidKBD - Interstellar vol2 03 - Space Odyssey.ogg" id="17_3qq0c"]
+[ext_resource type="AudioStream" uid="uid://ch40k2t2noe0a" path="res://assets/audio/ui/FUI Holographic Button Press-1.wav" id="18_gca1e"]
+[ext_resource type="AudioStream" uid="uid://da5lq4fjnbdtv" path="res://assets/audio/music/DavidKBD - Interstellar vol2 04 - Galactic Battle.ogg" id="18_vnmao"]
+[ext_resource type="AudioStream" uid="uid://dcmo7s18vpgjb" path="res://assets/audio/music/DavidKBD - Interstellar vol2 05 - Cosmic Clash.ogg" id="19_75frb"]
+[ext_resource type="AudioStream" uid="uid://2oe4343y5ih1" path="res://assets/audio/ui/Error Triplet-5.wav" id="19_qhbfs"]
+[ext_resource type="AudioStream" uid="uid://bal37yxgtmp81" path="res://assets/audio/music/DavidKBD - Interstellar vol2 06 - Red Dwarf.ogg" id="20_gca1e"]
+[ext_resource type="AudioStream" uid="uid://bl7ddt3agnb1j" path="res://assets/audio/music/DavidKBD - Interstellar vol2 07 - Stellar Confrontation.ogg" id="21_qhbfs"]
+[ext_resource type="AudioStream" uid="uid://hchhdcbdpojj" path="res://assets/audio/music/DavidKBD - Interstellar vol2 08 - Nebula.ogg" id="22_bmvoc"]
+[ext_resource type="AudioStream" uid="uid://cn32w8lvuy7al" path="res://assets/audio/music/DavidKBD - Interstellar vol2 09 - Orbital Assault.ogg" id="23_k45wj"]
+[ext_resource type="AudioStream" uid="uid://bijsbkklq0fgn" path="res://assets/audio/music/DavidKBD - Interstellar vol2 10 - Deep Space.ogg" id="24_uccgi"]
+[ext_resource type="AudioStream" uid="uid://bj415vq3pnh8f" path="res://assets/audio/music/menu.ogg" id="25_rd3ht"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lsrtn"]
+streams_count = 5
+stream_0/stream = ExtResource("6_3w53m")
+stream_1/stream = ExtResource("7_ajayd")
+stream_2/stream = ExtResource("8_14y0u")
+stream_3/stream = ExtResource("9_c8qql")
+stream_4/stream = ExtResource("10_g2g0t")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dr5h3"]
+streams_count = 5
+stream_0/stream = ExtResource("11_lsrtn")
+stream_1/stream = ExtResource("12_ujh5k")
+stream_2/stream = ExtResource("13_oj4l7")
+stream_3/stream = ExtResource("14_eu2m7")
+stream_4/stream = ExtResource("15_4q4yh")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rd3ht"]
+playback_mode = 1
+random_pitch = 2.0
+random_volume_offset_db = 4.0
+streams_count = 3
+stream_0/stream = ExtResource("12_75frb")
+stream_1/stream = ExtResource("13_gca1e")
+stream_2/stream = ExtResource("14_qhbfs")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ijm81"]
+streams_count = 10
+stream_0/stream = ExtResource("15_4axg7")
+stream_1/stream = ExtResource("16_rd3ht")
+stream_2/stream = ExtResource("17_3qq0c")
+stream_3/stream = ExtResource("18_vnmao")
+stream_4/stream = ExtResource("19_75frb")
+stream_5/stream = ExtResource("20_gca1e")
+stream_6/stream = ExtResource("21_qhbfs")
+stream_7/stream = ExtResource("22_bmvoc")
+stream_8/stream = ExtResource("23_k45wj")
+stream_9/stream = ExtResource("24_uccgi")
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_iqk28")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Drill" type="AudioStreamPlayer" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_lsrtn")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AlienDeath" type="Node" parent="SFX"]
+
+[node name="Scream" type="AudioStreamPlayer" parent="SFX/AlienDeath"]
+stream = ExtResource("12_14y0u")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Splatter" type="AudioStreamPlayer" parent="SFX/AlienDeath"]
+stream = ExtResource("13_c8qql")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Falling" type="AudioStreamPlayer" parent="SFX/AlienDeath"]
+stream = ExtResource("14_g2g0t")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="PlayerVehicle" type="AudioStreamPlayer" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_dr5h3")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="PlayerShoot" type="AudioStreamPlayer" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_rd3ht")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("18_gca1e")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ButtonFailed" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("19_qhbfs")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Music" type="Node" parent="."]
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="Music"]
+stream = SubResource("AudioStreamRandomizer_ijm81")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("25_rd3ht")
+volume_db = -10.0
+bus = &"Music"

@@ -45,13 +45,10 @@ func spawn_aliens() -> void:
 	
 	for i in current_wave_size:
 		var spawn_position = get_spawn_position()
-		# 1/6 szansa na giga alien, reszta to base alien
 		var random_alien_scene: PackedScene
 		if randf() <= 1.0/6.0:
-			# Giga alien (indeks 1 w tablicy)
 			random_alien_scene = alien_scenes[1] if alien_scenes.size() > 1 else alien_scenes[0]
 		else:
-			# Base alien (indeks 0 w tablicy)
 			random_alien_scene = alien_scenes[0]
 		
 		var alien_instance = random_alien_scene.instantiate()

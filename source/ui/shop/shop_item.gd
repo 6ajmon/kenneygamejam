@@ -32,6 +32,7 @@ func set_sold():
 
 func _on_buyButton_pressed() -> void:
 	if GameData.AlienSouls >= upgrade_cost:
+		AudioManager.emit_signal("button_pressed")
 		if upgrade.type != GameData.upgradeTypes.StatBoost:
 			GameData.UpgradesUnlocked.append(upgrade)
 			GameData.statBoosts.power_usage += 0.5
@@ -49,3 +50,5 @@ func _on_buyButton_pressed() -> void:
 		GameData.AlienSouls -= upgrade_cost
 
 		Eventbus.item_purchased.emit(upgrade_name, upgrade)
+	else:
+		AudioManager.emit_signal("button_failed")

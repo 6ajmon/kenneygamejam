@@ -1,12 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://jhieefeg4dps"]
+[gd_scene load_steps=7 format=4 uid="uid://jhieefeg4dps"]
 
 [ext_resource type="Texture2D" uid="uid://buksw5cn4wxni" path="res://assets/Kaykit space base/spacebits_texture.png" id="1_18443"]
 [ext_resource type="Script" uid="uid://qm8o681r8xhs" path="res://source/weapon/drill.gd" id="1_ihc5g"]
-[ext_resource type="AudioStream" uid="uid://beqw74yby6jdf" path="res://assets/audio/drill/spaceEngineSmall_000.ogg" id="3_ao706"]
-[ext_resource type="AudioStream" uid="uid://b3n6bsoq63v3o" path="res://assets/audio/drill/spaceEngineSmall_001.ogg" id="4_v4ed7"]
-[ext_resource type="AudioStream" uid="uid://cxiv0txy5gwgs" path="res://assets/audio/drill/spaceEngineSmall_002.ogg" id="5_fcd88"]
-[ext_resource type="AudioStream" uid="uid://dkgrq3smyjkrf" path="res://assets/audio/drill/spaceEngineSmall_003.ogg" id="6_jypi2"]
-[ext_resource type="AudioStream" uid="uid://bagbmlnklqrmf" path="res://assets/audio/drill/spaceEngineSmall_004.ogg" id="7_a7out"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th054"]
 resource_name = "spacebits_texture"
@@ -51,14 +46,6 @@ shadow_mesh = SubResource("ArrayMesh_ydeoo")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihc5g"]
 size = Vector3(3, 3, 10)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ihc5g"]
-streams_count = 5
-stream_0/stream = ExtResource("3_ao706")
-stream_1/stream = ExtResource("4_v4ed7")
-stream_2/stream = ExtResource("5_fcd88")
-stream_3/stream = ExtResource("6_jypi2")
-stream_4/stream = ExtResource("7_a7out")
-
 [node name="Drill" type="StaticBody3D" groups=["contact_damage"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_layer = 16
@@ -76,8 +63,3 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_ihc5g")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_ihc5g")
-volume_db = -20.0
-bus = &"SFX"

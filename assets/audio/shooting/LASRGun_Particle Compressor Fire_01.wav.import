@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bsfsjeej2bgsf"
+path="res://.godot/imported/LASRGun_Particle Compressor Fire_01.wav-0d199e6b9939cd65e42b59d69ffd6327.sample"
+
+[deps]
+
+source_file="res://assets/audio/shooting/LASRGun_Particle Compressor Fire_01.wav"
+dest_files=["res://.godot/imported/LASRGun_Particle Compressor Fire_01.wav-0d199e6b9939cd65e42b59d69ffd6327.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

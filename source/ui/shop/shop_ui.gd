@@ -9,6 +9,7 @@ func _ready() -> void:
 	set_up_prices(GameData.CurrentRound)
 	reset_shop()
 	focus_button.grab_focus()
+	AudioManager.emit_signal("shop_entered")
 
 func reset_shop():
 	items = grid_container.get_children()
@@ -23,6 +24,7 @@ func reset_shop():
 
 
 func _on_continue_button_pressed() -> void:
+	AudioManager.emit_signal("button_pressed")
 	get_tree().change_scene_to_packed(SceneManager.loading_screen)
 
 func set_up_prices(current_round: int) -> void:

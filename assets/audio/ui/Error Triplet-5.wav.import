@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2oe4343y5ih1"
+path="res://.godot/imported/Error Triplet-5.wav-8e924ed4fa70a30a9369805556e02714.sample"
+
+[deps]
+
+source_file="res://assets/audio/ui/Error Triplet-5.wav"
+dest_files=["res://.godot/imported/Error Triplet-5.wav-8e924ed4fa70a30a9369805556e02714.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

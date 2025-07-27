@@ -7,7 +7,6 @@ class_name Turret
 @export var bullet_speed: float = 25.0
 @export var rotation_speed: float = 36.0
 @export var pierce: int = 1
-@onready var audio_player = $AudioStreamPlayer
 
 @onready var bullet_scene: PackedScene = preload("res://source/weapon/bullet/bullet.tscn")
 
@@ -105,7 +104,7 @@ func shoot() -> void:
 	
 	can_shoot = false
 	shoot_timer.start()
-	audio_player.play()
+	AudioManager.emit_signal("player_shoot")
 	for fire_point in fire_points:
 		spawn_bullet(fire_point)
 

@@ -30,7 +30,7 @@ This game was created in just **2 days**, during the **Kenney Jam 2025**, which 
 
 - **Engine**: [Godot Engine 4.4.1](https://godotengine.org/)
 - **Language**: GDScript
-- **All assets** used in this project were made by:
+- **Assets** used in this project were made by:
   - [Kenney](https://kenney.nl/)
   - [KayKit](https://kaylousberg.itch.io/)
 
@@ -56,7 +56,9 @@ This game was created in just **2 days**, during the **Kenney Jam 2025**, which 
 https://6ajmon.itch.io/deadline
 ### But we recommend downloading the release [here](https://github.com/6ajmon/kenneygamejam/releases) for better performance
 
-# Assets used
+# Credits
+
+## Assets used for the game jam
 https://kaylousberg.itch.io/space-base-bits
 
 https://kenney.nl/assets/planets
@@ -76,3 +78,11 @@ https://kenney.nl/assets/game-icons
 https://kenney.nl/assets/simple-space
 
 https://kenney.nl/assets/sci-fi-sounds
+
+## Audio credits
+
+https://davidkbd.itch.io/interstellar-vol2-edm-metal-music-pack (soundtrack)
+
+https://gooseninja.itch.io/space-music-pack (menu music)
+
+https://shapeforms.itch.io/shapeforms-audio-free-sfx (SFX)

@@ -6,7 +6,6 @@ signal soul_collected(value: float)
 @export var minimum_speed: float = 6.0
 @export var maximum_speed: float = 15.0
 var speed: float
-var is_dying := false
 
 @export var player_detection_range: float = 20.0
 @export var max_slope_angle: float = 65.0
@@ -28,8 +27,6 @@ var cached_distance_to_player: float = INF
 var cached_player_position: Vector3
 var detection_range_squared: float
 var is_player_in_range: bool = false
-
-@onready var audio = $AudioStreamPlayer
 
 func _ready() -> void:
 	soul_collected.connect(GameData._on_soul_collected)
@@ -107,16 +104,10 @@ func _on_alien_lifespan_timeout() -> void:
 	queue_free()
 
 func _on_death() -> void:
-	if is_dying:
-		return
-	is_dying = true
-
-	audio.play()
-	visible = false
+	AudioManager.emit_signal("alien_death")
 	soul_collected.emit(alien_death_value)
 	GameData.totalKills += 1
 	GameData.totalSoulsCollected += alien_death_value
-	await audio.finished
 	queue_free()
 
 func _on_damage_received(damage: float, number_position: Vector3) -> void:

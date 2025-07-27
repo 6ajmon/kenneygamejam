@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bijsbkklq0fgn"
+path="res://.godot/imported/DavidKBD - Interstellar vol2 10 - Deep Space.ogg-92e275fc19bc21d94d7db07342ca38a5.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - Interstellar vol2 10 - Deep Space.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Interstellar vol2 10 - Deep Space.ogg-92e275fc19bc21d94d7db07342ca38a5.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,16 +1,9 @@
-[gd_scene load_steps=33 format=4 uid="uid://db61l0m2cijbi"]
+[gd_scene load_steps=27 format=4 uid="uid://db61l0m2cijbi"]
 
 [ext_resource type="Script" uid="uid://b4jx0kp8ik070" path="res://source/enemies/base_alien.gd" id="1_lo783"]
 [ext_resource type="PackedScene" uid="uid://c0l8pu7ue58df" path="res://source/components/health_component.tscn" id="3_5xk7l"]
 [ext_resource type="PackedScene" uid="uid://fd46ygiohcdb" path="res://source/components/hitbox_component.tscn" id="4_35x0h"]
-
 [ext_resource type="PackedScene" uid="uid://cp5ao5ppxnpba" path="res://source/components/damage_number_display_component.tscn" id="5_35x0h"]
-[ext_resource type="AudioStream" uid="uid://6kvur47w0cxn" path="res://assets/audio/death sounds/explosionCrunch_000.ogg" id="5_mkk58"]
-[ext_resource type="AudioStream" uid="uid://c5f00sos6661l" path="res://assets/audio/death sounds/explosionCrunch_001.ogg" id="6_ocqtq"]
-[ext_resource type="AudioStream" uid="uid://b0rshf1st1q1h" path="res://assets/audio/death sounds/explosionCrunch_002.ogg" id="7_044nc"]
-[ext_resource type="AudioStream" uid="uid://dcx4yiwaamuwg" path="res://assets/audio/death sounds/explosionCrunch_003.ogg" id="8_ts1hj"]
-[ext_resource type="AudioStream" uid="uid://drn5jihlfjxw3" path="res://assets/audio/death sounds/explosionCrunch_004.ogg" id="9_2n2fo"]
-
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uk2qf"]
 resource_name = "crystal"
@@ -570,15 +563,6 @@ height = 1.0
 height = 10.0
 radius = 0.4
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mkk58"]
-playback_mode = 1
-streams_count = 5
-stream_0/stream = ExtResource("5_mkk58")
-stream_1/stream = ExtResource("6_ocqtq")
-stream_2/stream = ExtResource("7_044nc")
-stream_3/stream = ExtResource("8_ts1hj")
-stream_4/stream = ExtResource("9_2n2fo")
-
 [node name="BaseAlien" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 8
 collision_mask = 2
@@ -648,9 +632,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000478109, 4.32946, 0.00105
 shape = SubResource("CylinderShape3D_5xk7l")
 
 [node name="DamageNumberDisplayComponent" parent="." instance=ExtResource("5_35x0h")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_mkk58")
-bus = &"SFX"
 
 [connection signal="timeout" from="AlienLifespan" to="." method="_on_alien_lifespan_timeout"]

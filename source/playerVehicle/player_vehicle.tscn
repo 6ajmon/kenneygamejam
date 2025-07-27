@@ -1,15 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://c5j1vg56en7a"]
+[gd_scene load_steps=13 format=4 uid="uid://c5j1vg56en7a"]
 
 [ext_resource type="Script" uid="uid://b8l3ctbg60j82" path="res://source/playerVehicle/player_vehicle.gd" id="1_vo0dx"]
 [ext_resource type="Script" uid="uid://cyfequ281dguj" path="res://source/playerVehicle/movement.gd" id="2_h76px"]
 [ext_resource type="PackedScene" uid="uid://b6fgkqiqyryv3" path="res://source/weapon/weaponSlot/weapon_slot.tscn" id="3_wnbqt"]
 [ext_resource type="PackedScene" uid="uid://cpyb0cw8rsfca" path="res://source/playerVehicle/powerSystem/power_system.tscn" id="4_0jnxe"]
 [ext_resource type="Script" uid="uid://cxkecrxlh5uvc" path="res://source/weapon/weaponSlot/weapon_slot.gd" id="4_h76px"]
-[ext_resource type="AudioStream" uid="uid://coeo7hi67stsr" path="res://assets/audio/engine/thrusterFire_000.ogg" id="7_yfph4"]
-[ext_resource type="AudioStream" uid="uid://cqxth5jpd8kdx" path="res://assets/audio/engine/thrusterFire_001.ogg" id="8_o7e31"]
-[ext_resource type="AudioStream" uid="uid://dwijmxfurk04q" path="res://assets/audio/engine/thrusterFire_002.ogg" id="9_xjpet"]
-[ext_resource type="AudioStream" uid="uid://cw8v6ytgpbi0g" path="res://assets/audio/engine/thrusterFire_003.ogg" id="10_i8igs"]
-[ext_resource type="AudioStream" uid="uid://da0lndtkyxtvp" path="res://assets/audio/engine/thrusterFire_004.ogg" id="11_0xrwp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jnxe"]
 resource_name = "metalDark"
@@ -132,14 +127,6 @@ shadow_mesh = SubResource("ArrayMesh_8kmci")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vo0dx"]
 size = Vector3(1.8, 1, 2.5)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8kmci"]
-streams_count = 5
-stream_0/stream = ExtResource("7_yfph4")
-stream_1/stream = ExtResource("8_o7e31")
-stream_2/stream = ExtResource("9_xjpet")
-stream_3/stream = ExtResource("10_i8igs")
-stream_4/stream = ExtResource("11_0xrwp")
-
 [node name="PlayerVehicle" type="CharacterBody3D" groups=["contact_damage"]]
 script = ExtResource("1_vo0dx")
 
@@ -229,7 +216,3 @@ script = ExtResource("4_h76px")
 [node name="TurretBackSpot" type="Marker3D" parent="TurretSlots"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000855088, 0.768009, 0.166128)
 script = ExtResource("4_h76px")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_8kmci")
-volume_db = -20.0
