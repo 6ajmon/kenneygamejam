@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2soti2o6adra"]
+[gd_scene load_steps=4 format=3 uid="uid://b2soti2o6adra"]
 
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_b32k3"]
+[ext_resource type="Script" uid="uid://bblbq8uf8bve8" path="res://source/ui/pauseMenu/pause_menu.gd" id="2_b1vus"]
 [ext_resource type="PackedScene" uid="uid://cqh0omnkpxpab" path="res://source/ui/statisticsPanel/statistics_panel.tscn" id="2_yanan"]
 
 [node name="PauseMenu" type="Control"]
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_b32k3")
+script = ExtResource("2_b1vus")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -99,3 +101,9 @@ size_flags_horizontal = 3
 [node name="StatisticsPanel" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerRight" instance=ExtResource("2_yanan")]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
