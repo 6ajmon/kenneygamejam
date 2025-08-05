@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="4_4ywyy"]
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_5itt2"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_3wgnn"]
-[ext_resource type="Script" uid="uid://d1nx2ebukfju6" path="res://source/ui/buttons/sceneButton/scene_button.gd" id="11_ulu6u"]
+[ext_resource type="Script" uid="uid://bcbhx7tqls52b" path="res://source/ui/buttons/returnButton/return_button.gd" id="11_ulu6u"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("2_ulu6u")
@@ -115,6 +115,7 @@ script = ExtResource("1_0n348")
 [node name="SpaceBG" parent="." instance=ExtResource("2_vchu7")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = -18.0
 offset_top = -66.0
@@ -124,6 +125,7 @@ scale = Vector2(33.1305, 24.0928)
 color = Color(0.184314, 0.184314, 0.184314, 0.788235)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -330,10 +332,9 @@ autowrap_mode = 3
 
 [node name="GoBackButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight"]
 layout_mode = 2
-text = "Back to main menu"
+text = "Return"
 script = ExtResource("11_ulu6u")
-scene_path = "uid://b3jm5t2yjn8pd"
 shoudTakeFocus = true
-metadata/_custom_type_script = "uid://d1nx2ebukfju6"
+metadata/_custom_type_script = "uid://v7mxyi0xcw55"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" to="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" method="_on_pressed"]

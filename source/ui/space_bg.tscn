@@ -23,18 +23,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-566, 486)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_vt2dh"]
 resource_name = "moon_movement"
@@ -55,14 +43,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:z_index")
+tracks/1/path = NodePath("../..:moon_z_index_increase")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.01, 3.43333, 5.86667),
+"times": PackedFloat32Array(0, 3.23333, 3.36667, 5.84894),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 2, -1, 0]
+"values": [2, 2, -1, -1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6l04n"]
@@ -72,12 +60,12 @@ _data = {
 }
 
 [node name="SpaceBG" type="Control"]
-z_index = -2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_s8l5u")
+moon_z_index_increase = 2
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -158,13 +146,12 @@ scale = Vector2(0.005, 0.005)
 texture = ExtResource("1_qsxos")
 
 [node name="Mars" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 1
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_s8l5u")
 
 [node name="Moon" type="Sprite2D" parent="Mars"]
-z_as_relative = false
 position = Vector2(-566, 486)
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("3_ob5ul")

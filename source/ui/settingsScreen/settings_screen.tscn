@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="4_pmrqu"]
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_mgsng"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_wrfyn"]
-[ext_resource type="PackedScene" uid="uid://dghr08gvhxutl" path="res://source/ui/buttons/sceneButton/scene_button.tscn" id="9_07goy"]
+[ext_resource type="Script" uid="uid://bcbhx7tqls52b" path="res://source/ui/buttons/returnButton/return_button.gd" id="9_nneu2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("2_07goy")
@@ -119,23 +119,25 @@ max_value = 1.0
 step = 0.025
 value = 0.25
 
-[node name="MainMenuButton" parent="." instance=ExtResource("9_07goy")]
-z_index = 4
+[node name="MainMenuButton" type="Button" parent="."]
+z_index = 3
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -85.0
-offset_top = -147.0
-offset_right = 85.0
-offset_bottom = -111.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -143.0
+offset_right = 80.0
+offset_bottom = -103.0
+grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Go back"
-scene_path = "uid://b3jm5t2yjn8pd"
+text = "return"
+script = ExtResource("9_nneu2")
 shoudTakeFocus = true
+metadata/_custom_type_script = "uid://bcbhx7tqls52b"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]

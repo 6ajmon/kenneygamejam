@@ -5,6 +5,8 @@ var shop_scene: PackedScene = preload("res://source/ui/shop/shop_ui.tscn")
 
 var settings_instance: Node = null
 
+var previous_scene_path: String
+
 func _ready() -> void:
 	Eventbus.energy_depleted.connect(_on_energy_depleted)
 
@@ -20,4 +22,5 @@ func _on_energy_depleted() -> void:
 	GameData.SoulsCollectedThisRound = 0
 
 func changeScene(scene_path: String) -> void:
+	previous_scene_path = get_tree().current_scene.scene_file_path
 	get_tree().change_scene_to_file(scene_path)
