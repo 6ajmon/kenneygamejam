@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cs4xekjk7t73u"]
+[gd_scene load_steps=18 format=3 uid="uid://cs4xekjk7t73u"]
 
 [ext_resource type="Script" uid="uid://s6jlfswp2i45" path="res://source/ui/loading_screen.gd" id="1_jhcin"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_542pe"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="5_f14dm"]
 [ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="6_o0f4u"]
 [ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="7_vnn8f"]
-[ext_resource type="PackedScene" uid="uid://dd3mcaijpd7g7" path="res://source/ui/vehicle.tscn" id="8_7ebvk"]
 [ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="8_uyqst"]
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="9_ybilo"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="10_dlhkt"]
@@ -70,7 +69,7 @@ script = ExtResource("1_jhcin")
 
 [node name="SpaceBG" parent="." instance=ExtResource("2_542pe")]
 
-[node name="Title" type="Control" parent="."]
+[node name="LoadingBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 564.5
@@ -78,48 +77,48 @@ offset_top = 653.0
 offset_right = 715.5
 offset_bottom = 671.0
 
-[node name="0" type="Sprite2D" parent="Title"]
+[node name="0" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(-132, 8)
 texture = ExtResource("4_542pe")
 flip_h = true
 
-[node name="1" type="Sprite2D" parent="Title"]
+[node name="1" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(-96, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="2" type="Sprite2D" parent="Title"]
+[node name="2" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(-48, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="3" type="Sprite2D" parent="Title"]
+[node name="3" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(0, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="4" type="Sprite2D" parent="Title"]
+[node name="4" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(48, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="9" type="Sprite2D" parent="Title"]
+[node name="9" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(276, 8)
 texture = ExtResource("4_542pe")
 
-[node name="5" type="Sprite2D" parent="Title"]
+[node name="5" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(96, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="6" type="Sprite2D" parent="Title"]
+[node name="6" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(144, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="7" type="Sprite2D" parent="Title"]
+[node name="7" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(192, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="8" type="Sprite2D" parent="Title"]
+[node name="8" type="Sprite2D" parent="LoadingBar"]
 position = Vector2(240, 8)
 texture = ExtResource("5_7p4gq")
 
-[node name="Label" type="Label" parent="Title"]
+[node name="Label" type="Label" parent="LoadingBar"]
 layout_mode = 0
 offset_left = -37.0
 offset_top = -10.0
@@ -128,5 +127,3 @@ offset_bottom = 26.0
 theme = SubResource("Theme_dtmfh")
 text = "LOADING..."
 horizontal_alignment = 1
-
-[node name="Vehicle" parent="." instance=ExtResource("8_7ebvk")]
