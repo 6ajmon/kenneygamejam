@@ -135,7 +135,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "return"
 script = ExtResource("9_nneu2")
-shoudTakeFocus = true
+shouldTakeFocus = true
 metadata/_custom_type_script = "uid://bcbhx7tqls52b"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]

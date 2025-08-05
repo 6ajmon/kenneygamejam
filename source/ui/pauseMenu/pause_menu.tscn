@@ -81,7 +81,7 @@ layout_mode = 2
 text = "Resume
 "
 script = ExtResource("3_m8vlo")
-shoudTakeFocus = true
+shouldTakeFocus = true
 metadata/_custom_type_script = "uid://v7mxyi0xcw55"
 
 [node name="TutorialButton" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons"]

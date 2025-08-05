@@ -334,7 +334,7 @@ autowrap_mode = 3
 layout_mode = 2
 text = "Return"
 script = ExtResource("11_ulu6u")
-shoudTakeFocus = true
+shouldTakeFocus = true
 metadata/_custom_type_script = "uid://v7mxyi0xcw55"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" to="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" method="_on_pressed"]

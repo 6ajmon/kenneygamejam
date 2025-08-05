@@ -1,10 +1,10 @@
 extends Button
 class_name UIButton
 
-@export var shoudTakeFocus: bool
+@export var shouldTakeFocus: bool
 
 func _ready() -> void:
-	if shoudTakeFocus:
+	if shouldTakeFocus:
 		self.grab_focus()
 
 func _on_pressed() -> void:

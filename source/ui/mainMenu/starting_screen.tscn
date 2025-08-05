@@ -124,7 +124,7 @@ theme_override_constants/separation = 22
 layout_mode = 2
 text = "Play"
 scene_path = "uid://cs4xekjk7t73u"
-shoudTakeFocus = true
+shouldTakeFocus = true
 
 [node name="TutorialButton" parent="Buttons" instance=ExtResource("11_1yyqy")]
 layout_mode = 2

@@ -117,7 +117,7 @@ text = "Restart"
 icon = ExtResource("7_iuhv7")
 script = ExtResource("11_s0dpg")
 scene_path = "uid://b3jm5t2yjn8pd"
-shoudTakeFocus = true
+shouldTakeFocus = true
 metadata/_custom_type_script = "uid://d1nx2ebukfju6"
 
 [connection signal="pressed" from="RestartButton" to="RestartButton" method="_on_pressed"]

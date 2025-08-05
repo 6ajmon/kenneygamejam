@@ -176,7 +176,7 @@ layout_mode = 2
 layout_mode = 2
 disabled = true
 text = "reroll (20)"
-shoudTakeFocus = true
+shouldTakeFocus = true
 
 [node name="ContinueButton" type="Button" parent="Content/ShopMarginContainer/Shop/RightContainer/Buttons"]
 layout_mode = 2
