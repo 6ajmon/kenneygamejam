@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dghr08gvhxutl"]
+
+[ext_resource type="PackedScene" uid="uid://cv1vf1vgcr5g8" path="res://source/ui/buttons/UIButton/ui_button.tscn" id="1_eieon"]
+[ext_resource type="Script" uid="uid://d1nx2ebukfju6" path="res://source/ui/buttons/sceneButton/scene_button.gd" id="2_mt5u7"]
+
+[node name="SceneButton" instance=ExtResource("1_eieon")]
+script = ExtResource("2_mt5u7")
+scene_path = ""

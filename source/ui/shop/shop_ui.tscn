@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cbyirvkxyb7gq"]
+[gd_scene load_steps=28 format=3 uid="uid://cbyirvkxyb7gq"]
 
 [ext_resource type="Script" uid="uid://b71demg1s02rx" path="res://source/ui/shop/shop_ui.gd" id="1_8apib"]
 [ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_rucwb"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cl1isgylepm7j" path="res://assets/UI/UIassets/right.png" id="9_xp8ka"]
 [ext_resource type="PackedScene" uid="uid://7mnkvgwf7axf" path="res://source/ui/soulsCount/souls_count.tscn" id="10_h6ueb"]
 [ext_resource type="PackedScene" uid="uid://cqh0omnkpxpab" path="res://source/ui/statisticsPanel/statistics_panel.tscn" id="11_wcwpf"]
+[ext_resource type="PackedScene" uid="uid://cv1vf1vgcr5g8" path="res://source/ui/buttons/UIButton/ui_button.tscn" id="14_j8idn"]
+[ext_resource type="Script" uid="uid://d1nx2ebukfju6" path="res://source/ui/buttons/sceneButton/scene_button.gd" id="14_wcwpf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("2_h6ueb")
@@ -170,12 +172,11 @@ layout_mode = 2
 [node name="Buttons" type="HBoxContainer" parent="Content/ShopMarginContainer/Shop/RightContainer"]
 layout_mode = 2
 
-[node name="RerollButton" type="Button" parent="Content/ShopMarginContainer/Shop/RightContainer/Buttons"]
+[node name="UIButton" parent="Content/ShopMarginContainer/Shop/RightContainer/Buttons" instance=ExtResource("14_j8idn")]
 layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("1_rucwb")
 disabled = true
-text = "reroll(20)"
+text = "reroll (20)"
+shoudTakeFocus = true
 
 [node name="ContinueButton" type="Button" parent="Content/ShopMarginContainer/Shop/RightContainer/Buttons"]
 layout_mode = 2
@@ -185,8 +186,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_qxq0j")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qxq0j")
 icon = ExtResource("9_xp8ka")
 icon_alignment = 1
+script = ExtResource("14_wcwpf")
+scene_path = "uid://dds1anqgmbkhq"
+metadata/_custom_type_script = "uid://d1nx2ebukfju6"
 
-[connection signal="pressed" from="Content/ShopMarginContainer/Shop/RightContainer/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Content/ShopMarginContainer/Shop/RightContainer/Buttons/ContinueButton" to="Content/ShopMarginContainer/Shop/RightContainer/Buttons/ContinueButton" method="_on_pressed"]
 
 [editable path="Content/ShopMarginContainer/Shop/ShopItems/ShopItem"]
 [editable path="Content/ShopMarginContainer/Shop/RightContainer/StatisticsPanel"]

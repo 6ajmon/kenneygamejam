@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d4jkrlqfn7r42"]
+[gd_scene load_steps=30 format=3 uid="uid://0bvhfucryy0c"]
 
 [ext_resource type="Script" uid="uid://cb2fwh6fbe565" path="res://source/ui/tutorial.gd" id="1_0n348"]
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_35tnj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="4_4ywyy"]
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_5itt2"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_3wgnn"]
+[ext_resource type="Script" uid="uid://d1nx2ebukfju6" path="res://source/ui/buttons/sceneButton/scene_button.gd" id="11_ulu6u"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("2_ulu6u")
@@ -330,5 +331,9 @@ autowrap_mode = 3
 [node name="GoBackButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainerRight"]
 layout_mode = 2
 text = "Back to main menu"
+script = ExtResource("11_ulu6u")
+scene_path = "uid://b3jm5t2yjn8pd"
+shoudTakeFocus = true
+metadata/_custom_type_script = "uid://d1nx2ebukfju6"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" to="VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton" method="_on_pressed"]

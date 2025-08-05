@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3jm5t2yjn8pd"]
+[gd_scene load_steps=21 format=3 uid="uid://b3jm5t2yjn8pd"]
 
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_l10jr"]
 [ext_resource type="Script" uid="uid://c3wi32xibg7tv" path="res://source/ui/mainMenu/starting_screen.gd" id="2_6l04n"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_kotje"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_ppp0u"]
 [ext_resource type="PackedScene" uid="uid://dd3mcaijpd7g7" path="res://source/ui/vehicle.tscn" id="8_hlv7e"]
+[ext_resource type="PackedScene" uid="uid://dghr08gvhxutl" path="res://source/ui/buttons/sceneButton/scene_button.tscn" id="11_1yyqy"]
+[ext_resource type="PackedScene" uid="uid://cv1vf1vgcr5g8" path="res://source/ui/buttons/UIButton/ui_button.tscn" id="12_kotje"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yyqy"]
 texture = ExtResource("2_mjld7")
@@ -115,29 +117,24 @@ offset_right = 750.0
 offset_bottom = 635.0
 theme_override_constants/separation = 22
 
-[node name="PlayButton" type="Button" parent="Buttons"]
+[node name="PlayButton" parent="Buttons" instance=ExtResource("11_1yyqy")]
 layout_mode = 2
-theme = SubResource("Theme_dtmfh")
-toggle_mode = true
 text = "Play"
+scene_path = "uid://dds1anqgmbkhq"
+shoudTakeFocus = true
 
-[node name="TutorialButton" type="Button" parent="Buttons"]
+[node name="TutorialButton" parent="Buttons" instance=ExtResource("11_1yyqy")]
 layout_mode = 2
 text = "tutorial"
+scene_path = "uid://d4jkrlqfn7r42"
 
-[node name="OptionsButton" type="Button" parent="Buttons"]
+[node name="SettingsButton" parent="Buttons" instance=ExtResource("11_1yyqy")]
 layout_mode = 2
-theme = SubResource("Theme_dtmfh")
-toggle_mode = true
-text = "options"
+text = "Settings"
+scene_path = "uid://cn8g4k605vi40"
 
-[node name="SourceCodeButton" type="Button" parent="Buttons"]
+[node name="SourceButton" parent="Buttons" instance=ExtResource("12_kotje")]
 layout_mode = 2
-theme = SubResource("Theme_dtmfh")
-toggle_mode = true
 text = "source"
 
-[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Buttons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Buttons/SourceCodeButton" to="." method="_on_source_code_button_pressed"]
+[connection signal="pressed" from="Buttons/SourceButton" to="." method="_on_source_button_pressed"]
