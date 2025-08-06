@@ -187,7 +187,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_qxq0j")
 icon = ExtResource("9_xp8ka")
 icon_alignment = 1
 script = ExtResource("14_wcwpf")
-scene_path = "uid://dds1anqgmbkhq"
+scene_path = "uid://cs4xekjk7t73u"
 metadata/_custom_type_script = "uid://d1nx2ebukfju6"
 
 [connection signal="pressed" from="Content/ShopMarginContainer/Shop/RightContainer/Buttons/ContinueButton" to="Content/ShopMarginContainer/Shop/RightContainer/Buttons/ContinueButton" method="_on_pressed"]

@@ -8,7 +8,7 @@ func _ready() -> void:
 		self.grab_focus()
 
 func _on_pressed() -> void:
-	if !disabled:
+	if not disabled:
 		AudioManager.emit_signal("button_pressed")
 	else:
 		AudioManager.emit_signal("button_failed")

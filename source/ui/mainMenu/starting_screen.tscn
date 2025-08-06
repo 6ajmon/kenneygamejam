@@ -129,7 +129,7 @@ shouldTakeFocus = true
 [node name="TutorialButton" parent="Buttons" instance=ExtResource("11_1yyqy")]
 layout_mode = 2
 text = "tutorial"
-scene_path = "uid://d4jkrlqfn7r42"
+scene_path = "uid://0bvhfucryy0c"
 
 [node name="SettingsButton" parent="Buttons" instance=ExtResource("11_1yyqy")]
 layout_mode = 2
