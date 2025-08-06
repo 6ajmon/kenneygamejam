@@ -35,7 +35,6 @@ func _ready() -> void:
 	max_energy += GameData.statBoosts.max_power
 	power_system.maximum_energy = max_energy
 	power_system.initialize_power_system()
-	print(drill_slot.is_taken())
 	
 	contact_damage_timer = Timer.new()
 	contact_damage_timer.wait_time = 1.0

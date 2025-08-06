@@ -567,6 +567,7 @@ radius = 0.4
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_lo783")
+alien_death_value = 16.0
 
 [node name="AlienAnimated" type="Node3D" parent="."]
 
@@ -620,6 +621,7 @@ one_shot = true
 autostart = true
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("damage_display") instance=ExtResource("3_5xk7l")]
+max_health = 60.0
 damage_display = NodePath("../DamageNumberDisplayComponent")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_35x0h")]

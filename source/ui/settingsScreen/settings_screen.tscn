@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn8g4k605vi40"]
+[gd_scene load_steps=17 format=3 uid="uid://cn8g4k605vi40"]
 
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="1_43vx0"]
 [ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="2_07goy"]
-[ext_resource type="Script" uid="uid://6ou1tvv05f3e" path="res://source/ui/settings_screen.gd" id="2_8e66t"]
+[ext_resource type="Script" uid="uid://6ou1tvv05f3e" path="res://source/ui/settingsScreen/settings_screen.gd" id="2_8e66t"]
 [ext_resource type="Texture2D" uid="uid://c4fxjsl6ysoos" path="res://assets/UI/PNG/Red/Double/button_square_header_small_rectangle_screws.png" id="3_pwyqq"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="3_utrtk"]
 [ext_resource type="Texture2D" uid="uid://l58qrod88jui" path="res://assets/UI/PNG/Grey/Double/button_square_header_small_square_screws.png" id="4_pmrqu"]
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="5_mgsng"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="6_wrfyn"]
+[ext_resource type="Script" uid="uid://bcbhx7tqls52b" path="res://source/ui/buttons/returnButton/return_button.gd" id="9_nneu2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("2_07goy")
@@ -69,12 +70,14 @@ script = ExtResource("2_8e66t")
 [node name="SpaceBG" parent="." instance=ExtResource("3_utrtk")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 3
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.184314, 0.184314, 0.184314, 0.788235)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 4
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,6 +93,7 @@ alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/h_separation = 16
 columns = 2
 
@@ -115,16 +119,25 @@ max_value = 1.0
 step = 0.025
 value = 0.25
 
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 2
-offset_left = 550.0
-offset_top = 600.0
-offset_right = 730.0
-offset_bottom = 670.0
-size_flags_vertical = 8
-theme = SubResource("Theme_dtmfh")
-text = "GO BACK"
+[node name="MainMenuButton" type="Button" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -143.0
+offset_right = 80.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "return"
+script = ExtResource("9_nneu2")
+shouldTakeFocus = true
+metadata/_custom_type_script = "uid://bcbhx7tqls52b"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]

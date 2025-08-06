@@ -85,9 +85,14 @@ func _on_menu_music() -> void:
 	switch_music()
 
 func _on_shop_entered() -> void:
+	add_low_pass_filter()
+
+func add_low_pass_filter() -> void:
 	AudioServer.set_bus_effect_enabled(music_bus_index, 1, true)
-
-
+	
+func remove_low_pass_filter() -> void:
+	AudioServer.set_bus_effect_enabled(music_bus_index, 1, false)
+	
 func _on_button_pressed() -> void:
 	var audioPlayer = $SFX/ButtonPressed
 	audioPlayer.play()

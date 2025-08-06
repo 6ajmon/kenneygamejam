@@ -1,8 +1,10 @@
 extends Control
+class_name TutorialScreen
+
+@onready var return_button: ReturnButton = $VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton
 
 func _ready() -> void:
-	$VBoxContainer/HBoxContainer/VBoxContainerRight/GoBackButton.grab_focus()
-	
-func _on_go_back_button_pressed() -> void:
-	AudioManager.emit_signal("button_pressed")
-	get_tree().change_scene_to_file("res://source/ui/mainMenu/starting_screen.tscn")
+	return_button.connect("hide_scene", _on_return_button_pressed)
+
+func _on_return_button_pressed() -> void:
+	queue_free()

@@ -14,7 +14,7 @@ radius = 1.0
 minimum_speed = 3.0
 maximum_speed = 6.0
 rotation_speed = 3.0
-alien_death_value = 60.0
+alien_death_value = 100.0
 health_points = 1500.0
 
 [node name="AlienAnimated" parent="." index="0"]
