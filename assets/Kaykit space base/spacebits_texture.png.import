@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://buksw5cn4wxni"
 path.s3tc="res://.godot/imported/spacebits_texture.png-0bcd403f224830faf35ca5223ee0beda.s3tc.ctex"
+path.etc2="res://.godot/imported/spacebits_texture.png-0bcd403f224830faf35ca5223ee0beda.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Kaykit space base/spacebits_texture.png"
-dest_files=["res://.godot/imported/spacebits_texture.png-0bcd403f224830faf35ca5223ee0beda.s3tc.ctex"]
+dest_files=["res://.godot/imported/spacebits_texture.png-0bcd403f224830faf35ca5223ee0beda.s3tc.ctex", "res://.godot/imported/spacebits_texture.png-0bcd403f224830faf35ca5223ee0beda.etc2.ctex"]
 
 [params]
 
