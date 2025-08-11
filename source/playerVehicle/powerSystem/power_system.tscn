@@ -7,7 +7,6 @@
 script = ExtResource("1_tupbb")
 
 [node name="PowerBar" type="ProgressBar" parent="."]
-z_index = 100
 offset_left = 50.0
 offset_top = 630.0
 offset_right = 350.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dds1anqgmbkhq"]
+[gd_scene load_steps=12 format=3 uid="uid://dds1anqgmbkhq"]
 
 [ext_resource type="MeshLibrary" uid="uid://bxuymcebaqew5" path="res://source/gridMap/grid_map_mesh_library.tres" id="1_yyekg"]
 [ext_resource type="PackedScene" uid="uid://c5j1vg56en7a" path="res://source/playerVehicle/player_vehicle.tscn" id="2_8110p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bjg24xdlsqet5" path="res://source/gridMap/grid_map.gd" id="2_tqf7u"]
 [ext_resource type="PackedScene" uid="uid://dodtam1yeu5a5" path="res://source/playerVehicle/playerCamera/player_camera.tscn" id="4_3w0rk"]
 [ext_resource type="PackedScene" uid="uid://bclrnxpmgfjhd" path="res://source/alienSpawner/alien_spawner.tscn" id="7_dkyxi"]
+[ext_resource type="PackedScene" uid="uid://b2soti2o6adra" path="res://source/ui/pauseMenu/pause_menu.tscn" id="8_7ywn6"]
 [ext_resource type="PackedScene" uid="uid://dw28pic0xfqh7" path="res://source/ui/game_ui.tscn" id="11_2iad3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8110p"]
@@ -65,3 +66,6 @@ camera = NodePath("../PlayerCamera")
 [node name="AlienSpawner" parent="." instance=ExtResource("7_dkyxi")]
 
 [node name="GameUI" parent="." instance=ExtResource("11_2iad3")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_7ywn6")]
+visible = false

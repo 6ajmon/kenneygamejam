@@ -21,7 +21,7 @@ boot_splash/minimum_display_time=100
 
 [audio]
 
-buses/default_bus_layout="uid://cvndvysy102r8"
+buses/default_bus_layout="res://source/audio/default_bus_layout.tres"
 
 [autoload]
 

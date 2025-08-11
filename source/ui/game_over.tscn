@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://ba2yo0ppmh2ya"]
+[gd_scene load_steps=21 format=3 uid="uid://ba2yo0ppmh2ya"]
 
 [ext_resource type="Script" uid="uid://bsshqdv5x76o5" path="res://source/ui/game_over_screen.gd" id="1_k2vha"]
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_uugij"]
 [ext_resource type="PackedScene" uid="uid://b4wjk4xstfmjx" path="res://source/ui/space_bg.tscn" id="2_nppp7"]
 [ext_resource type="FontFile" uid="uid://bleppcr266mfo" path="res://assets/UI/Font/Kenney Future.ttf" id="3_ecaca"]
 [ext_resource type="Texture2D" uid="uid://bqmohg76n4h02" path="res://assets/UI/PNG/Red/Double/button_square_header_large_rectangle.png" id="4_s0dpg"]
@@ -10,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://xk1add61y1xa" path="res://assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="7_d5yr0"]
 [ext_resource type="Texture2D" uid="uid://c1u6nlpfbsk8n" path="res://assets/Icons/power.png" id="7_iuhv7"]
 [ext_resource type="Texture2D" uid="uid://8ghqnlh1ek2m" path="res://assets/UI/PNG/Yellow/Double/bar_square_gloss_large.png" id="8_uubkf"]
+[ext_resource type="Script" uid="uid://d1nx2ebukfju6" path="res://source/ui/buttons/sceneButton/scene_button.gd" id="11_s0dpg"]
+[ext_resource type="PackedScene" uid="uid://cqh0omnkpxpab" path="res://source/ui/statisticsPanel/statistics_panel.tscn" id="12_ebs17"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
 texture = ExtResource("4_s0dpg")
@@ -65,16 +68,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_uugij")
 script = ExtResource("1_k2vha")
 
 [node name="SpaceBG" parent="." instance=ExtResource("2_nppp7")]
 
-[node name="You\'re fired" type="Label" parent="."]
-layout_mode = 0
-offset_left = 460.0
-offset_top = 337.5
-offset_right = 821.0
-offset_bottom = 382.5
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="You\'re fired" type="Label" parent="MarginContainer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
 theme = SubResource("Theme_dtmfh")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 20
@@ -84,16 +102,22 @@ theme_override_fonts/font = ExtResource("5_woa3c")
 theme_override_font_sizes/font_size = 40
 text = "You're  fired!"
 
-[node name="Proceed" type="Button" parent="."]
+[node name="StatisticsPanel" parent="MarginContainer/VBoxContainer" instance=ExtResource("12_ebs17")]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 942.0
 offset_top = 577.0
 offset_right = 1232.0
 offset_bottom = 677.0
-theme = SubResource("Theme_dtmfh")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 text = "Restart"
 icon = ExtResource("7_iuhv7")
+script = ExtResource("11_s0dpg")
+scene_path = "uid://b3jm5t2yjn8pd"
+shouldTakeFocus = true
+metadata/_custom_type_script = "uid://d1nx2ebukfju6"
 
-[connection signal="pressed" from="Proceed" to="." method="_on_proceed_pressed"]
+[connection signal="pressed" from="RestartButton" to="RestartButton" method="_on_pressed"]

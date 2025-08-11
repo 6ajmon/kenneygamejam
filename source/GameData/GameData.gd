@@ -17,6 +17,9 @@ const MAX_GUNS: int = 8
 const MAX_TURRETS: int = 4
 const MAX_SPECIAL_WEAPONS: int = 1
 
+const BASE_QUOTA: float = 120.0
+const QUOTA_INCREASE_PER_ROUND: float = 16.0
+
 var commonPrice: float
 var rarePrice: float
 var epicPrice: float

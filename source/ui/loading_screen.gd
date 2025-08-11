@@ -23,7 +23,7 @@ func _process(_delta) -> void:
 
 func get_required_quota(current_round: int) -> int:
 	var quota
-	quota = 56 + 8 * current_round * current_round
+	quota = GameData.BASE_QUOTA + GameData.QUOTA_INCREASE_PER_ROUND * current_round * current_round
 	if current_round <= 3:
 		quota *= 0.75
 	return quota

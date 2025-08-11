@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2soti2o6adra"]
+
+[ext_resource type="Theme" uid="uid://dofvdjc4ba08v" path="res://assets/UI/UIassets/theme.tres" id="1_b32k3"]
+[ext_resource type="Script" uid="uid://bblbq8uf8bve8" path="res://source/ui/pauseMenu/pause_menu.gd" id="2_b1vus"]
+[ext_resource type="PackedScene" uid="uid://cqh0omnkpxpab" path="res://source/ui/statisticsPanel/statistics_panel.tscn" id="2_yanan"]
+[ext_resource type="Script" uid="uid://v7mxyi0xcw55" path="res://source/ui/buttons/UIButton/ui_button.gd" id="3_m8vlo"]
+[ext_resource type="Script" uid="uid://d1nx2ebukfju6" path="res://source/ui/buttons/sceneButton/scene_button.gd" id="4_jy41q"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b32k3")
+script = ExtResource("2_b1vus")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 0.788235)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 180
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 180
+theme_override_constants/margin_bottom = 120
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainerLeft" type="MarginContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_bottom = 40
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 0
+
+[node name="Buttons" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="ResumeButton" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons"]
+layout_mode = 2
+text = "Resume
+"
+script = ExtResource("3_m8vlo")
+shouldTakeFocus = true
+metadata/_custom_type_script = "uid://v7mxyi0xcw55"
+
+[node name="TutorialButton" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons"]
+layout_mode = 2
+text = "Tutorial"
+script = ExtResource("3_m8vlo")
+metadata/_custom_type_script = "uid://v7mxyi0xcw55"
+
+[node name="SettingsButton" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons"]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("3_m8vlo")
+metadata/_custom_type_script = "uid://v7mxyi0xcw55"
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons"]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("4_jy41q")
+scene_path = "uid://b3jm5t2yjn8pd"
+metadata/_custom_type_script = "uid://d1nx2ebukfju6"
+
+[node name="MarginContainerRight" type="MarginContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatisticsPanel" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerRight" instance=ExtResource("2_yanan")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/ResumeButton" to="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/TutorialButton" to="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/TutorialButton" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/SettingsButton" to="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/MainMenuButton" to="ColorRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainerLeft/MarginContainer/Buttons/MainMenuButton" method="_on_pressed"]
